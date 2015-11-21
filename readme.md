@@ -33,12 +33,14 @@ $ open CrimeEye.xcworkspace
 
 #### Troubleshooting
 
-+ **I can't install cocoapods**
+**I can't install cocoapods**
+
 ```
 $ sudo gem install cocoapods
 ERROR:  While executing gem ... (Errno::EPERM)
     Operation not permitted - /usr/bin/xcodeproj
 ```
+
 The above error occurs as a result of the new System integrity protection feature introduced in El Capitan. It restricts even administrators from writing to `/usr/bin`. 
 
 To get around the problem, define a new place where your OS looks for `gems`. As an example, I have used the folder `.gems` in my home directory:
@@ -48,7 +50,7 @@ echo "export GEM_HOME=~/.gems" >> ~/.bashrc
 echo "export PATH=$PATH:~/.gems/bin" >> ~/.bashrc
 ```
 
-+ **Opening CrimeEye.xcodeproj does nothing!**
+**Opening CrimeEye.xcodeproj does nothing!**
 
 Open `CrimeEye.xcworkspace` instead!
 
