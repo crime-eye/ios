@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */; };
+		E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */; };
+		E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB01C00E08800C70CFA /* ViewController.swift */; };
+		E7BA5DB41C00E08800C70CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB21C00E08800C70CFA /* Main.storyboard */; };
+		E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */; };
+		E7BA5DB91C00E08800C70CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB81C00E08800C70CFA /* Assets.xcassets */; };
+		E7BA5DBC1C00E08800C70CFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */; };
+		E7BA5DC71C00E08800C70CFA /* CrimeEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DC61C00E08800C70CFA /* CrimeEyeTests.swift */; };
+		E7BA5DD21C00E08800C70CFA /* CrimeEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E7BA5DC31C00E08800C70CFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7BA5DA31C00E08700C70CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7BA5DAA1C00E08800C70CFA;
+			remoteInfo = CrimeEye;
+		};
+		E7BA5DCE1C00E08800C70CFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7BA5DA31C00E08700C70CFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7BA5DAA1C00E08800C70CFA;
+			remoteInfo = CrimeEye;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.release.xcconfig"; sourceTree = "<group>"; };
+		D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrimeEye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.debug.xcconfig"; sourceTree = "<group>"; };
+		E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrimeEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7BA5DB01C00E08800C70CFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7BA5DB31C00E08800C70CFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7BA5DB61C00E08800C70CFA /* CrimeEye.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrimeEye.xcdatamodel; sourceTree = "<group>"; };
+		E7BA5DB81C00E08800C70CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7BA5DBB1C00E08800C70CFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7BA5DBD1C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7BA5DC21C00E08800C70CFA /* CrimeEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrimeEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7BA5DC61C00E08800C70CFA /* CrimeEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeEyeTests.swift; sourceTree = "<group>"; };
+		E7BA5DC81C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7BA5DCD1C00E08800C70CFA /* CrimeEyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrimeEyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeEyeUITests.swift; sourceTree = "<group>"; };
+		E7BA5DD31C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E7BA5DA81C00E08800C70CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DBF1C00E08800C70CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DCA1C00E08800C70CFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BA0EB8997437D1F8704BA05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */,
+				3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E7BA5DA21C00E08700C70CFA = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DAD1C00E08800C70CFA /* CrimeEye */,
+				E7BA5DC51C00E08800C70CFA /* CrimeEyeTests */,
+				E7BA5DD01C00E08800C70CFA /* CrimeEyeUITests */,
+				E7BA5DAC1C00E08800C70CFA /* Products */,
+				4BA0EB8997437D1F8704BA05 /* Pods */,
+				F31C4B6CE2F75D8DEDF2EDD3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E7BA5DAC1C00E08800C70CFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */,
+				E7BA5DC21C00E08800C70CFA /* CrimeEyeTests.xctest */,
+				E7BA5DCD1C00E08800C70CFA /* CrimeEyeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E7BA5DAD1C00E08800C70CFA /* CrimeEye */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */,
+				E7BA5DB01C00E08800C70CFA /* ViewController.swift */,
+				E7BA5DB21C00E08800C70CFA /* Main.storyboard */,
+				E7BA5DB81C00E08800C70CFA /* Assets.xcassets */,
+				E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */,
+				E7BA5DBD1C00E08800C70CFA /* Info.plist */,
+				E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */,
+			);
+			path = CrimeEye;
+			sourceTree = "<group>";
+		};
+		E7BA5DC51C00E08800C70CFA /* CrimeEyeTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DC61C00E08800C70CFA /* CrimeEyeTests.swift */,
+				E7BA5DC81C00E08800C70CFA /* Info.plist */,
+			);
+			path = CrimeEyeTests;
+			sourceTree = "<group>";
+		};
+		E7BA5DD01C00E08800C70CFA /* CrimeEyeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */,
+				E7BA5DD31C00E08800C70CFA /* Info.plist */,
+			);
+			path = CrimeEyeUITests;
+			sourceTree = "<group>";
+		};
+		F31C4B6CE2F75D8DEDF2EDD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E7BA5DAA1C00E08800C70CFA /* CrimeEye */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7BA5DD61C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEye" */;
+			buildPhases = (
+				7FA03999EC740195A94C1E35 /* Check Pods Manifest.lock */,
+				E7BA5DA71C00E08800C70CFA /* Sources */,
+				E7BA5DA81C00E08800C70CFA /* Frameworks */,
+				E7BA5DA91C00E08800C70CFA /* Resources */,
+				81BD9DD095874CF3B5E25D83 /* Embed Pods Frameworks */,
+				24DD280EB0A9799D869C03F1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrimeEye;
+			productName = CrimeEye;
+			productReference = E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7BA5DC11C00E08800C70CFA /* CrimeEyeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7BA5DD91C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEyeTests" */;
+			buildPhases = (
+				E7BA5DBE1C00E08800C70CFA /* Sources */,
+				E7BA5DBF1C00E08800C70CFA /* Frameworks */,
+				E7BA5DC01C00E08800C70CFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7BA5DC41C00E08800C70CFA /* PBXTargetDependency */,
+			);
+			name = CrimeEyeTests;
+			productName = CrimeEyeTests;
+			productReference = E7BA5DC21C00E08800C70CFA /* CrimeEyeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E7BA5DCC1C00E08800C70CFA /* CrimeEyeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7BA5DDC1C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEyeUITests" */;
+			buildPhases = (
+				E7BA5DC91C00E08800C70CFA /* Sources */,
+				E7BA5DCA1C00E08800C70CFA /* Frameworks */,
+				E7BA5DCB1C00E08800C70CFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7BA5DCF1C00E08800C70CFA /* PBXTargetDependency */,
+			);
+			name = CrimeEyeUITests;
+			productName = CrimeEyeUITests;
+			productReference = E7BA5DCD1C00E08800C70CFA /* CrimeEyeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E7BA5DA31C00E08700C70CFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Gurpreet Paul";
+				TargetAttributes = {
+					E7BA5DAA1C00E08800C70CFA = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = BGKMJDCGGZ;
+					};
+					E7BA5DC11C00E08800C70CFA = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = BGKMJDCGGZ;
+						TestTargetID = E7BA5DAA1C00E08800C70CFA;
+					};
+					E7BA5DCC1C00E08800C70CFA = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = BGKMJDCGGZ;
+						TestTargetID = E7BA5DAA1C00E08800C70CFA;
+					};
+				};
+			};
+			buildConfigurationList = E7BA5DA61C00E08700C70CFA /* Build configuration list for PBXProject "CrimeEye" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E7BA5DA21C00E08700C70CFA;
+			productRefGroup = E7BA5DAC1C00E08800C70CFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E7BA5DAA1C00E08800C70CFA /* CrimeEye */,
+				E7BA5DC11C00E08800C70CFA /* CrimeEyeTests */,
+				E7BA5DCC1C00E08800C70CFA /* CrimeEyeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7BA5DA91C00E08800C70CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7BA5DBC1C00E08800C70CFA /* LaunchScreen.storyboard in Resources */,
+				E7BA5DB91C00E08800C70CFA /* Assets.xcassets in Resources */,
+				E7BA5DB41C00E08800C70CFA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DC01C00E08800C70CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DCB1C00E08800C70CFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24DD280EB0A9799D869C03F1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FA03999EC740195A94C1E35 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		81BD9DD095874CF3B5E25D83 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E7BA5DA71C00E08800C70CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
+				E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */,
+				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DBE1C00E08800C70CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7BA5DC71C00E08800C70CFA /* CrimeEyeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7BA5DC91C00E08800C70CFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7BA5DD21C00E08800C70CFA /* CrimeEyeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7BA5DC41C00E08800C70CFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7BA5DAA1C00E08800C70CFA /* CrimeEye */;
+			targetProxy = E7BA5DC31C00E08800C70CFA /* PBXContainerItemProxy */;
+		};
+		E7BA5DCF1C00E08800C70CFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7BA5DAA1C00E08800C70CFA /* CrimeEye */;
+			targetProxy = E7BA5DCE1C00E08800C70CFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7BA5DB21C00E08800C70CFA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7BA5DB31C00E08800C70CFA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7BA5DBB1C00E08800C70CFA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7BA5DD41C00E08800C70CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7BA5DD51C00E08800C70CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7BA5DD71C00E08800C70CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CrimeEye/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E7BA5DD81C00E08800C70CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CrimeEye/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEye;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E7BA5DDA1C00E08800C70CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CrimeEyeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEyeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrimeEye.app/CrimeEye";
+			};
+			name = Debug;
+		};
+		E7BA5DDB1C00E08800C70CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CrimeEyeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEyeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrimeEye.app/CrimeEye";
+			};
+			name = Release;
+		};
+		E7BA5DDD1C00E08800C70CFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CrimeEyeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEyeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CrimeEye;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E7BA5DDE1C00E08800C70CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CrimeEyeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crimeeye.CrimeEyeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CrimeEye;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E7BA5DA61C00E08700C70CFA /* Build configuration list for PBXProject "CrimeEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7BA5DD41C00E08800C70CFA /* Debug */,
+				E7BA5DD51C00E08800C70CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7BA5DD61C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7BA5DD71C00E08800C70CFA /* Debug */,
+				E7BA5DD81C00E08800C70CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7BA5DD91C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEyeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7BA5DDA1C00E08800C70CFA /* Debug */,
+				E7BA5DDB1C00E08800C70CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7BA5DDC1C00E08800C70CFA /* Build configuration list for PBXNativeTarget "CrimeEyeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7BA5DDD1C00E08800C70CFA /* Debug */,
+				E7BA5DDE1C00E08800C70CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E7BA5DB61C00E08800C70CFA /* CrimeEye.xcdatamodel */,
+			);
+			currentVersion = E7BA5DB61C00E08800C70CFA /* CrimeEye.xcdatamodel */;
+			path = CrimeEye.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E7BA5DA31C00E08700C70CFA /* Project object */;
+}
