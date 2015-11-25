@@ -10,6 +10,7 @@ import UIKit
 import Siesta
 import SwiftyJSON
 
+
 class ViewController: UIViewController, ResourceObserver {
     
     
@@ -17,6 +18,7 @@ class ViewController: UIViewController, ResourceObserver {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        view.backgroundColor = Style.viewBackground
         
         // GET last updated in a closure
         PoliceAPI.lastUpdated.addObserver(owner: self, closure: {resource, event in

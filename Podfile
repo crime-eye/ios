@@ -7,6 +7,7 @@ use_frameworks!
 target 'CrimeEye' do
 	pod 'Siesta', "1.0-beta.4"
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+	pod 'ChameleonFramework/Swift'
 end
 
 target 'CrimeEyeTests' do

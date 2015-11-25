@@ -1,10 +1,14 @@
 PODS:
+  - ChameleonFramework/Default (2.0.4)
+  - ChameleonFramework/Swift (2.0.4):
+    - ChameleonFramework/Default
   - Siesta (1.0-beta.4):
     - Siesta/Core (= 1.0-beta.4)
   - Siesta/Core (1.0-beta.4)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - Siesta (= 1.0-beta.4)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -18,6 +22,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   Siesta: 4bda1f6e7e0431b64bdfe9d3f902c34d90822c27
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 

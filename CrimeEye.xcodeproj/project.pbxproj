@@ -18,6 +18,7 @@
 		E7BA5DBC1C00E08800C70CFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */; };
 		E7BA5DC71C00E08800C70CFA /* CrimeEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DC61C00E08800C70CFA /* CrimeEyeTests.swift */; };
 		E7BA5DD21C00E08800C70CFA /* CrimeEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */; };
+		E7BD46371C064FAB003E42AF /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD46361C064FAB003E42AF /* Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E7BA5DCD1C00E08800C70CFA /* CrimeEyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrimeEyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeEyeUITests.swift; sourceTree = "<group>"; };
 		E7BA5DD31C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7BD46361C064FAB003E42AF /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */,
 				E71E327E1C05F6650041020C /* PoliceAPI.swift */,
 				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
+				E7BD46361C064FAB003E42AF /* Style.swift */,
 			);
 			path = CrimeEye;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E71E32811C05FAC80041020C /* SwiftySiesta.swift in Sources */,
+				E7BD46371C064FAB003E42AF /* Style.swift in Sources */,
 				E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */,
