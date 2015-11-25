@@ -7,12 +7,35 @@
 //
 
 import UIKit
+import Siesta
+import SwiftyJSON
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ResourceObserver {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // GET last updated in a closure
+        PoliceAPI.lastUpdated.addObserver(owner: self, closure: {resource, event in
+                if (resource.latestData != nil) {
+                    print(resource.json["date"])
+                }
+        }).loadIfNeeded()
+        
+        // GET last updated in this class' resourceChanged
+        // PoliceAPI.lastUpdated.addObserver(self).loadIfNeeded()
+    }
+    
+    
+    func resourceChanged(resource: Resource, event: ResourceEvent) {
+        // If we have some new data, then print
+        // the date field out
+        if (resource.latestData != nil) {
+            print(resource.json["date"])
+        }
     }
 
     override func didReceiveMemoryWarning() {

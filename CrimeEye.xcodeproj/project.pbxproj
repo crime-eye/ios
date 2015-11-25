@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */; };
+		E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E327E1C05F6650041020C /* PoliceAPI.swift */; };
+		E71E32811C05FAC80041020C /* SwiftySiesta.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E32801C05FAC80041020C /* SwiftySiesta.swift */; };
 		E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */; };
 		E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB01C00E08800C70CFA /* ViewController.swift */; };
 		E7BA5DB41C00E08800C70CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB21C00E08800C70CFA /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.release.xcconfig"; sourceTree = "<group>"; };
 		D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrimeEye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.debug.xcconfig"; sourceTree = "<group>"; };
+		E71E327E1C05F6650041020C /* PoliceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceAPI.swift; sourceTree = "<group>"; };
+		E71E32801C05FAC80041020C /* SwiftySiesta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySiesta.swift; sourceTree = "<group>"; };
 		E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrimeEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7BA5DB01C00E08800C70CFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */,
 				E7BA5DBD1C00E08800C70CFA /* Info.plist */,
 				E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */,
+				E71E327E1C05F6650041020C /* PoliceAPI.swift */,
+				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
 			);
 			path = CrimeEye;
 			sourceTree = "<group>";
@@ -337,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71E32811C05FAC80041020C /* SwiftySiesta.swift in Sources */,
+				E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */,
 				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,

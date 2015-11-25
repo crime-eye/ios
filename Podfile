@@ -5,7 +5,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'CrimeEye' do
-	pod 'Alamofire', '~> 3.0'
+	pod 'Siesta', "1.0-beta.4"
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 

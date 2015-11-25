@@ -1,9 +1,11 @@
 PODS:
-  - Alamofire (3.1.2)
+  - Siesta (1.0-beta.4):
+    - Siesta/Core (= 1.0-beta.4)
+  - Siesta/Core (1.0-beta.4)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
+  - Siesta (= 1.0-beta.4)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -12,11 +14,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 10f67900bdf2fb0faba3371249a6fefdcaa880c5
+    :commit: 5ccffc14df519cf29b8dfbc7c1698373f2a6da40
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  Siesta: 4bda1f6e7e0431b64bdfe9d3f902c34d90822c27
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0
