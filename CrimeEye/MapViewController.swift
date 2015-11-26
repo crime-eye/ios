@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import Alamofire
 import SwiftyJSON
 import Foundation
 import MMDrawerController
@@ -27,25 +26,7 @@ class MapViewController: UIViewController {
     }
     
     func getLocation(postCode: String, completionHandler: (String, String) -> ()){
-        let endpoint = "http://api.postcodes.io/postcodes/"+postCode
-        var long = ""
-        var lat = ""
-        Alamofire.request(.GET, endpoint)
-            .responseJSON { response in
-                guard response.result.error == nil else {
-                    print("error in getting postcode info")
-                    print(response.result.error!)
-                    return
-                }
-        
-                if let value: AnyObject = response.result.value {
-                    let post = JSON(value)
-                    let result = post["result"]
-                    lat =  result["latitude"].rawString()!
-                    long = result["longitude"].rawString()!
-                    completionHandler(lat, long)
-                }
-        }
+
         
     }
     
