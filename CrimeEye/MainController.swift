@@ -9,9 +9,9 @@
 import UIKit
 import Siesta
 import SwiftyJSON
+import MMDrawerController
 
-
-class ViewController: UIViewController, ResourceObserver {
+class MainController: UIViewController, ResourceObserver {
     
     
     override func viewDidLoad() {
@@ -45,6 +45,10 @@ class ViewController: UIViewController, ResourceObserver {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func openDrawer(sender: UIBarButtonItem) {
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    }
 
 }
 
