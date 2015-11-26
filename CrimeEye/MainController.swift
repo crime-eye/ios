@@ -21,11 +21,6 @@ class MainController: UIViewController, ResourceObserver {
         view.backgroundColor = Style.viewBackground
         
         // GET last updated in a closure
-        PoliceAPI.lastUpdated.addObserver(owner: self, closure: {resource, event in
-                if (resource.latestData != nil) {
-                    print(resource.json["date"])
-                }
-        }).loadIfNeeded()
         
         // GET last updated in this class' resourceChanged
         // PoliceAPI.lastUpdated.addObserver(self).loadIfNeeded()

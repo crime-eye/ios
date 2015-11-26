@@ -10,14 +10,24 @@ import Siesta
 
 class _PoliceAPI: Service {
     
+    var lastUpdated: String = ""
     
+    func getYearAndMonth(fullDate: String) -> String {
+        let truncated = fullDate.characters.dropLast(3)
+        return "\(truncated)"
+    }
     
-    var lastUpdated: Resource {
+    func getLastUpdated() -> Resource {
+        return resource("/crime-last-updated")
+    }
+    
+    func getCrimesLastUpdated(lastUpdated: String) -> Resource {
         return resource("/crime-last-updated")
     }
     
     init() {
         super.init(base: "https://data.police.uk/api")
+        self.getLastUpdated()
     }
     
 }

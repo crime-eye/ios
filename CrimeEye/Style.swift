@@ -32,6 +32,7 @@ struct Style {
 
     
     static var navbarBackground = flatBlue3
+    static var navbarTextColor  = UIColor.whiteColor()
     static var viewBackground   = flatBlue3
     static var warningColor     = flatRed5
     

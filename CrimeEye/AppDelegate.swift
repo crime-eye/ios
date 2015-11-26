@@ -41,7 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
         
+        UINavigationBar.appearance().barTintColor = Style.navbarBackground
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSForegroundColorAttributeName: Style.navbarTextColor]
+        
+        
+        PoliceAPI.getLastUpdated().addObserver(owner: self, closure: {resource, event in
+            if (resource.latestData != nil) {
+                PoliceAPI.lastUpdated = resource.json["date"].stringValue
+            }
+        }).load()
+        
         return true
+        
+    }
+    
+    func loadAPI() {
         
     }
 

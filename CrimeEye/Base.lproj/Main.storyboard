@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="uyM-8o-SCq">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="oc6-Tx-QbB">
+                        <barButtonItem key="leftBarButtonItem" image="Menu-100" style="done" id="oc6-Tx-QbB">
                             <connections>
                                 <action selector="openDrawer:" destination="BYZ-38-t0r" id="0Oe-eR-H5N"/>
                             </connections>
@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F32-3w-PbJ" id="XKt-h9-gCE">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MyCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNe-Co-Dli">
@@ -201,4 +201,7 @@
             <point key="canvasLocation" x="296" y="-194"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Menu-100" width="33" height="33"/>
+    </resources>
 </document>
