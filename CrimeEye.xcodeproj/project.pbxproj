@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */; };
 		E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */; };
-		E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB01C00E08800C70CFA /* ViewController.swift */; };
+		E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB01C00E08800C70CFA /* MainController.swift */; };
 		E7BA5DB41C00E08800C70CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB21C00E08800C70CFA /* Main.storyboard */; };
 		E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */; };
 		E7BA5DB91C00E08800C70CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB81C00E08800C70CFA /* Assets.xcassets */; };
@@ -18,6 +18,10 @@
 		E7BA5DD21C00E08800C70CFA /* CrimeEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
+		FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B041C0733AD0024A471 /* DrawerController.swift */; };
+		FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */; };
+		FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */; };
+		FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B0A1C0739F20024A471 /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +47,7 @@
 		D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.debug.xcconfig"; sourceTree = "<group>"; };
 		E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrimeEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7BA5DB01C00E08800C70CFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7BA5DB01C00E08800C70CFA /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		E7BA5DB31C00E08800C70CFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7BA5DB61C00E08800C70CFA /* CrimeEye.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrimeEye.xcdatamodel; sourceTree = "<group>"; };
 		E7BA5DB81C00E08800C70CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +61,10 @@
 		E7BA5DD31C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FFFD3B041C0733AD0024A471 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
+		FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighbourhoodController.swift; sourceTree = "<group>"; };
+		FFFD3B0A1C0739F20024A471 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */,
-				E7BA5DB01C00E08800C70CFA /* ViewController.swift */,
+				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
 				E7BA5DB21C00E08800C70CFA /* Main.storyboard */,
+				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
+				FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */,
+				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
+				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
 				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
 				E7BA5DB81C00E08800C70CFA /* Assets.xcassets */,
 				E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */,
@@ -344,8 +356,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
-				E7BA5DB11C00E08800C70CFA /* ViewController.swift in Sources */,
+				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
+				FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */,
+				FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */,
+				E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */,
 				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
 			);

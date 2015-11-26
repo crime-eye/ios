@@ -11,6 +11,7 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 import Foundation
+import MMDrawerController
 
 class MapViewController: UIViewController {
 
@@ -60,6 +61,11 @@ class MapViewController: UIViewController {
                 self.mapView.setRegion(region, animated: true)
             })
         }
+    }
+    
+    @IBAction func openDrawer(sender: UIBarButtonItem) {
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 
 }
