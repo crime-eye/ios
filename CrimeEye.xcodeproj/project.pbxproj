@@ -21,6 +21,8 @@
 		E7BD46371C064FAB003E42AF /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD46361C064FAB003E42AF /* Style.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
+		F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */; };
+		F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD21C07CE5900DB99B9 /* Location.swift */; };
 		FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B041C0733AD0024A471 /* DrawerController.swift */; };
 		FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */; };
 		FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */; };
@@ -67,6 +69,8 @@
 		E7BD46361C064FAB003E42AF /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcodesAPI.swift; sourceTree = "<group>"; };
+		F6ECEFD21C07CE5900DB99B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FFFD3B041C0733AD0024A471 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighbourhoodController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
 				E7BA5DB21C00E08800C70CFA /* Main.storyboard */,
 				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
+				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
 				FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */,
 				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
 				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
@@ -147,6 +152,7 @@
 				E7BA5DBD1C00E08800C70CFA /* Info.plist */,
 				E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */,
 				E71E327E1C05F6650041020C /* PoliceAPI.swift */,
+				F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */,
 				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
 				E7BD46361C064FAB003E42AF /* Style.swift */,
 			);
@@ -371,11 +377,13 @@
 				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
+				F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */,
 				FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */,
 				FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */,
 				E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */,
 				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
+				F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
