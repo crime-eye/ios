@@ -140,24 +140,15 @@
 		E7BA5DAD1C00E08800C70CFA /* CrimeEye */ = {
 			isa = PBXGroup;
 			children = (
+				E7C319BA1C08D7FC003C32EB /* Storyboards */,
+				E7C319B91C08D7E4003C32EB /* Models */,
+				E7C319B81C08D7CF003C32EB /* Helpers */,
+				E7C319B71C08D7A1003C32EB /* API */,
+				E7C319B61C08D761003C32EB /* ViewControllers */,
 				E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */,
-				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
-				E7BA5DB21C00E08800C70CFA /* Main.storyboard */,
-				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
-				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
-				FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */,
-				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
-				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
-				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
 				E7BA5DB81C00E08800C70CFA /* Assets.xcassets */,
-				E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */,
 				E7BA5DBD1C00E08800C70CFA /* Info.plist */,
 				E7BA5DB51C00E08800C70CFA /* CrimeEye.xcdatamodeld */,
-				E71E327E1C05F6650041020C /* PoliceAPI.swift */,
-				F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */,
-				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
-				E7BD46361C064FAB003E42AF /* Style.swift */,
-				E7C319B41C08A185003C32EB /* Tutorial.storyboard */,
 			);
 			path = CrimeEye;
 			sourceTree = "<group>";
@@ -178,6 +169,55 @@
 				E7BA5DD31C00E08800C70CFA /* Info.plist */,
 			);
 			path = CrimeEyeUITests;
+			sourceTree = "<group>";
+		};
+		E7C319B61C08D761003C32EB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
+				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
+				FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */,
+				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
+				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
+				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E7C319B71C08D7A1003C32EB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E71E327E1C05F6650041020C /* PoliceAPI.swift */,
+				F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		E7C319B81C08D7CF003C32EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
+				E7BD46361C064FAB003E42AF /* Style.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E7C319B91C08D7E4003C32EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E7C319BA1C08D7FC003C32EB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA5DB21C00E08800C70CFA /* Main.storyboard */,
+				E7BA5DBA1C00E08800C70CFA /* LaunchScreen.storyboard */,
+				E7C319B41C08A185003C32EB /* Tutorial.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		F31C4B6CE2F75D8DEDF2EDD3 /* Frameworks */ = {

@@ -62,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+
+    
     func loadAPI() {
         PoliceAPI.getLastUpdated().addObserver(owner: self) {
             resource, event in
@@ -165,6 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
 
 }
 
