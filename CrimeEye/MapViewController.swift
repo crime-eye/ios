@@ -31,10 +31,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
+            
             mapView.mapType = .Standard
             mapView.pitchEnabled = false
             // Call to API to convert postcode to coordinates
             PostcodesAPI.lookupPostcode("LS29JT").addObserver(owner: self, closure: {resource, event in
+                print("BOOP")
                 if (resource.latestData != nil) {
                     let result = resource.json["result"]
                     let lat = Double(result["latitude"].rawString()!)!
@@ -45,9 +47,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     self.mapView.setRegion(region, animated: true)
                     
                     // Using the coordinates, find crimes in the area
-                    PoliceAPI.getCrimes(String(lat),long: String(long)).addObserver(owner: self, closure: {resource, event in
-                        if (resource.latestData != nil) {
-                            let jsonArray = resource.json
+                    PoliceAPI.getCrimes(String(lat),long: String(long)).addObserver(owner: self, closure: {resource2, event in
+                        if (resource2.latestData != nil) {
+                            let jsonArray = resource2.json
                             for (_,crimes) in jsonArray{    // iterate over all the crimes
                                 var crimeDic = [String:String]()
                                 
@@ -63,11 +65,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                 // add each crime to the map as an annotation
                                 self.mapView.addAnnotation(Location(lat: Double(crimeDic["latitude"]!)!, lon: Double(crimeDic["longitude"]!)!,
                                     category: crimeDic["category"]!, month: crimeDic["month"]!, street: crimeDic["street"]!))
-                                
+                                resource2.removeObservers(ownedBy: self)
                             }
                             self.mapView.delegate = self
                         }
                     }).loadIfNeeded()
+                    resource.removeObservers(ownedBy: self)
                 }
             }).loadIfNeeded()
         }
