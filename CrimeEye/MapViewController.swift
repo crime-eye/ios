@@ -8,72 +8,109 @@
 
 import UIKit
 import MapKit
-import SwiftyJSON
 import Foundation
 import MMDrawerController
+import Siesta
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver {
     
-    var crimesArray: [Dictionary<String,String>] = []
+    typealias CrimeDict = Dictionary<String, AnyObject>
+    var crimesArray: [CrimeDict] = []
+    
+    // MARK: Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupMapView()
     }
     
+    internal func setupMapView() {
+        self.mapView.delegate = self
+        self.mapView.mapType = .Standard
+        self.mapView.pitchEnabled = false
+        
+        let lat = PostcodesAPI.lat
+        let lng = PostcodesAPI.lng
+        
+        // Set the map region
+        let location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        let region = MKCoordinateRegionMakeWithDistance(location, 800.0, 800.0)
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    // If the map has finished loading....
+    func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool) {
+    
+        let lat = PostcodesAPI.lat
+        let lng = PostcodesAPI.lng
+        
+        PoliceAPI
+            .getCrimes(lat, long: lng)
+            .addObserver(self)
+            .loadIfNeeded()
+    }
 
-    // MARK: Outlets
-    @IBOutlet weak var mapView: MKMapView! {
-        didSet {
+    
+    func resourceChanged(resource: Resource, event: ResourceEvent) {
+        if (resource.latestData != nil) {
+            let jsonArray = resource.json
             
-            mapView.mapType = .Standard
-            mapView.pitchEnabled = false
-            // Call to API to convert postcode to coordinates
-            PostcodesAPI.lookupPostcode("LS29JT").addObserver(owner: self, closure: {resource, event in
-                print("BOOP")
-                if (resource.latestData != nil) {
-                    let result = resource.json["result"]
-                    let lat = Double(result["latitude"].rawString()!)!
-                    let long = Double(result["longitude"].rawString()!)!
-                    // Set the map region
-                    let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    let region = MKCoordinateRegionMakeWithDistance(location, 800.0, 800.0)
-                    self.mapView.setRegion(region, animated: true)
-                    
-                    // Using the coordinates, find crimes in the area
-                    PoliceAPI.getCrimes(String(lat),long: String(long)).addObserver(owner: self, closure: {resource2, event in
-                        if (resource2.latestData != nil) {
-                            let jsonArray = resource2.json
-                            for (_,crimes) in jsonArray{    // iterate over all the crimes
-                                var crimeDic = [String:String]()
-                                
-                                let crimeLoc = crimes["location"]
-                                // store information on each crime
-                                crimeDic["month"] = crimes["month"].rawString()!
-                                crimeDic["category"] = crimes["category"].rawString()!
-                                crimeDic["latitude"] = crimeLoc["latitude"].rawString()!
-                                crimeDic["longitude"] = crimeLoc["longitude"].rawString()!
-                                crimeDic["street"] = crimeLoc["street"]["name"].rawString()!
-                                
-                                self.crimesArray.append(crimeDic)
-                                // add each crime to the map as an annotation
-                                self.mapView.addAnnotation(Location(lat: Double(crimeDic["latitude"]!)!, lon: Double(crimeDic["longitude"]!)!,
-                                    category: crimeDic["category"]!, month: crimeDic["month"]!, street: crimeDic["street"]!))
-                                resource2.removeObservers(ownedBy: self)
-                            }
-                            self.mapView.delegate = self
-                        }
-                    }).loadIfNeeded()
-                    resource.removeObservers(ownedBy: self)
-                }
-            }).loadIfNeeded()
+            // iterate over all the crimes
+            for (_, crimes) in jsonArray {
+                
+                let crimeLoc = crimes["location"]
+                
+                let month       = crimes["month"].stringValue
+                let cat         = crimes["category"].stringValue
+                let lat         = crimeLoc["latitude"].doubleValue
+                let lng         = crimeLoc["longitude"].doubleValue
+                let street      = crimeLoc["street"]["name"].stringValue
+                
+                
+                // store information on each crime
+                let crimeDict = self.crimeToDict(month,
+                    category: cat,
+                    lat: lat,
+                    lng: lng,
+                    street: street)
+                
+                self.crimesArray.append(crimeDict)
+                
+                let loc = Location(lat: lat,
+                    lon: lng,
+                    category: cat,
+                    month: month,
+                    street: street)
+                
+                // add each crime to the map as an annotation
+                self.mapView.addAnnotation(loc)
+                resource.removeObservers(ownedBy: self)
+            }
+            
         }
+
+    }
+    
+    internal func crimeToDict(month: String,
+                    category: String,
+                    lat: Double,
+                    lng: Double,
+                    street: String) -> CrimeDict {
+            
+        var crimeDict = [String: AnyObject]()
+        crimeDict["month"]       = month
+        crimeDict["category"]    = category
+        crimeDict["latitude"]    = lat
+        crimeDict["longitude"]   = lng
+        crimeDict["street"]      = street
+        
+        return crimeDict
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     @IBAction func openDrawer(sender: UIBarButtonItem) {

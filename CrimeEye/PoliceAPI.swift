@@ -12,8 +12,10 @@ class _PoliceAPI: Service {
     
     var lastUpdated: String = ""
     
-    func getCrimes(lat: String, long:String) -> Resource {
-        return resource("/crimes-street/all-crime").withParam("lat","\(lat)").withParam("lng","\(long)")
+    func getCrimes(lat: Double, long: Double) -> Resource {
+        return resource("/crimes-street/all-crime")
+                .withParam("lat", "\(lat)")
+                .withParam("lng", "\(long)")
     }
     
     func getYearAndMonth(fullDate: String) -> String {

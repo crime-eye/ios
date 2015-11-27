@@ -19,6 +19,7 @@
 		E7BA5DC71C00E08800C70CFA /* CrimeEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DC61C00E08800C70CFA /* CrimeEyeTests.swift */; };
 		E7BA5DD21C00E08800C70CFA /* CrimeEyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */; };
 		E7BD46371C064FAB003E42AF /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD46361C064FAB003E42AF /* Style.swift */; };
+		E7C319B51C08A185003C32EB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7C319B41C08A185003C32EB /* Tutorial.storyboard */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
 		F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */; };
@@ -67,6 +68,7 @@
 		E7BA5DD11C00E08800C70CFA /* CrimeEyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrimeEyeUITests.swift; sourceTree = "<group>"; };
 		E7BA5DD31C00E08800C70CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7BD46361C064FAB003E42AF /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		E7C319B41C08A185003C32EB /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcodesAPI.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */,
 				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
 				E7BD46361C064FAB003E42AF /* Style.swift */,
+				E7C319B41C08A185003C32EB /* Tutorial.storyboard */,
 			);
 			path = CrimeEye;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7C319B51C08A185003C32EB /* Tutorial.storyboard in Resources */,
 				E7BA5DBC1C00E08800C70CFA /* LaunchScreen.storyboard in Resources */,
 				F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */,
 				E7BA5DB91C00E08800C70CFA /* Assets.xcassets in Resources */,

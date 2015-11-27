@@ -24,40 +24,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //var rootViewController = self.window!.rootViewController
         
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainController") as! MainController
-        
-        let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerController") as! DrawerController
-        
-        let leftSideNav = UINavigationController(rootViewController: leftViewController)
-        let centerNav = UINavigationController(rootViewController: centerViewController)
-        
-        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
-        
-        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
-        
-        window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
         
-        UINavigationBar.appearance().barTintColor = Style.navbarBackground
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes =
-            [NSForegroundColorAttributeName: Style.navbarTextColor]
-        
-        
-        PoliceAPI.getLastUpdated().addObserver(owner: self, closure: {resource, event in
-            if (resource.latestData != nil) {
-                PoliceAPI.lastUpdated = resource.json["date"].stringValue
-            }
-        }).load()
+        // If first load
+        // TODO: Don't actually do this yet
+        if (false) {
+            let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("FirstViewController")
+            window!.rootViewController = vc
+            
+        } else {
+            
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+            let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainController") as! MainController
+            let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerController") as! DrawerController
+    
+            let leftSideNav = UINavigationController(rootViewController: leftViewController)
+            let centerNav = UINavigationController(rootViewController: centerViewController)
+    
+            centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
+    
+            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
+            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
+            
+            window!.rootViewController = centerContainer
+
+            UINavigationBar.appearance().barTintColor = Style.navbarBackground
+            UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+            UINavigationBar.appearance().titleTextAttributes =
+                [NSForegroundColorAttributeName: Style.navbarTextColor]
+            
+            loadAPI()
+        }
         
         return true
         
     }
     
     func loadAPI() {
+        PoliceAPI.getLastUpdated().addObserver(owner: self) {
+            resource, event in
+                PoliceAPI.lastUpdated = resource.json["date"].stringValue
+        }.load()
+        
+        PostcodesAPI.postcodeToLatAndLng("LS2 9JT").addObserver(owner: self) {
+            resource, event in
+            if case .NewData = event {
+                let result = resource.json["result"]
+                PostcodesAPI.lat = result["latitude"].doubleValue
+                PostcodesAPI.lng = result["longitude"].doubleValue
+            }
+        }.load()
         
     }
 

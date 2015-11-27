@@ -10,9 +10,11 @@ import Siesta
 
 class _PostcodesAPI: Service {
     
+    var lat: Double = 0.0
+    var lng: Double = 0.0
     
-    func lookupPostcode(postcode: String) -> Resource {
-        return resource("/postcodes/\(postcode)")
+    func postcodeToLatAndLng(postcode: String) -> Resource {
+        return resource("/postcodes").child(postcode)
     }
     
     init() {
