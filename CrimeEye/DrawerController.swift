@@ -11,81 +11,70 @@ import MMDrawerController
 
 class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var menuItems:[String] = ["Home","Crime","Neighbourhood","Stop and Search"];
+    // Menu items to display
+    var menuItems: [String] = ["Home", "Crime", "Neighbourhood", "Stop and Search"];
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.translucent = false;
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            
+        let mycell = tableView
+            .dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
+            as! CustomTableViewCell
         
-    {
-        let mycell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as! CustomTableViewCell
         mycell.menuLabelText.text = menuItems[indexPath.row]
         return mycell;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        switch(indexPath.row)
-        {
-        case 0:
-            let mainController = self.storyboard?.instantiateViewControllerWithIdentifier("MainController") as! MainController
-            let mainNavController = UINavigationController(rootViewController: mainController)
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.centerContainer!.centerViewController = mainNavController
-            appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break;
-            
-        case 1:
-            let crimeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
-            let crimeNavController = UINavigationController(rootViewController: crimeViewController)
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.centerContainer!.centerViewController = crimeNavController
-            appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break;
-            
-        case 2:
-            let neighbourController = self.storyboard?.instantiateViewControllerWithIdentifier("NeighbourhoodController") as! NeighbourhoodController
-            let neighbourNavController = UINavigationController(rootViewController: neighbourController)
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.centerContainer!.centerViewController = neighbourNavController
-            appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break;
-            
-        case 3:
-            let searchController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchController") as! SearchController
-            let searchNavController = UINavigationController(rootViewController: searchController)
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.centerContainer!.centerViewController = searchNavController
-            appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-            
-            break;
-            
-        default:
-            print("\(menuItems[indexPath.row]) is selected")
-            
+    // Controls what to swap in and out of the center container
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch(indexPath.row) {
+            case 0:
+                switchTo("MainController")
+                break;
+                
+            case 1:
+                switchTo("MapViewController")
+                break;
+                
+            case 2:
+                switchTo("NeighbourhoodController")
+                break;
+                
+            case 3:
+                switchTo("SearchController")
+                break;
+                
+            default:
+                print("Error: Could not find controller. " +
+                    "\(menuItems[indexPath.row]) is selected.")
+
         }
+    }
+    
+    // Switches to a view controller given a name
+    internal func switchTo(controllerName: String) {
+        // Downcast to UIViewController
+        let c = (self.storyboard?.instantiateViewControllerWithIdentifier(controllerName))! as UIViewController
+        
+        let mainNavController = UINavigationController(rootViewController: c)
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        // Swap
+        appDelegate.centerContainer!.centerViewController = mainNavController
+        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
 }

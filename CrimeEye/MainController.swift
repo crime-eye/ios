@@ -19,20 +19,11 @@ class MainController: UIViewController, ResourceObserver {
         // Do any additional setup after loading the view, typically from a nib.
         
         view.backgroundColor = Style.viewBackground
-        
-        // GET last updated in a closure
-        
-        // GET last updated in this class' resourceChanged
-        // PoliceAPI.lastUpdated.addObserver(self).loadIfNeeded()
     }
     
     
     func resourceChanged(resource: Resource, event: ResourceEvent) {
-        // If we have some new data, then print
-        // the date field out
-        if (resource.latestData != nil) {
-            print(resource.json["date"])
-        }
+        // If we have some new data
     }
 
     override func didReceiveMemoryWarning() {

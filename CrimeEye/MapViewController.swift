@@ -36,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver {
         
         // Set the map region
         let location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-        let region = MKCoordinateRegionMakeWithDistance(location, 800.0, 800.0)
+        let region = MKCoordinateRegionMakeWithDistance(location, 2000.0, 2000.0)
         self.mapView.setRegion(region, animated: true)
     }
     
