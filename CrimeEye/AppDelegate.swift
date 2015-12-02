@@ -62,11 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func loadStyles() {
-        UINavigationBar.appearance().barTintColor = Style.navbarBackground
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes =
+        let pageControl: UIPageControl = UIPageControl.appearance()
+        pageControl.pageIndicatorTintColor = Style.pageControlDotNormal
+        pageControl.currentPageIndicatorTintColor = Style.pageControlDotHighlighted
+        pageControl.backgroundColor = Style.white
+        
+        let navbar: UINavigationBar = UINavigationBar.appearance()
+        navbar.barTintColor = Style.navbarBackground
+        navbar.tintColor = Style.white
+        navbar.titleTextAttributes =
             [NSForegroundColorAttributeName: Style.navbarTextColor]
+        
         UILabel.appearance().textColor = UIColor.whiteColor()
+        
+        UILabel.appearanceWhenContainedInInstancesOfClasses([TutorialPageViewController.self]).textColor = Style.flatBlue3
     }
 
     

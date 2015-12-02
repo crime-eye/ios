@@ -12,11 +12,31 @@
                 <pageViewController storyboardIdentifier="TutorialPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="w3R-nK-dln" customClass="TutorialPageViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Xbe-pu-Qv1" kind="show" id="hPl-hr-Jdn"/>
+                        <segue destination="lFe-MN-iuf" kind="show" id="VGn-pf-SGg"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYw-fb-AAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="317"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eov-yJ-OJo">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="lFe-MN-iuf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jMD-iJ-KqZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dlx-5f-Hf5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lvd-P5-OxV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uh3-ak-yrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="1103"/>
         </scene>
         <!--TutorialFirstController-->
         <scene sceneID="dLd-6a-zpp">
@@ -30,8 +50,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Crime Eye helps you find crime in your area" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-oH-jC3">
-                                <rect key="frame" x="150" y="92" width="300" height="66"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Crime Eye helps you find crime in your area easily" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-oH-jC3">
+                                <rect key="frame" x="13" y="90" width="574" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,30 +59,50 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.1333333333" green="0.41960784309999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="50" id="IDA-uP-D5K"/>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="70" id="Iez-4s-y81"/>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="72" id="ND7-9e-6zL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R5A-oH-jC3" secondAttribute="trailing" constant="16" id="ZXJ-U0-VIy"/>
-                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="72" id="liM-mI-1i2"/>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="150" id="liM-mI-1i2"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="leading" secondItem="WW0-ed-9kW" secondAttribute="leadingMargin" constant="16" id="tgQ-Ef-Nkz"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="centerX" secondItem="WW0-ed-9kW" secondAttribute="centerX" id="zj0-P1-1HS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="IDA-uP-D5K"/>
+                                <exclude reference="Iez-4s-y81"/>
+                                <exclude reference="ND7-9e-6zL"/>
                                 <exclude reference="ZXJ-U0-VIy"/>
+                                <exclude reference="liM-mI-1i2"/>
                                 <exclude reference="tgQ-Ef-Nkz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="IDA-uP-D5K"/>
+                                <include reference="ZXJ-U0-VIy"/>
+                                <include reference="tgQ-Ef-Nkz"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="ND7-9e-6zL"/>
                                 <include reference="ZXJ-U0-VIy"/>
                                 <include reference="tgQ-Ef-Nkz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="liM-mI-1i2"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezU-rM-705" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="317"/>
+            <point key="canvasLocation" x="263" y="1103"/>
         </scene>
     </scenes>
 </document>

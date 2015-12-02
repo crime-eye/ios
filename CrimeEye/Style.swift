@@ -16,7 +16,6 @@ struct Style {
     static var flatBlue3 = UIColor(hexString: "2980b9")
     static var flatBlue4 = UIColor(hexString: "096EB0")
     static var flatBlue5 = UIColor(hexString: "07507F")
-
     
     static var flatGold1 = UIColor(hexString: "FFDE7F")
     static var flatGold2 = UIColor(hexString: "FFD253")
@@ -30,13 +29,18 @@ struct Style {
     static var flatRed4 = UIColor(hexString: "FF4100")
     static var flatRed5 = UIColor(hexString: "C73300")
 
+    static var white = UIColor.whiteColor()
+
     
     static var navbarBackground = flatBlue3
-    static var navbarTextColor  = UIColor.whiteColor()
+    static var navbarTextColor  = white
     static var viewBackground   = flatBlue3
     static var warningColor     = flatRed5
     
     static var sectionHeaders   = flatGold1
 
-    static var fontColor        = UIColor.whiteColor()
+    static var fontColor        = white
+    
+    static var pageControlDotNormal   = UIColor.grayColor()
+    static var pageControlDotHighlighted   = flatBlue3
 }

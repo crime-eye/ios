@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TutorialPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class TutorialPageViewController: UIPageViewController,
+    UIPageViewControllerDataSource,
+    UIPageViewControllerDelegate {
     
     var pages = [UIViewController]()
     
@@ -18,24 +20,31 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerData
         self.delegate = self
         self.dataSource = self
         
+        
         let page1: UIViewController! = storyboard?.instantiateViewControllerWithIdentifier("FirstViewController")
-        //let page2: UIViewController! = storyboard?.instantiateViewControllerWithIdentifier("page2")
+        let page2: UIViewController! = storyboard?.instantiateViewControllerWithIdentifier("SecondViewController")
         
         pages.append(page1)
-        //pages.append(page2)
+        pages.append(page2)
         
         setViewControllers([page1], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let currentIndex = pages.indexOf(viewController)!
-        let previousIndex = abs((currentIndex - 1) % pages.count)
+        let previousIndex = (currentIndex - 1)
+        if (previousIndex < 0) {
+            return nil
+        }
         return pages[previousIndex]
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let currentIndex = pages.indexOf(viewController)!
-        let nextIndex = abs((currentIndex + 1) % pages.count)
+        let nextIndex = currentIndex + 1
+        if (nextIndex >= pages.count) {
+            return nil
+        }
         return pages[nextIndex]
     }
     
