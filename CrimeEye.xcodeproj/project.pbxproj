@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */; };
 		E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E327E1C05F6650041020C /* PoliceAPI.swift */; };
 		E71E32811C05FAC80041020C /* SwiftySiesta.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E32801C05FAC80041020C /* SwiftySiesta.swift */; };
+		E78CCAD81C0F571200A262A7 /* TutorialFirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78CCAD71C0F571200A262A7 /* TutorialFirstController.swift */; };
+		E78CCADA1C0F6DAB00A262A7 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78CCAD91C0F6DAB00A262A7 /* TutorialPageViewController.swift */; };
 		E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */; };
 		E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA5DB01C00E08800C70CFA /* MainController.swift */; };
 		E7BA5DB41C00E08800C70CFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7BA5DB21C00E08800C70CFA /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.debug.xcconfig"; sourceTree = "<group>"; };
 		E71E327E1C05F6650041020C /* PoliceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoliceAPI.swift; sourceTree = "<group>"; };
 		E71E32801C05FAC80041020C /* SwiftySiesta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySiesta.swift; sourceTree = "<group>"; };
+		E78CCAD71C0F571200A262A7 /* TutorialFirstController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialFirstController.swift; sourceTree = "<group>"; };
+		E78CCAD91C0F6DAB00A262A7 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		E7BA5DAB1C00E08800C70CFA /* CrimeEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrimeEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BA5DAE1C00E08800C70CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7BA5DB01C00E08800C70CFA /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
 				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
 				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
+				E78CCAD71C0F571200A262A7 /* TutorialFirstController.swift */,
+				E78CCAD91C0F6DAB00A262A7 /* TutorialPageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,7 +301,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = "Gurpreet Paul";
+				ORGANIZATIONNAME = "Crime Eye";
 				TargetAttributes = {
 					E7BA5DAA1C00E08800C70CFA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -314,7 +320,7 @@
 				};
 			};
 			buildConfigurationList = E7BA5DA61C00E08700C70CFA /* Build configuration list for PBXProject "CrimeEye" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -421,10 +427,12 @@
 				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
+				E78CCAD81C0F571200A262A7 /* TutorialFirstController.swift in Sources */,
 				F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */,
 				FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */,
 				FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */,
 				E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */,
+				E78CCADA1C0F6DAB00A262A7 /* TutorialPageViewController.swift in Sources */,
 				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
 				F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */,

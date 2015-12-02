@@ -11,7 +11,6 @@ import CoreData
 import MMDrawerController
 
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,12 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //var rootViewController = self.window!.rootViewController
         
         window!.makeKeyAndVisible()
+
+        loadStyles()
         
         // If first load
         // TODO: Don't actually do this yet
-        if (false) {
+        if (true) {
+            
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("FirstViewController")
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialPageViewController")
             window!.rootViewController = vc
             
         } else {
@@ -50,10 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window!.rootViewController = centerContainer
 
-            UINavigationBar.appearance().barTintColor = Style.navbarBackground
-            UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-            UINavigationBar.appearance().titleTextAttributes =
-                [NSForegroundColorAttributeName: Style.navbarTextColor]
+            
             
             loadAPI()
         }
@@ -62,6 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func loadStyles() {
+        UINavigationBar.appearance().barTintColor = Style.navbarBackground
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSForegroundColorAttributeName: Style.navbarTextColor]
+        UILabel.appearance().textColor = UIColor.whiteColor()
+    }
 
     
     func loadAPI() {
