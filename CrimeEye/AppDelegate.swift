@@ -19,63 +19,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var centerContainer: MMDrawerController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        //var rootViewController = self.window!.rootViewController
         
         window!.makeKeyAndVisible()
-
         loadStyles()
         
-        // If first load
-        // TODO: Don't actually do this yet
-        if (true) {
-            
+        // If first load i.e haven't setup GPS
+        if (!Store.defaults.boolForKey(Store.IS_FIRST_LOAD)) {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialPageViewController")
             window!.rootViewController = vc
-            
         } else {
-            
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    
-            let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainController") as! MainController
-            let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerController") as! DrawerController
-    
-            let leftSideNav = UINavigationController(rootViewController: leftViewController)
-            let centerNav = UINavigationController(rootViewController: centerViewController)
-    
-            centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
-    
-            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
-            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
-            
-            window!.rootViewController = centerContainer
-
-            
-            
-            loadAPI()
+            loadMainView()
         }
         
         return true
         
     }
     
+    
+    func loadMainView() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let centerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainController") as! MainController
+        let leftViewController = mainStoryboard.instantiateViewControllerWithIdentifier("DrawerController") as! DrawerController
+        
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.PanningCenterView;
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
+        window!.rootViewController = centerContainer
+        
+        loadAPI()
+    }
+    
+    /**
+     Function for applying styles to the whole app
+    */
     func loadStyles() {
+        // Style the page control (the dots in PageViewControllers)
         let pageControl: UIPageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = Style.pageControlDotNormal
         pageControl.currentPageIndicatorTintColor = Style.pageControlDotHighlighted
         pageControl.backgroundColor = Style.white
         
+        // Style the navbar
         let navbar: UINavigationBar = UINavigationBar.appearance()
         navbar.barTintColor = Style.navbarBackground
         navbar.tintColor = Style.white
         navbar.titleTextAttributes =
             [NSForegroundColorAttributeName: Style.navbarTextColor]
         
-        UILabel.appearance().textColor = UIColor.whiteColor()
+        // Styles for buttons
+        let button: UIButton = UIButton.appearance()
+        button.tintColor = Style.flatGold4
         
+        // Label default text colour
+        let label: UILabel = UILabel.appearance()
+        label.textColor = UIColor.whiteColor()
+        // If we're in the tutorial sections, default colour is blue
         UILabel.appearanceWhenContainedInInstancesOfClasses([TutorialPageViewController.self]).textColor = Style.flatBlue3
+        UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).textColor = Style.flatBlue3
+        UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).font =
+            UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+        
+        // Switches styles
+        let switches: UISwitch = UISwitch.appearance()
+        switches.onTintColor = Style.flatGold4
+        
+        
     }
 
     

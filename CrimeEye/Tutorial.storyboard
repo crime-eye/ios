@@ -9,20 +9,15 @@
         <!--Tutorial Page View Controller-->
         <scene sceneID="EVE-1e-M4x">
             <objects>
-                <pageViewController storyboardIdentifier="TutorialPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="w3R-nK-dln" customClass="TutorialPageViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="Xbe-pu-Qv1" kind="show" id="hPl-hr-Jdn"/>
-                        <segue destination="lFe-MN-iuf" kind="show" id="VGn-pf-SGg"/>
-                    </connections>
-                </pageViewController>
+                <pageViewController storyboardIdentifier="TutorialPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="w3R-nK-dln" customClass="TutorialPageViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYw-fb-AAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586" y="317"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Second View Controller-->
         <scene sceneID="eov-yJ-OJo">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="lFe-MN-iuf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lFe-MN-iuf" customClass="TutorialSecondViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jMD-iJ-KqZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Dlx-5f-Hf5"/>
@@ -30,18 +25,133 @@
                     <view key="view" contentMode="scaleToFill" id="Lvd-P5-OxV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable GPS or optionally provide a postcode to begin" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKk-ov-DrG">
+                                <rect key="frame" x="51" y="170" width="498" height="26"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="-109" y="30" width="618" height="33"/>
+                                </variation>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="91" y="30" width="618" height="33"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use GPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lB-vW-CQn">
+                                <rect key="frame" x="40" y="246" width="68" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43O-vv-gTd">
+                                <rect key="frame" x="511" y="241" width="51" height="31"/>
+                                <animations/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="311" y="108" width="51" height="31"/>
+                                </variation>
+                                <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="711" y="108" width="51" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="switchChanged:" destination="lFe-MN-iuf" eventType="valueChanged" id="300-TN-833"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-4o-b4U">
+                                <rect key="frame" x="285" y="540" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="clickedOK:" destination="lFe-MN-iuf" eventType="touchUpInside" id="EvL-4n-JqT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BKk-ov-DrG" secondAttribute="trailing" constant="16" id="4g2-5Q-SnT"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="16" id="5Gi-aB-8j1"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="top" secondItem="BKk-ov-DrG" secondAttribute="bottom" constant="50" id="8h3-6Z-3eB"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" constant="70" placeholder="YES" id="APY-P4-a2A"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="top" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" constant="50" id="E7n-M8-r5v"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" placeholder="YES" id="L2i-fW-Ecp"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" id="PTo-xD-HNr"/>
+                            <constraint firstItem="43O-vv-gTd" firstAttribute="centerY" secondItem="7lB-vW-CQn" secondAttribute="centerY" id="PWX-O6-vbv"/>
+                            <constraint firstItem="Dlx-5f-Hf5" firstAttribute="top" secondItem="yzh-4o-b4U" secondAttribute="bottom" constant="30" id="ZTP-7E-95f"/>
+                            <constraint firstItem="yzh-4o-b4U" firstAttribute="centerX" secondItem="Lvd-P5-OxV" secondAttribute="centerX" id="ZVI-pv-BsE"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" placeholder="YES" id="Zfp-WL-pnO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="200" id="aMI-ug-Wpv"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="200" id="bpR-D1-4Z7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" id="f39-u4-f31"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="top" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" constant="72" id="gVc-Ij-Qcg"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="centerX" secondItem="Lvd-P5-OxV" secondAttribute="centerX" id="ix5-xb-6HD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" id="jxm-Qt-zXX"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="top" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" priority="999" constant="150" id="mQQ-uC-9E1"/>
+                            <constraint firstItem="BKk-ov-DrG" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="16" id="oGP-bV-sCx"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" placeholder="YES" id="oTB-7k-DIO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BKk-ov-DrG" secondAttribute="trailing" constant="16" id="rYJ-3O-1RL"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="40" id="tfj-C1-FSQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" placeholder="YES" id="wDK-D4-rRd"/>
+                            <constraint firstItem="7lB-vW-CQn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BKk-ov-DrG" secondAttribute="bottom" constant="50" id="xMp-Kn-3BN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4g2-5Q-SnT"/>
+                                <exclude reference="5Gi-aB-8j1"/>
+                                <exclude reference="E7n-M8-r5v"/>
+                                <exclude reference="gVc-Ij-Qcg"/>
+                                <exclude reference="oGP-bV-sCx"/>
+                                <exclude reference="rYJ-3O-1RL"/>
+                                <exclude reference="PTo-xD-HNr"/>
+                                <exclude reference="bpR-D1-4Z7"/>
+                                <exclude reference="tfj-C1-FSQ"/>
+                                <exclude reference="aMI-ug-Wpv"/>
+                                <exclude reference="f39-u4-f31"/>
+                                <exclude reference="jxm-Qt-zXX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="5Gi-aB-8j1"/>
+                                <include reference="E7n-M8-r5v"/>
+                                <include reference="rYJ-3O-1RL"/>
+                                <include reference="tfj-C1-FSQ"/>
+                                <include reference="jxm-Qt-zXX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="4g2-5Q-SnT"/>
+                                <include reference="gVc-Ij-Qcg"/>
+                                <include reference="oGP-bV-sCx"/>
+                                <include reference="PTo-xD-HNr"/>
+                                <include reference="f39-u4-f31"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="bpR-D1-4Z7"/>
+                                <include reference="aMI-ug-Wpv"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="gpsSwitch" destination="43O-vv-gTd" id="WLn-Mh-Kka"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uh3-ak-yrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="1103"/>
+            <point key="canvasLocation" x="902" y="1066"/>
         </scene>
         <!--TutorialFirstController-->
         <scene sceneID="dLd-6a-zpp">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" title="TutorialFirstController" id="Xbe-pu-Qv1" customClass="TutorialFirstController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" title="TutorialFirstController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xbe-pu-Qv1" customClass="TutorialFirstViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D8s-Ai-RCJ"/>
                         <viewControllerLayoutGuide type="bottom" id="eVQ-Ns-jPw"/>
@@ -50,21 +160,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Crime Eye helps you find crime in your area easily" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-oH-jC3">
-                                <rect key="frame" x="13" y="90" width="574" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crime Eye helps you find crime in your area easily" lineBreakMode="wordWrap" numberOfLines="0" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5A-oH-jC3">
+                                <rect key="frame" x="69" y="90" width="463" height="26"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                </variation>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="50" id="IDA-uP-D5K"/>
-                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="70" id="Iez-4s-y81"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="72" id="ND7-9e-6zL"/>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="70" placeholder="YES" id="YgO-9K-X0o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R5A-oH-jC3" secondAttribute="trailing" constant="16" id="ZXJ-U0-VIy"/>
+                            <constraint firstItem="R5A-oH-jC3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="70" placeholder="YES" id="aHs-Il-QqB"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="top" secondItem="D8s-Ai-RCJ" secondAttribute="bottom" constant="150" id="liM-mI-1i2"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="leading" secondItem="WW0-ed-9kW" secondAttribute="leadingMargin" constant="16" id="tgQ-Ef-Nkz"/>
                             <constraint firstItem="R5A-oH-jC3" firstAttribute="centerX" secondItem="WW0-ed-9kW" secondAttribute="centerX" id="zj0-P1-1HS"/>
@@ -72,7 +186,6 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="IDA-uP-D5K"/>
-                                <exclude reference="Iez-4s-y81"/>
                                 <exclude reference="ND7-9e-6zL"/>
                                 <exclude reference="ZXJ-U0-VIy"/>
                                 <exclude reference="liM-mI-1i2"/>

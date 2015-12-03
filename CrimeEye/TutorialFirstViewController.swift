@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import ChameleonFramework
 
-class TutorialFirstController: UIViewController {
+class TutorialFirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

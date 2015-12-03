@@ -32,7 +32,7 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
             .dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
             as! CustomTableViewCell
         
-        mycell.menuLabelText.text = menuItems[indexPath.row]
+        mycell.menuLabelText.text = menuItems[indexPath.row].uppercaseString
         return mycell;
     }
     
