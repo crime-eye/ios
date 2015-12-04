@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.PanningCenterView;
         window!.rootViewController = centerContainer
         
-        loadAPI()
+//        loadAPI()
     }
     
     /**

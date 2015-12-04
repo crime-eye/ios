@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.0.4)
   - ChameleonFramework/Swift (2.0.4):
     - ChameleonFramework/Default
+  - Charts (2.1.6)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
     - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
+  - Charts (~> 2.1)
   - MMDrawerController
   - Siesta (= 1.0-beta.4)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -36,6 +38,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
+  Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Siesta: 4bda1f6e7e0431b64bdfe9d3f902c34d90822c27
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
