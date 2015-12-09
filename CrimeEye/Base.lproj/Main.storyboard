@@ -50,8 +50,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Three Crimes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-7K-nht">
-                                <rect key="frame" x="20" y="183" width="140" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top three crimes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM7-7K-nht">
+                                <rect key="frame" x="20" y="157" width="140" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="HxZ-7d-fHd"/>
@@ -60,13 +60,20 @@
                                 <color key="textColor" red="1" green="0.87058823529999996" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U24-1J-ltq" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="393" width="580" height="199"/>
+                            <view multipleTouchEnabled="YES" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="U24-1J-ltq" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="408" width="560" height="184"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolved crimes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLs-w3-yPD">
+                                <rect key="frame" x="20" y="379" width="126" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.87058823529999996" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view opaque="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="j6s-61-0Tr" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="221" width="580" height="139"/>
+                                <rect key="frame" x="0.0" y="186" width="580" height="185"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -82,65 +89,43 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="height" secondItem="U24-1J-ltq" secondAttribute="height" constant="-60" id="0jL-dL-fjx"/>
-                            <constraint firstItem="vM7-7K-nht" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="33" id="2mM-3T-8hw"/>
+                            <constraint firstItem="vM7-7K-nht" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="7" id="2mM-3T-8hw"/>
                             <constraint firstItem="b98-sf-LPT" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" id="42V-38-qhx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="233" id="5U9-To-oa3"/>
-                            <constraint firstItem="U24-1J-ltq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7hM-dB-rR8"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8vu-wN-MYS"/>
-                            <constraint firstItem="U24-1J-ltq" firstAttribute="width" secondItem="j6s-61-0Tr" secondAttribute="width" id="AvP-J4-TSt"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="yLs-w3-yPD" secondAttribute="bottom" constant="8" id="5Uv-Lx-Gkt"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7hM-dB-rR8"/>
+                            <constraint firstItem="j6s-61-0Tr" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="8" id="9Ql-sA-NSA"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" constant="5.5" id="BDH-V8-dqV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b98-sf-LPT" secondAttribute="bottom" constant="497" id="BfD-pg-afh"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="top" secondItem="4Yi-ay-hAK" secondAttribute="bottom" constant="8" symbolic="YES" id="DmC-QC-Im6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="j6s-61-0Tr" secondAttribute="trailing" id="Eic-nh-1EI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="439" id="FUB-xY-ICI"/>
-                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="33" id="Ks4-4u-azz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yLs-w3-yPD" secondAttribute="leading" id="Hwo-ar-aAk"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MXa-FM-0Vu"/>
                             <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="244" id="Mc8-mz-vjg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="j6s-61-0Tr" secondAttribute="trailing" id="OLC-op-pnd"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-7.5" id="PPL-ZW-aJF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U24-1J-ltq" secondAttribute="trailing" id="R9G-TO-F22"/>
-                            <constraint firstItem="vM7-7K-nht" firstAttribute="leading" secondItem="j6s-61-0Tr" secondAttribute="leading" id="U1q-ks-5Y1"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UCL-cI-o44"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Um7-rw-iED"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="j6s-61-0Tr" secondAttribute="leading" constant="20" id="YCp-vv-sGz"/>
-                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="73" id="a7n-Aq-qkh"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" id="aj6-3y-yvb"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="yLs-w3-yPD" secondAttribute="bottom" constant="39" id="STT-RL-09h"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="top" secondItem="b98-sf-LPT" secondAttribute="bottom" constant="8" symbolic="YES" id="eqK-oH-bm3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vM7-7K-nht" secondAttribute="leading" id="fgG-l5-FmH"/>
                             <constraint firstItem="b98-sf-LPT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="g0l-H5-crk"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="72" id="jU4-X9-3RJ"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ma4-eP-av2"/>
+                            <constraint firstItem="j6s-61-0Tr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="nUb-fS-vEe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j6s-61-0Tr" secondAttribute="trailing" id="pup-3Q-rJ9"/>
                             <constraint firstItem="b98-sf-LPT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q2g-IZ-xdc"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qwR-lD-mMs"/>
+                            <constraint firstItem="j6s-61-0Tr" firstAttribute="height" secondItem="U24-1J-ltq" secondAttribute="height" id="q3d-m1-HUv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U24-1J-ltq" secondAttribute="bottom" constant="8" id="rkL-zs-zlq"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="17" id="sCw-hh-K4q"/>
+                            <constraint firstItem="yLs-w3-yPD" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="8" id="u0W-bo-MyO"/>
                             <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="464" id="u9w-v4-nqw"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="b98-sf-LPT" secondAttribute="centerX" constant="6" id="w0Q-IX-cCZ"/>
-                            <constraint firstItem="U24-1J-ltq" firstAttribute="height" secondItem="j6s-61-0Tr" secondAttribute="height" id="zr9-GK-WWg"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="top" secondItem="4Yi-ay-hAK" secondAttribute="bottom" constant="-2" id="zu8-38-6Mq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="U1q-ks-5Y1"/>
-                                <exclude reference="8vu-wN-MYS"/>
-                                <exclude reference="Eic-nh-1EI"/>
-                                <exclude reference="PPL-ZW-aJF"/>
-                                <exclude reference="UCL-cI-o44"/>
-                                <exclude reference="Um7-rw-iED"/>
-                                <exclude reference="aj6-3y-yvb"/>
-                                <exclude reference="jU4-X9-3RJ"/>
-                                <exclude reference="qwR-lD-mMs"/>
                                 <exclude reference="BDH-V8-dqV"/>
                                 <exclude reference="w0Q-IX-cCZ"/>
                                 <exclude reference="42V-38-qhx"/>
                                 <exclude reference="DmC-QC-Im6"/>
-                                <exclude reference="AvP-J4-TSt"/>
                                 <exclude reference="Mc8-mz-vjg"/>
-                                <exclude reference="a7n-Aq-qkh"/>
+                                <exclude reference="STT-RL-09h"/>
                                 <exclude reference="u9w-v4-nqw"/>
-                                <exclude reference="zr9-GK-WWg"/>
-                                <exclude reference="5U9-To-oa3"/>
                                 <exclude reference="BfD-pg-afh"/>
                                 <exclude reference="FUB-xY-ICI"/>
                             </mask>
@@ -157,6 +142,8 @@
                         <outlet property="lineChartView" destination="U24-1J-ltq" id="rqz-bJ-9yA"/>
                         <outlet property="nCrimes" destination="b98-sf-LPT" id="idD-sl-mEp"/>
                         <outlet property="pieChartView" destination="j6s-61-0Tr" id="8Km-20-X7D"/>
+                        <outlet property="resolvedCrimes" destination="yLs-w3-yPD" id="PCx-2f-jRP"/>
+                        <outlet property="topCrimes" destination="vM7-7K-nht" id="ddg-rL-3fr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -242,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idn-sJ-S3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="470"/>
+            <point key="canvasLocation" x="999" y="470"/>
         </scene>
         <!--Stop and Search-->
         <scene sceneID="iYY-Px-KSg">

@@ -26,6 +26,8 @@ class MainController: UIViewController, ResourceObserver {
     
     // MARK: Outlets
     @IBOutlet weak var nCrimes: UILabel!
+    @IBOutlet weak var topCrimes: UILabel!
+    @IBOutlet weak var resolvedCrimes: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var lineChartView: LineChartView!
     
@@ -37,6 +39,8 @@ class MainController: UIViewController, ResourceObserver {
         
         view.backgroundColor = Style.viewBackground
         nCrimes.textColor = Style.flatGold2
+        resolvedCrimes.textColor = Style.flatGold2
+        topCrimes.textColor = Style.flatGold2
     }
     
     func loadData() {
@@ -60,21 +64,14 @@ class MainController: UIViewController, ResourceObserver {
                             self.loadData()
                         
                     }.addObserver(self.statusOverlay).loadIfNeeded()
+                    
                 }
-                }.addObserver(statusOverlay).load()
+                }.addObserver(statusOverlay).loadIfNeeded()
         }
         else if (self.date.characters.count == 7 && monthArray.isEmpty) {
                 loadOutcomes( lat, lng: lng)
-                
-                PoliceAPI
-                    .getCrimes(lat, long: lng)
-                    .addObserver(self)
-                    .addObserver(self.statusOverlay)
-                    .loadIfNeeded()
-            
         }
         else{
-            loadStatistics()
         }
         
     }
@@ -84,13 +81,17 @@ class MainController: UIViewController, ResourceObserver {
         let year = dateArr[0]
         let month = dateArr[1]
         
-        let date1 = previousMonths(2, year: year, month: month)
-        let date2 = previousMonths(1, year: year, month: month)
-        let date3 = self.date
+        let date1 = previousMonths(5, year: year, month: month)
+        let date2 = previousMonths(4, year: year, month: month)
+        let date3 = previousMonths(3, year: year, month: month)
+        let date4 = previousMonths(2, year: year, month: month)
+        let date5 = previousMonths(1, year: year, month: month)
+        let date6 = self.date
         
-        monthArray = [date1, date2, date3]
+        monthArray = [date1, date2, date3, date4, date5, date6]
         
-        for monthDate in monthArray {
+        var i = 0;
+        for monthDate in monthArray{
             PoliceAPI.getOutcomes(monthDate, lat: lat, long: lng).addObserver(owner: self) {
                 resource, event in
                 let outResults = resource.json
@@ -100,10 +101,18 @@ class MainController: UIViewController, ResourceObserver {
                 for (_, outcome) in outResults {
                     outArray.append(outcome["category"]["code"].stringValue)
                 }
-                
                 self.outcomesDict[monthDate] = outArray
+                if (i == self.monthArray.count) {
+                    PoliceAPI
+                        .getCrimes(lat, long: lng)
+                        .addObserver(self)
+                        .addObserver(self.statusOverlay)
+                        .loadIfNeeded()
+                }
                 
-                }.addObserver(self.statusOverlay).load()
+                
+            }.addObserver(self.statusOverlay).loadIfNeeded()
+            ++i
         }
         
         
@@ -126,9 +135,7 @@ class MainController: UIViewController, ResourceObserver {
                 
                 self.crimesArray.append(crimeDict)
                 
-                resource.removeObservers(ownedBy: self)
             }
-            print(self.crimesArray.count)
             nCrimes.text = String(self.crimesArray.count)
             loadStatistics()
         }
@@ -158,6 +165,7 @@ class MainController: UIViewController, ResourceObserver {
         
         return "\(yearNum)-\(monthNum)"
     }
+    
     func loadStatistics(){
         var catDict = [String: Double]()
         for crime in crimesArray{
@@ -198,13 +206,15 @@ class MainController: UIViewController, ResourceObserver {
         pieChartView.data = pieChartData
         pieChartData.setDrawValues(false)
         pieChartView.drawSliceTextEnabled = false
-        pieChartView.holeTransparent = true
-        pieChartView.holeAlpha = 0
+        pieChartView.holeColor = Style.viewBackground
+        pieChartView.rotationWithTwoFingers = true
         pieChartView.animate(xAxisDuration: NSTimeInterval(5))
-        pieChartView.legend.position = .RightOfChartInside
+        pieChartView.legend.position = .RightOfChart
         pieChartView.legend.textColor = Style.white
         pieChartView.descriptionText = ""
         pieChartView.backgroundColor = Style.viewBackground
+        
+        
         
         var numResolvedArr: [ChartDataEntry] = []
         
@@ -217,15 +227,18 @@ class MainController: UIViewController, ResourceObserver {
         
         let lineChartDataSet = LineChartDataSet(yVals: numResolvedArr)
         let lineChartData = LineChartData(xVals: monthArray, dataSet: lineChartDataSet)
+        lineChartView.leftAxis.startAtZeroEnabled = false
         lineChartData.setDrawValues(false)
         lineChartView.data = lineChartData
         lineChartView.legend.enabled = false
         lineChartView.descriptionText = ""
         lineChartView.rightAxis.enabled = false
         lineChartView.xAxis.labelPosition = .Bottom
+        lineChartView.leftAxis.xOffset = 9.0
         lineChartView.xAxis.labelTextColor = Style.white
+        lineChartView.xAxis.avoidFirstLastClippingEnabled = true
         lineChartView.leftAxis.labelTextColor = Style.white
-        lineChartView.animate(xAxisDuration: NSTimeInterval(4), easingOption: ChartEasingOption.Linear)
+        lineChartView.animate(xAxisDuration: NSTimeInterval(4))
         lineChartView.backgroundColor = Style.viewBackground
 
     }
