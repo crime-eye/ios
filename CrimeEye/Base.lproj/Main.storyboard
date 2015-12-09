@@ -60,8 +60,13 @@
                                 <color key="textColor" red="1" green="0.87058823529999996" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U24-1J-ltq" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="393" width="580" height="199"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view opaque="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="j6s-61-0Tr" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="218" width="580" height="149"/>
+                                <rect key="frame" x="0.0" y="221" width="580" height="139"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -77,22 +82,29 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="j6s-61-0Tr" firstAttribute="height" secondItem="U24-1J-ltq" secondAttribute="height" constant="-60" id="0jL-dL-fjx"/>
                             <constraint firstItem="vM7-7K-nht" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="33" id="2mM-3T-8hw"/>
                             <constraint firstItem="b98-sf-LPT" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" id="42V-38-qhx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="233" id="5U9-To-oa3"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7hM-dB-rR8"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8vu-wN-MYS"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="width" secondItem="j6s-61-0Tr" secondAttribute="width" id="AvP-J4-TSt"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" constant="5.5" id="BDH-V8-dqV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b98-sf-LPT" secondAttribute="bottom" constant="497" id="BfD-pg-afh"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="top" secondItem="4Yi-ay-hAK" secondAttribute="bottom" constant="8" symbolic="YES" id="DmC-QC-Im6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="j6s-61-0Tr" secondAttribute="trailing" id="Eic-nh-1EI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIV-Uv-A95" secondAttribute="bottom" constant="439" id="FUB-xY-ICI"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="33" id="Ks4-4u-azz"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MXa-FM-0Vu"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="244" id="Mc8-mz-vjg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="j6s-61-0Tr" secondAttribute="trailing" id="OLC-op-pnd"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-7.5" id="PPL-ZW-aJF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U24-1J-ltq" secondAttribute="trailing" id="R9G-TO-F22"/>
                             <constraint firstItem="vM7-7K-nht" firstAttribute="leading" secondItem="j6s-61-0Tr" secondAttribute="leading" id="U1q-ks-5Y1"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UCL-cI-o44"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Um7-rw-iED"/>
                             <constraint firstAttribute="leadingMargin" secondItem="j6s-61-0Tr" secondAttribute="leading" constant="20" id="YCp-vv-sGz"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="j6s-61-0Tr" secondAttribute="bottom" constant="73" id="a7n-Aq-qkh"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="centerX" secondItem="rIV-Uv-A95" secondAttribute="centerX" id="aj6-3y-yvb"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="top" secondItem="b98-sf-LPT" secondAttribute="bottom" constant="8" symbolic="YES" id="eqK-oH-bm3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vM7-7K-nht" secondAttribute="leading" id="fgG-l5-FmH"/>
@@ -101,8 +113,11 @@
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ma4-eP-av2"/>
                             <constraint firstItem="b98-sf-LPT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q2g-IZ-xdc"/>
                             <constraint firstItem="j6s-61-0Tr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qwR-lD-mMs"/>
-                            <constraint firstItem="j6s-61-0Tr" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="14" id="sCw-hh-K4q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U24-1J-ltq" secondAttribute="bottom" constant="8" id="rkL-zs-zlq"/>
+                            <constraint firstItem="j6s-61-0Tr" firstAttribute="top" secondItem="vM7-7K-nht" secondAttribute="bottom" constant="17" id="sCw-hh-K4q"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="464" id="u9w-v4-nqw"/>
                             <constraint firstItem="4Yi-ay-hAK" firstAttribute="centerX" secondItem="b98-sf-LPT" secondAttribute="centerX" constant="6" id="w0Q-IX-cCZ"/>
+                            <constraint firstItem="U24-1J-ltq" firstAttribute="height" secondItem="j6s-61-0Tr" secondAttribute="height" id="zr9-GK-WWg"/>
                             <constraint firstItem="rIV-Uv-A95" firstAttribute="top" secondItem="4Yi-ay-hAK" secondAttribute="bottom" constant="-2" id="zu8-38-6Mq"/>
                         </constraints>
                         <variation key="default">
@@ -120,6 +135,12 @@
                                 <exclude reference="w0Q-IX-cCZ"/>
                                 <exclude reference="42V-38-qhx"/>
                                 <exclude reference="DmC-QC-Im6"/>
+                                <exclude reference="AvP-J4-TSt"/>
+                                <exclude reference="Mc8-mz-vjg"/>
+                                <exclude reference="a7n-Aq-qkh"/>
+                                <exclude reference="u9w-v4-nqw"/>
+                                <exclude reference="zr9-GK-WWg"/>
+                                <exclude reference="5U9-To-oa3"/>
                                 <exclude reference="BfD-pg-afh"/>
                                 <exclude reference="FUB-xY-ICI"/>
                             </mask>
@@ -133,6 +154,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lineChartView" destination="U24-1J-ltq" id="rqz-bJ-9yA"/>
                         <outlet property="nCrimes" destination="b98-sf-LPT" id="idD-sl-mEp"/>
                         <outlet property="pieChartView" destination="j6s-61-0Tr" id="8Km-20-X7D"/>
                     </connections>

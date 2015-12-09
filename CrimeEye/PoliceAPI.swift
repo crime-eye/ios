@@ -18,6 +18,13 @@ class _PoliceAPI: Service {
                 .withParam("lng", "\(long)")
     }
     
+    func getOutcomes(date: String, lat: Double, long: Double) -> Resource {
+        return resource("/outcomes-at-location")
+            .withParam("date", date)
+            .withParam("lat", "\(lat)")
+            .withParam("lng", "\(long)")
+    }
+    
     func getYearAndMonth(fullDate: String) -> String {
         let truncated = fullDate.characters.dropLast(3)
         return "\(truncated)"
