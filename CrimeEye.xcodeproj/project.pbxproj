@@ -28,6 +28,8 @@
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
 		F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */; };
 		F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD21C07CE5900DB99B9 /* Location.swift */; };
+		FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4581881C108C9200C7223D /* RadiusAnnotation.swift */; };
+		FFEB7AB61C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */; };
 		FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B041C0733AD0024A471 /* DrawerController.swift */; };
 		FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */; };
 		FFFD3B091C0739DA0024A471 /* NeighbourhoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */; };
@@ -81,6 +83,8 @@
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcodesAPI.swift; sourceTree = "<group>"; };
 		F6ECEFD21C07CE5900DB99B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		FF4581881C108C9200C7223D /* RadiusAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusAnnotation.swift; sourceTree = "<group>"; };
+		FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCrimesControllerViewController.swift; sourceTree = "<group>"; };
 		FFFD3B041C0733AD0024A471 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighbourhoodController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
 				FFFD3B081C0739DA0024A471 /* NeighbourhoodController.swift */,
 				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
+				FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */,
 				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
 				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
 			);
@@ -226,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
+				FF4581881C108C9200C7223D /* RadiusAnnotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -319,7 +325,7 @@
 				TargetAttributes = {
 					E7BA5DAA1C00E08800C70CFA = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = BGKMJDCGGZ;
+						DevelopmentTeam = B774696XLH;
 					};
 					E7BA5DC11C00E08800C70CFA = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -439,6 +445,7 @@
 				E7BD46371C064FAB003E42AF /* Style.swift in Sources */,
 				E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */,
 				E78CCAE31C0FCBE900A262A7 /* TutorialSecondViewController.swift in Sources */,
+				FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */,
 				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
@@ -452,6 +459,7 @@
 				E7BA5DAF1C00E08800C70CFA /* AppDelegate.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
 				F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */,
+				FFEB7AB61C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,11 +602,14 @@
 			baseConfigurationReference = D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CrimeEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.crime.eye.CrimeEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crime.CrimeEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -607,11 +618,14 @@
 			baseConfigurationReference = 3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CrimeEye/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.crime.eye.CrimeEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crime.CrimeEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
