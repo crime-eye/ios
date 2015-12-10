@@ -3,7 +3,7 @@
 //  CrimeEye
 //
 //  Created by Gurpreet Paul on 25/11/2015.
-//  Copyright © 2015 Gurpreet Paul. All rights reserved.
+//  Copyright © 2015 Crime Eye. All rights reserved.
 //
 
 import Siesta
