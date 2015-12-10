@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadStyles()
         
         // If first load i.e haven't setup GPS
-        if (true) {
+        if (!Store.defaults.boolForKey(Store.IS_FIRST_LOAD)) {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialPageViewController")
             window!.rootViewController = vc
