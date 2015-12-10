@@ -107,11 +107,11 @@ class MainController: UIViewController, ResourceObserver {
                         .getCrimes(lat, long: lng)
                         .addObserver(self)
                         .addObserver(self.statusOverlay)
-                        .loadIfNeeded()
+                        .load()
                 }
                 
                 
-            }.addObserver(self.statusOverlay).loadIfNeeded()
+            }.addObserver(self.statusOverlay).load()
             ++i
         }
         
@@ -119,6 +119,8 @@ class MainController: UIViewController, ResourceObserver {
     }
     
     func resourceChanged(resource: Resource, event: ResourceEvent) {
+        crimesArray = []
+        
         // If we have some new data
         if (resource.latestData != nil) {
             let jsonArray = resource.json
@@ -138,6 +140,7 @@ class MainController: UIViewController, ResourceObserver {
             }
             nCrimes.text = String(self.crimesArray.count)
             loadStatistics()
+            resource.removeObservers(ownedBy: self)
         }
     }
     
@@ -227,6 +230,8 @@ class MainController: UIViewController, ResourceObserver {
         
         let lineChartDataSet = LineChartDataSet(yVals: numResolvedArr)
         let lineChartData = LineChartData(xVals: monthArray, dataSet: lineChartDataSet)
+        lineChartDataSet.circleColors = [Style.flatGold2]
+        lineChartDataSet.circleHoleColor = Style.white
         lineChartView.leftAxis.startAtZeroEnabled = false
         lineChartData.setDrawValues(false)
         lineChartView.data = lineChartData
@@ -240,6 +245,12 @@ class MainController: UIViewController, ResourceObserver {
         lineChartView.leftAxis.labelTextColor = Style.white
         lineChartView.animate(xAxisDuration: NSTimeInterval(4))
         lineChartView.backgroundColor = Style.viewBackground
+        lineChartView.gridBackgroundColor = Style.viewBackground
+        lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.leftAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.axisLineColor = Style.white
+        lineChartView.leftAxis.axisLineColor = Style.white
+
 
     }
 
