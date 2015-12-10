@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadStyles()
         
         // If first load i.e haven't setup GPS
-        if (!Store.defaults.boolForKey(Store.IS_FIRST_LOAD)) {
+        if (true) {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("TutorialPageViewController")
             window!.rootViewController = vc
@@ -84,9 +84,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).font =
             UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
         
+        let table: UITableView = UITableView.appearance()
+        table.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         // Switches styles
         let switches: UISwitch = UISwitch.appearance()
-        switches.onTintColor = Style.flatGold4
+        switches.onTintColor = Style.flatBlue4
         
         
     }
