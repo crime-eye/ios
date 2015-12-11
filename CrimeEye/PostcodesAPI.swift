@@ -12,11 +12,24 @@ class _PostcodesAPI: Service {
     
     var lat: Double = 0.0
     var lng: Double = 0.0
+    var postcode: String = ""
     
     func postcodeToLatAndLng(postcode: String) -> Resource {
         return resource("/postcodes").child(postcode)
     }
     
+    func getPostcode(lat: Double, lng : Double) -> Resource {
+        return resource("/postcodes")
+            .withParam("lon", "\(lng)")
+            .withParam("lat", "\(lat)")
+    }
+    
+    func validatePostcode(postcode: String) -> Resource{
+        return resource("/postcodes")
+            .child(postcode)
+            .child("validate")
+    }
+        
     init() {
         super.init(base: "http://api.postcodes.io")
     }

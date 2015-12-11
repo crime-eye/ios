@@ -12,4 +12,7 @@ class Store {
     static let defaults = NSUserDefaults.standardUserDefaults()
     static let USE_GPS = "USE_GPS"
     static let IS_FIRST_LOAD = "FIRST_LOAD"
+    static let POST_CODE = "POST_CODE"
+    static let LAT = "LAT"
+    static let LONG = "LONG"
 }

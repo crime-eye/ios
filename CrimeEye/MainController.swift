@@ -25,6 +25,7 @@ class MainController: UIViewController, ResourceObserver {
     var outcomesDict = [String:[String]]()
     
     // MARK: Outlets
+    @IBOutlet weak var postcodeLabel: UILabel!
     @IBOutlet weak var nCrimes: UILabel!
     @IBOutlet weak var topCrimes: UILabel!
     @IBOutlet weak var resolvedCrimes: UILabel!
@@ -34,9 +35,13 @@ class MainController: UIViewController, ResourceObserver {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusOverlay.embedIn(self)
-        loadData()
-        // Do any additional setup after loading the view, typically from a nib.
+        PostcodesAPI.lat = Store.defaults.valueForKey(Store.LAT) as! Double
+        PostcodesAPI.lng = Store.defaults.valueForKey(Store.LONG) as! Double
+        PostcodesAPI.postcode = Store.defaults.valueForKey(Store.POST_CODE) as! String
         
+        loadData()
+        
+        postcodeLabel.text = "in \(PostcodesAPI.postcode)"
         view.backgroundColor = Style.viewBackground
         nCrimes.textColor = Style.flatGold2
         resolvedCrimes.textColor = Style.flatGold2
@@ -46,27 +51,20 @@ class MainController: UIViewController, ResourceObserver {
     func loadData() {
         let lat = PostcodesAPI.lat
         let lng = PostcodesAPI.lng
+        print(lat)
+        print(lng)
         self.date = String(PoliceAPI.lastUpdated.characters.dropLast(3))
-        if (lat == 0.0){
-            PostcodesAPI.postcodeToLatAndLng("LS2 9JT").addObserver(owner: self) {
+        print(date)
+        if(date.characters.count != 7) {
+            print("1")
+            PoliceAPI.getLastUpdated().addObserver(owner: self) {
                 resource, event in
                 if case .NewData = event {
-                    let result = resource.json["result"]
-                    PostcodesAPI.lat = result["latitude"].doubleValue
-                    PostcodesAPI.lng = result["longitude"].doubleValue
-                    
-                    PoliceAPI.getLastUpdated().addObserver(owner: self) {
-                            resource2, event in
-                            PoliceAPI.lastUpdated = resource2.json["date"].stringValue
-            
-                            self.date = PoliceAPI.getYearAndMonth(PoliceAPI.lastUpdated)
-                        
-                            self.loadData()
-                        
-                    }.addObserver(self.statusOverlay).loadIfNeeded()
-                    
+                    PoliceAPI.lastUpdated = resource.json["date"].stringValue
+                    print(PoliceAPI.lastUpdated)
+                    self.loadData()
                 }
-                }.addObserver(statusOverlay).loadIfNeeded()
+            }.addObserver(self.statusOverlay).loadIfNeeded()
         }
         else if (self.date.characters.count == 7 && monthArray.isEmpty) {
                 loadOutcomes( lat, lng: lng)

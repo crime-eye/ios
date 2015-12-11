@@ -33,7 +33,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43O-vv-gTd">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="43O-vv-gTd">
                                 <rect key="frame" x="511" y="241" width="51" height="31"/>
                                 <animations/>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -70,6 +70,19 @@
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Postcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVO-1y-I05">
+                                <rect key="frame" x="40" y="300" width="122" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter here" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8C-dX-YC3">
+                                <rect key="frame" x="472" y="297" width="88" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,13 +91,16 @@
                             <constraint firstItem="BKk-ov-DrG" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="16" id="5Gi-aB-8j1"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="top" secondItem="BKk-ov-DrG" secondAttribute="bottom" constant="50" id="8h3-6Z-3eB"/>
                             <constraint firstItem="BKk-ov-DrG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" constant="70" placeholder="YES" id="APY-P4-a2A"/>
+                            <constraint firstItem="jVO-1y-I05" firstAttribute="top" secondItem="7lB-vW-CQn" secondAttribute="bottom" constant="33" id="Cyh-8C-KgC"/>
                             <constraint firstItem="BKk-ov-DrG" firstAttribute="top" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" constant="50" id="E7n-M8-r5v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q8C-dX-YC3" secondAttribute="trailing" constant="20" id="Epi-tG-GlR"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" placeholder="YES" id="L2i-fW-Ecp"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" id="PTo-xD-HNr"/>
                             <constraint firstItem="43O-vv-gTd" firstAttribute="centerY" secondItem="7lB-vW-CQn" secondAttribute="centerY" id="PWX-O6-vbv"/>
                             <constraint firstItem="Dlx-5f-Hf5" firstAttribute="top" secondItem="yzh-4o-b4U" secondAttribute="bottom" constant="30" id="ZTP-7E-95f"/>
                             <constraint firstItem="yzh-4o-b4U" firstAttribute="centerX" secondItem="Lvd-P5-OxV" secondAttribute="centerX" id="ZVI-pv-BsE"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" placeholder="YES" id="Zfp-WL-pnO"/>
+                            <constraint firstItem="Q8C-dX-YC3" firstAttribute="top" secondItem="43O-vv-gTd" secondAttribute="bottom" constant="25" id="aLB-cP-VIw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="200" id="aMI-ug-Wpv"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="200" id="bpR-D1-4Z7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" id="f39-u4-f31"/>
@@ -94,6 +110,7 @@
                             <constraint firstItem="BKk-ov-DrG" firstAttribute="top" secondItem="jMD-iJ-KqZ" secondAttribute="bottom" priority="999" constant="150" id="mQQ-uC-9E1"/>
                             <constraint firstItem="BKk-ov-DrG" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="16" id="oGP-bV-sCx"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" placeholder="YES" id="oTB-7k-DIO"/>
+                            <constraint firstItem="jVO-1y-I05" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="20" id="pQw-eh-7ZA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BKk-ov-DrG" secondAttribute="trailing" constant="16" id="rYJ-3O-1RL"/>
                             <constraint firstItem="7lB-vW-CQn" firstAttribute="leading" secondItem="Lvd-P5-OxV" secondAttribute="leadingMargin" constant="40" id="tfj-C1-FSQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="43O-vv-gTd" secondAttribute="trailing" constant="20" placeholder="YES" id="wDK-D4-rRd"/>
@@ -142,6 +159,8 @@
                     </view>
                     <connections>
                         <outlet property="gpsSwitch" destination="43O-vv-gTd" id="WLn-Mh-Kka"/>
+                        <outlet property="postcodeField" destination="Q8C-dX-YC3" id="xfh-eF-lTg"/>
+                        <outlet property="postcodeLabel" destination="jVO-1y-I05" id="oDp-Kd-Lcd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uh3-ak-yrb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -133,7 +133,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
          }
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is RadiusAnnotation) {
             return nil
         }
@@ -158,8 +158,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
         return anView
     }
     
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,
-        calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
+        calloutAccessoryControlTapped control: UIControl) {
             performSegueWithIdentifier("View Crimes", sender: view)
     }
     
