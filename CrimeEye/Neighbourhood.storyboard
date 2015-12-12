@@ -72,10 +72,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="spI-9U-edT">
                                         <rect key="frame" x="20" y="319" width="560" height="119"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XuP-a5-oOb">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XuP-a5-oOb">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Domain-100" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-aL-Nax">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Domain-100" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-aL-Nax">
                                                         <rect key="frame" x="0.0" y="0.0" width="504" height="33"/>
                                                         <animations/>
                                                         <constraints>
@@ -105,7 +105,7 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-q9-RUb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-q9-RUb">
                                                         <rect key="frame" x="514" y="0.0" width="46" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -159,11 +159,11 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lZ9-I1-dEz">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lZ9-I1-dEz">
                                                 <rect key="frame" x="0.0" y="43" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="514" height="33"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="ael-RZ-Fih"/>
@@ -192,8 +192,8 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
-                                                        <rect key="frame" x="524" y="0.0" width="36" height="33"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
+                                                        <rect key="frame" x="43" y="0.0" width="517" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -252,10 +252,10 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GtP-Uj-Qn9">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GtP-Uj-Qn9">
                                                 <rect key="frame" x="0.0" y="86" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Email-100" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-Rd-7Wl">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Email-100" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-Rd-7Wl">
                                                         <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                         <animations/>
                                                         <constraints>
@@ -285,7 +285,7 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gk-0u-XVo">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gk-0u-XVo">
                                                         <rect key="frame" x="43" y="0.0" width="517" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -346,13 +346,13 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="ArK-og-o72"/>
-                                                <exclude reference="Gw0-Rd-d6A"/>
-                                                <exclude reference="YVo-aj-Spe"/>
                                                 <exclude reference="Voa-IY-8Ru"/>
                                                 <exclude reference="Wf6-Rf-vUn"/>
                                                 <exclude reference="tRo-DS-KIJ"/>
                                                 <exclude reference="wla-Ew-AlD"/>
+                                                <exclude reference="ArK-og-o72"/>
+                                                <exclude reference="Gw0-Rd-d6A"/>
+                                                <exclude reference="YVo-aj-Spe"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -364,11 +364,11 @@
                                         <variation key="widthClass=regular" misplaced="YES">
                                             <rect key="frame" x="20" y="255" width="720" height="110"/>
                                             <mask key="constraints">
+                                                <include reference="tRo-DS-KIJ"/>
+                                                <include reference="wla-Ew-AlD"/>
                                                 <include reference="ArK-og-o72"/>
                                                 <include reference="Gw0-Rd-d6A"/>
                                                 <include reference="YVo-aj-Spe"/>
-                                                <include reference="tRo-DS-KIJ"/>
-                                                <include reference="wla-Ew-AlD"/>
                                             </mask>
                                         </variation>
                                     </stackView>

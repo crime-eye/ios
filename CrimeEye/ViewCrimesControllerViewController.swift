@@ -25,7 +25,8 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.backgroundColor = Style.viewBackground
         
         streetLabel.text = crimes![0].street
-        streetLabel.textColor = Style.sectionHeaders
+        streetLabel.adjustsFontSizeToFitWidth = true
+        streetLabel.textColor = Style.fontColor
         streetLabel.backgroundColor = Style.viewBackground
     }
     
@@ -56,7 +57,7 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         mycell.crimeIcon.image = UIImage(named: imageList[i!])
         mycell.actionTakenText.text = crimes![indexPath.row].outcome
         mycell.actionTakenText.backgroundColor = Style.viewBackground
-        mycell.actionTakenText.textColor = UIColor.whiteColor()
+        mycell.actionTakenText.textColor = Style.fontColor
         if (crimes![indexPath.row].outcome == ""){
             mycell.actionTakenText.text = "No outcome taken as of yet"
         }
