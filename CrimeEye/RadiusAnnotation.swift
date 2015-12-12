@@ -16,12 +16,14 @@ class RadiusAnnotation: NSObject, MKAnnotation {
         for location in locArray {
             counts[location.category!] = (counts[location.category!] ?? 0) + 1
         }
-        let largest = 0
+        var largest = 0
         var largestCrime = ""
         
         for (category, number) in counts {
             if number > largest {
                 largestCrime = category
+                largest = number
+                
             }
         }
         let crimeList = ["anti-social-behaviour", "bicycle-theft", "burglary", "criminal-damage-arson", "drugs", "other-crime", "other-theft", "public-order", "robbery", "shoplifting", "theft-from-the-person", "vehicle-crime", "vehicle-theft", "violent-crime"]

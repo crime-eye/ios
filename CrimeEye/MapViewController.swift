@@ -15,26 +15,30 @@ import Siesta
 class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
 UIGestureRecognizerDelegate{
     
+    let statusOverlay = ResourceStatusOverlay()
+
+    
+    
     typealias CrimeDict = Dictionary<String, AnyObject>
     var crimesArray: [CrimeDict] = []
     
     var childCrimeView: [ViewCrimesController] = []
-    
-    @IBOutlet weak var picker: UIPickerView!
-    var pickerData: [String] = [String]()
+    @IBOutlet weak var bottomBarView: UITextView!
+
+    var MAPLAT: Double = PostcodesAPI.lat
+    var MAPLONG: Double = PostcodesAPI.lng
 
     var locArray: [Location] = []
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
-        pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
+        bottomBarView.backgroundColor = Style.viewBackground
 
         setupMapView()
     }
@@ -44,25 +48,19 @@ UIGestureRecognizerDelegate{
         self.mapView.mapType = .Standard
         self.mapView.pitchEnabled = false
         
-        let lat = PostcodesAPI.lat
-        let lng = PostcodesAPI.lng
+        
         
         // Set the map region
-        let location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        let location = CLLocationCoordinate2D(latitude: MAPLAT, longitude: MAPLONG)
         let region = MKCoordinateRegionMakeWithDistance(location, 1500.0, 1500.0)
         self.mapView.setRegion(region, animated: true)
-        
-        
     }
     
     // If the map has finished loading....
     func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool) {
-    
-        let lat = PostcodesAPI.lat
-        let lng = PostcodesAPI.lng
         
         PoliceAPI
-            .getCrimes(lat, long: lng)
+            .getCrimes(MAPLAT, long: MAPLONG)
             .addObserver(self)
             .loadIfNeeded()
     }
@@ -185,10 +183,86 @@ UIGestureRecognizerDelegate{
                     self.view.frame.size.width, self.view.frame.size.height/2)})
             
             childCrimeView.append(vc!)
-            
-            
-            
-
+    }
+    
+    @IBAction func filterCrimes(sender: AnyObject) {
+    }
+    
+    @IBAction func changePostcode(sender: AnyObject) {
+        print("user wants to change postcode")
+        let alertController = UIAlertController(title: "Change postcode", message: "Please input a new postcode:", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Enter postcode"
+        }
+        
+        
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
+            if let field = alertController.textFields![0] as? UITextField {
+                if (field.text!.isEmpty){
+                    let emptyAlert = UIAlertController(title: "Postcode Empty", message: "Please enter a valid postcode.", preferredStyle: .Alert)
+                    
+                    let cancelEmptyAction = UIAlertAction(title: "OK", style: .Cancel) { (_) in
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                    emptyAlert.addAction(cancelEmptyAction)
+                    
+                    
+                    self.presentViewController(emptyAlert, animated: true, completion: nil)
+                }
+                else {
+                    PostcodesAPI.validatePostcode(field.text!).addObserver(owner: self) {
+                        resource, event in
+                        if case .NewData = event {
+                            let valid = resource.json["result"]
+                            if valid {
+                                Store.defaults.setBool(true, forKey: Store.IS_FIRST_LOAD)
+                                PostcodesAPI.postcodeToLatAndLng(field.text!).addObserver(owner: self) {
+                                    resource2, event in
+                                    if case .NewData = event {
+                                        let result = resource2.json["result"]
+                                        self.MAPLAT = result["latitude"].doubleValue
+                                        self.MAPLONG = result["longitude"].doubleValue
+                                        
+                                        PostcodesAPI.getPostcode(self.MAPLAT, lng: self.MAPLONG).addObserver(owner: self) {
+                                            resource3, event in
+                                            if case .NewData = event {
+                                                let result = resource3.json["result"]
+                                                //let newPostcode = result[0]["postcode"].stringValue
+                                                
+                                                // Set the map region
+                                                let location = CLLocationCoordinate2D(latitude: self.MAPLAT, longitude: self.MAPLONG)
+                                                let region = MKCoordinateRegionMakeWithDistance(location, 1500.0, 1500.0)
+                                                self.mapView.setRegion(region, animated: true)
+                                            }
+                                            }.addObserver(self.statusOverlay).load()
+                                        
+                                    }
+                                    }.addObserver(self.statusOverlay).load()
+                            }
+                            else {
+                                let invalidController = UIAlertController(title: "Invalid Postcode", message: "Please enter a valid postcode.", preferredStyle: .Alert)
+                                
+                                let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (_) in
+                                    self.presentViewController(alertController, animated: true, completion: nil)
+                                }
+                                invalidController.addAction(cancelAction)
+                                
+                                self.presentViewController(invalidController, animated: true, completion: nil)
+                            }
+                        }
+                    }.addObserver(self.statusOverlay).load()
+                }
+            }
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func rotated()
@@ -235,28 +309,6 @@ UIGestureRecognizerDelegate{
         
     }
     
-    
-    
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "View Crimes" {
-            if let clickView = (sender as? MKAnnotationView)?.annotation as? RadiusAnnotation {
-                if let vc = segue.destinationViewController as? ViewCrimesController {
-                    ViewController *tlc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-
-                    vc.crimes = clickView.locArray
-                    vc.view.frame = CGRectMake(-320, 0, self.view.frame.size.width, self.view.frame.size.height);
-                    self.addChildViewController(vc)
-                    self.view.addSubview(vc.view)
-                    vc.didMoveToParentViewController(self)
-                    //vc.popoverPresentationController!.delegate = self
-                    self.presentViewController(vc, animated: true, completion: nil)
-                    
-
-                }
-            }
-        }
-    }*/
-    
     func mapView(
         mapView: MKMapView, rendererForOverlay
         overlay: MKOverlay) -> MKOverlayRenderer {
@@ -289,21 +341,6 @@ UIGestureRecognizerDelegate{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    // The number of columns of data
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    // The number of rows of data
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
     }
     
     @IBAction func openDrawer(sender: UIBarButtonItem) {

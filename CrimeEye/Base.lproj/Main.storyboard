@@ -263,6 +263,7 @@
         <!--Crime-->
         <scene sceneID="WKP-N9-a3L">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-VF-N24" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapViewController" id="CVD-ON-xIR" customClass="MapViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SE5-wr-ZoC"/>
@@ -273,19 +274,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-lw-8Wj">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="493"/>
                                 <animations/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5x-Af-qPR">
+                                <rect key="frame" x="464" y="564" width="69" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="XIs-Vx-Fqj"/>
+                                </constraints>
+                                <state key="normal" title="Filter by"/>
+                                <connections>
+                                    <action selector="filterCrimes:" destination="CVD-ON-xIR" eventType="touchUpInside" id="qSi-kC-L2d"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-RV-RdX">
+                                <rect key="frame" x="0.0" y="558" width="600" height="42"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lz7-U7-rNv">
+                                <rect key="frame" x="44" y="564" width="124" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Change postcode"/>
+                                <connections>
+                                    <action selector="changePostcode:" destination="CVD-ON-xIR" eventType="touchUpInside" id="EIa-1g-kx8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4C-Bt-Ta1">
+                                <rect key="frame" x="488" y="564" width="66" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Filter by"/>
+                                <connections>
+                                    <action selector="filterCrimes:" destination="CVD-ON-xIR" eventType="touchUpInside" id="ZU7-R4-Sg1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eIH-lw-8Wj" secondAttribute="trailing" id="78U-G5-Z6F"/>
-                            <constraint firstItem="eIH-lw-8Wj" firstAttribute="bottom" secondItem="agc-kK-7Vw" secondAttribute="top" id="OCT-3h-CLG"/>
-                            <constraint firstItem="eIH-lw-8Wj" firstAttribute="top" secondItem="SE5-wr-ZoC" secondAttribute="bottom" id="YTB-xO-3Vu"/>
-                            <constraint firstItem="eIH-lw-8Wj" firstAttribute="leading" secondItem="LlP-wa-dWW" secondAttribute="leading" id="fI3-kq-KpH"/>
+                            <constraint firstItem="eIH-lw-8Wj" firstAttribute="top" secondItem="SE5-wr-ZoC" secondAttribute="bottom" id="0MX-Qn-Di3"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="leading" secondItem="Lz7-U7-rNv" secondAttribute="trailing" constant="-168" id="Bfm-Wj-0tv"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="trailing" secondItem="eIH-lw-8Wj" secondAttribute="trailing" id="EBw-Y9-7ej"/>
+                            <constraint firstItem="Lz7-U7-rNv" firstAttribute="top" secondItem="Fqv-RV-RdX" secondAttribute="bottom" constant="-36" id="F8v-2z-FXX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z5x-Af-qPR" secondAttribute="trailing" constant="47" id="Nfo-gw-h9U"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="leading" secondItem="eIH-lw-8Wj" secondAttribute="leading" id="RPb-SW-Way"/>
+                            <constraint firstItem="eIH-lw-8Wj" firstAttribute="leading" secondItem="LlP-wa-dWW" secondAttribute="leading" id="WUC-lB-h0J"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="bottom" secondItem="agc-kK-7Vw" secondAttribute="top" id="aZd-cT-LWq"/>
+                            <constraint firstItem="R4C-Bt-Ta1" firstAttribute="top" secondItem="Fqv-RV-RdX" secondAttribute="bottom" constant="-36" id="fwE-Ws-A8O"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="centerY" secondItem="z5x-Af-qPR" secondAttribute="centerY" id="gAQ-7z-Eb1"/>
+                            <constraint firstItem="R4C-Bt-Ta1" firstAttribute="leading" secondItem="Fqv-RV-RdX" secondAttribute="trailing" constant="-112" id="iqX-n2-Dhe"/>
+                            <constraint firstAttribute="trailing" secondItem="eIH-lw-8Wj" secondAttribute="trailing" id="kvJ-pe-JsS"/>
+                            <constraint firstItem="Fqv-RV-RdX" firstAttribute="top" secondItem="eIH-lw-8Wj" secondAttribute="bottom" constant="1" id="ldn-Bs-90I"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eIH-lw-8Wj" secondAttribute="bottom" constant="43" id="oys-IT-yYP"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Crime" id="tjO-X8-eLD">
                         <barButtonItem key="leftBarButtonItem" image="Menu-100" id="5pa-a9-OFD">
                             <connections>
@@ -294,12 +340,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bottomBarView" destination="Fqv-RV-RdX" id="cDD-mR-cq3"/>
                         <outlet property="mapView" destination="eIH-lw-8Wj" id="Jth-AF-FwB"/>
                         <segue destination="c2t-WG-Epx" kind="presentation" identifier="View Crimes" id="ouF-uV-4fN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TxL-VF-N24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1570" y="-194"/>
         </scene>
@@ -367,32 +414,32 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y9-NT-obe">
-                                                    <rect key="frame" x="75" y="24" width="491" height="56"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Trial text" translatesAutoresizingMaskIntoConstraints="NO" id="LTw-1u-cXx">
+                                                    <rect key="frame" x="75" y="34" width="477" height="62"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstItem="LTw-1u-cXx" firstAttribute="leading" secondItem="LCh-pL-DhZ" secondAttribute="trailing" constant="17" id="01g-59-PUz"/>
+                                                <constraint firstItem="LTw-1u-cXx" firstAttribute="top" secondItem="BYT-Kl-dil" secondAttribute="bottom" constant="5" id="KGg-kn-umH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BYT-Kl-dil" secondAttribute="bottom" constant="67" id="MQp-1N-v45"/>
-                                                <constraint firstItem="8Y9-NT-obe" firstAttribute="trailing" secondItem="BYT-Kl-dil" secondAttribute="trailing" id="O7v-Al-oTF"/>
-                                                <constraint firstItem="8Y9-NT-obe" firstAttribute="top" secondItem="r4K-Z5-yuc" secondAttribute="topMargin" constant="16" id="bBT-Up-m5Q"/>
+                                                <constraint firstItem="LTw-1u-cXx" firstAttribute="centerY" secondItem="r4K-Z5-yuc" secondAttribute="centerY" constant="13" id="SSK-f9-43u"/>
+                                                <constraint firstItem="LTw-1u-cXx" firstAttribute="trailing" secondItem="r4K-Z5-yuc" secondAttribute="trailingMargin" id="YT6-1N-aWM"/>
                                                 <constraint firstItem="BYT-Kl-dil" firstAttribute="leading" secondItem="LCh-pL-DhZ" secondAttribute="trailing" constant="17" id="bbT-AD-JbG"/>
-                                                <constraint firstItem="8Y9-NT-obe" firstAttribute="leading" secondItem="LCh-pL-DhZ" secondAttribute="trailing" constant="17" id="eJE-G8-0x3"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BYT-Kl-dil" secondAttribute="trailing" constant="-14" id="hbr-Fh-GnR"/>
                                                 <constraint firstItem="BYT-Kl-dil" firstAttribute="top" secondItem="r4K-Z5-yuc" secondAttribute="topMargin" id="icO-n4-Deq"/>
                                                 <constraint firstItem="BYT-Kl-dil" firstAttribute="top" secondItem="GCJ-b2-gET" secondAttribute="top" id="ogU-3r-1Kx"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="GCJ-b2-gET" secondAttribute="leading" id="r2p-FS-QDN"/>
-                                                <constraint firstItem="8Y9-NT-obe" firstAttribute="centerY" secondItem="r4K-Z5-yuc" secondAttribute="centerY" id="zJ6-cy-gQF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
                                             <outlet property="CrimeText" destination="BYT-Kl-dil" id="rEW-aJ-jjG"/>
-                                            <outlet property="actionTakenText" destination="8Y9-NT-obe" id="Ro9-Tk-8xh"/>
+                                            <outlet property="actionTakenText" destination="LTw-1u-cXx" id="WfQ-id-xMf"/>
                                             <outlet property="crimeIcon" destination="LCh-pL-DhZ" id="7vy-FX-6t2"/>
                                         </connections>
                                     </tableViewCell>

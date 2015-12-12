@@ -55,6 +55,8 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         mycell.CrimeText.text = categoryList[i!]
         mycell.crimeIcon.image = UIImage(named: imageList[i!])
         mycell.actionTakenText.text = crimes![indexPath.row].outcome
+        mycell.actionTakenText.backgroundColor = Style.viewBackground
+        mycell.actionTakenText.textColor = UIColor.whiteColor()
         if (crimes![indexPath.row].outcome == ""){
             mycell.actionTakenText.text = "No outcome taken as of yet"
         }
