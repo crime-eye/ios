@@ -169,6 +169,18 @@ UIGestureRecognizerDelegate{
         calloutAccessoryControlTapped control: UIControl) {
             //performSegueWithIdentifier("View Crimes", sender: view)
             let annView = view.annotation as? RadiusAnnotation
+            
+            var center = annView?.coordinate;
+            center!.latitude -= self.mapView.region.span.latitudeDelta * 0.25;
+
+            self.mapView.setCenterCoordinate(center!, animated: true)
+            
+            while childCrimeView.count > 0 {
+                let vc = childCrimeView[0]
+                vc.view.removeFromSuperview()
+                childCrimeView.removeFirst()
+            }
+            
             let vc = self.storyboard!.instantiateViewControllerWithIdentifier("CrimesView") as? ViewCrimesController
             
             vc!.crimes = annView!.locArray
@@ -275,8 +287,14 @@ UIGestureRecognizerDelegate{
     {
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
         {
+            var center = self.mapView.centerCoordinate;
+            center.latitude += self.mapView.region.span.latitudeDelta * 0.13;
+            
+            self.mapView.setCenterCoordinate(center, animated: false)
             if childCrimeView.count != 0 {
                 while childCrimeView.count > 1 {
+                    let vc = childCrimeView[0]
+                    vc.view.removeFromSuperview()
                     childCrimeView.removeFirst()
                 }
                 let vc = childCrimeView[0]
@@ -295,8 +313,14 @@ UIGestureRecognizerDelegate{
         
         if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
         {
+            var center = self.mapView.centerCoordinate;
+            center.latitude -= self.mapView.region.span.latitudeDelta * 0.14;
+            
+            self.mapView.setCenterCoordinate(center, animated: false)
             if childCrimeView.count != 0 {
                 while childCrimeView.count > 1 {
+                    let vc = childCrimeView[0]
+                    vc.view.removeFromSuperview()
                     childCrimeView.removeFirst()
                 }
                 let vc = childCrimeView[0]
