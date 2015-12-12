@@ -43,9 +43,9 @@ class MainController: UIViewController, ResourceObserver {
         
         postcodeLabel.text = "in \(PostcodesAPI.postcode)"
         view.backgroundColor = Style.viewBackground
-        nCrimes.textColor = Style.flatGold2
-        resolvedCrimes.textColor = Style.flatGold2
-        topCrimes.textColor = Style.flatGold2
+        nCrimes.textColor = Style.sectionHeaders
+        resolvedCrimes.textColor = Style.sectionHeaders
+        topCrimes.textColor = Style.sectionHeaders
     }
     
     func loadData() {
@@ -200,7 +200,7 @@ class MainController: UIViewController, ResourceObserver {
         
         var colors: [UIColor] = []
         
-        colors = [Style.flatRed1, Style.white, Style.flatGold2]
+        colors = [Style.flatRed3, Style.flatBlue5, Style.flatGold4]
         
         pieChartDataSet.colors = colors
         
@@ -211,7 +211,7 @@ class MainController: UIViewController, ResourceObserver {
         pieChartView.rotationWithTwoFingers = true
         pieChartView.animate(xAxisDuration: NSTimeInterval(5))
         pieChartView.legend.position = .RightOfChart
-        pieChartView.legend.textColor = Style.white
+        pieChartView.legend.textColor = Style.fontColor
         pieChartView.descriptionText = ""
         pieChartView.backgroundColor = Style.viewBackground
         
@@ -228,7 +228,7 @@ class MainController: UIViewController, ResourceObserver {
         
         let lineChartDataSet = LineChartDataSet(yVals: numResolvedArr)
         let lineChartData = LineChartData(xVals: monthArray, dataSet: lineChartDataSet)
-        lineChartDataSet.circleColors = [Style.flatGold2]
+        lineChartDataSet.circleColors = [Style.circleColor]
         lineChartDataSet.circleHoleColor = Style.white
         lineChartView.leftAxis.startAtZeroEnabled = false
         lineChartData.setDrawValues(false)
@@ -238,16 +238,16 @@ class MainController: UIViewController, ResourceObserver {
         lineChartView.rightAxis.enabled = false
         lineChartView.xAxis.labelPosition = .Bottom
         lineChartView.leftAxis.xOffset = 9.0
-        lineChartView.xAxis.labelTextColor = Style.white
+        lineChartView.xAxis.labelTextColor = Style.fontColor
         lineChartView.xAxis.avoidFirstLastClippingEnabled = true
-        lineChartView.leftAxis.labelTextColor = Style.white
+        lineChartView.leftAxis.labelTextColor = Style.fontColor
         lineChartView.animate(xAxisDuration: NSTimeInterval(4))
         lineChartView.backgroundColor = Style.viewBackground
         lineChartView.gridBackgroundColor = Style.viewBackground
         lineChartView.xAxis.drawGridLinesEnabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.axisLineColor = Style.white
-        lineChartView.leftAxis.axisLineColor = Style.white
+        lineChartView.xAxis.axisLineColor = Style.fontColor
+        lineChartView.leftAxis.axisLineColor = Style.fontColor
 
 
     }

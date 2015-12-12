@@ -43,12 +43,15 @@ struct Style {
     // Navbar
     static var navbarBackground = flatBlue3
     static var navbarTextColor  = white
-    static var viewBackground   = flatBlue2
+    static var viewBackground   = white
     static var warningColor     = flatRed5
     
     // General
-    static var sectionHeaders   = flatGold1
-    static var fontColor        = white
+    static var sectionHeaders   = flatGold4
+    static var fontColor        = flatBlue3
+    
+    // Line chart
+    static var circleColor      = flatBlue1
     
     // Page view controllers
     static var pageControlDotNormal   = UIColor.grayColor()

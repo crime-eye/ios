@@ -206,7 +206,7 @@
             </objects>
             <point key="canvasLocation" x="296" y="470"/>
         </scene>
-        <!--Neighbourhood-->
+        <!--Neighbourhood Controller-->
         <scene sceneID="vVV-dB-Xs2">
             <objects>
                 <viewController storyboardIdentifier="NeighbourhoodController" id="ZOW-6K-PzF" customClass="NeighbourhoodController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmL-Zz-JcA">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </containerView>
                         </subviews>
@@ -229,11 +229,11 @@
                             <constraint firstAttribute="trailing" secondItem="FmL-Zz-JcA" secondAttribute="trailing" id="Zhu-KT-4ke"/>
                             <constraint firstItem="FmL-Zz-JcA" firstAttribute="leading" secondItem="oSu-La-oRU" secondAttribute="leading" id="qkW-MF-s7r"/>
                             <constraint firstItem="FmL-Zz-JcA" firstAttribute="bottom" secondItem="agK-V6-JNn" secondAttribute="top" id="u21-PE-k9i"/>
-                            <constraint firstItem="FmL-Zz-JcA" firstAttribute="top" secondItem="ou6-5V-gU1" secondAttribute="bottom" id="wDU-aj-OAd"/>
+                            <constraint firstItem="FmL-Zz-JcA" firstAttribute="top" secondItem="ou6-5V-gU1" secondAttribute="bottom" constant="-64" id="wDU-aj-OAd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Neighbourhood" id="PJt-QB-xXx">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="G6p-KS-Uef">
+                    <navigationItem key="navigationItem" id="PJt-QB-xXx">
+                        <barButtonItem key="leftBarButtonItem" image="Menu-100" id="G6p-KS-Uef">
                             <connections>
                                 <action selector="openDrawer:" destination="ZOW-6K-PzF" id="NzP-us-Tvs"/>
                             </connections>
@@ -335,7 +335,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Stop and Search" id="Mje-xR-Q8p">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="jsJ-0Z-blh">
+                        <barButtonItem key="leftBarButtonItem" image="Menu-100" id="jsJ-0Z-blh">
                             <connections>
                                 <action selector="openDrawer:" destination="mhZ-h8-4Au" id="KtI-Lj-ZAO"/>
                             </connections>

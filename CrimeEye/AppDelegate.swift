@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Label default text colour
         let label: UILabel = UILabel.appearance()
-        label.textColor = UIColor.whiteColor()
+        label.textColor = Style.fontColor
         // If we're in the tutorial sections, default colour is blue
         UILabel.appearanceWhenContainedInInstancesOfClasses([TutorialPageViewController.self]).textColor = Style.flatBlue3
         UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).textColor = Style.flatBlue3
