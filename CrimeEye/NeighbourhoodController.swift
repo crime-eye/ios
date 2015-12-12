@@ -2,8 +2,8 @@
 //  NeighbourhoodController.swift
 //  CrimeEye
 //
-//  Created by Kieran Haden on 26/11/2015.
-//  Copyright © 2015 Gurpreet Paul. All rights reserved.
+//  Created by Gurpreet Paul on 12/12/2015.
+//  Copyright © 2015 Crime Eye. All rights reserved.
 //
 
 import UIKit
@@ -11,10 +11,25 @@ import MMDrawerController
 
 class NeighbourhoodController: UIViewController {
 
+    @IBOutlet weak var container: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let sboard = UIStoryboard(name: "Neighbourhood", bundle: nil)
+        let vc = sboard.instantiateViewControllerWithIdentifier("TabBarController")
+        
+        // Notify the controller that we have a child view
+        self.addChildViewController(vc)
+        
+        // Adjust sizes
+        vc.view.frame = CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.height);
+        
+        // Add the vc to the container
+        self.container.addSubview(vc.view)
+        
+        // Register the parent view controller
+        vc.didMoveToParentViewController(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +37,7 @@ class NeighbourhoodController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     @IBAction func openDrawer(sender: UIBarButtonItem) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)

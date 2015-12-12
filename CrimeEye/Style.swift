@@ -43,7 +43,7 @@ struct Style {
     // Navbar
     static var navbarBackground = flatBlue3
     static var navbarTextColor  = white
-    static var viewBackground   = flatBlue3
+    static var viewBackground   = flatBlue2
     static var warningColor     = flatRed5
     
     // General
