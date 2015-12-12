@@ -13,10 +13,12 @@ import MMDrawerController
 import Siesta
 
 class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
-                         UIPickerViewDelegate, UIPickerViewDataSource {
+UIGestureRecognizerDelegate{
     
     typealias CrimeDict = Dictionary<String, AnyObject>
     var crimesArray: [CrimeDict] = []
+    
+    var childCrimeView: [ViewCrimesController] = []
     
     @IBOutlet weak var picker: UIPickerView!
     var pickerData: [String] = [String]()
@@ -29,6 +31,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         pickerData = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]
 
@@ -47,6 +51,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
         let location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         let region = MKCoordinateRegionMakeWithDistance(location, 1500.0, 1500.0)
         self.mapView.setRegion(region, animated: true)
+        
+        
     }
     
     // If the map has finished loading....
@@ -83,12 +89,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
                     let lat         = crimeLoc["latitude"].doubleValue
                     let lng         = crimeLoc["longitude"].doubleValue
                     let street      = crimeLoc["street"]["name"].stringValue
+                    var outcome =
+                        crimes["outcome_status"].stringValue
+                    if (outcome != "null") {
+                        outcome = crimes["outcome_status"]["category"].stringValue
+                    }
                     
                     let loc = Location(lat: lat,
                         lon: lng,
                         category: cat,
                         month: month,
-                        street: street)
+                        street: street,
+                        outcome: outcome)
                     
                     let coords = loc.coordinate
                     let coordString = String(loc.coordinate.latitude) + " " +
@@ -102,7 +114,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
                         val.addLocation(loc)
                     }
                 }
-                
                 var overlays = [MKCircle] ()
                 var radiiPins = [RadiusAnnotation] ()
 
@@ -115,22 +126,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
                     overlay.accessibilityElements = [uicolor]
                     overlays.append(overlay)
                     radiiPins.append(annotation.1)
-                    
-                    
                 }
                 dispatch_async(dispatch_get_main_queue()) {
+                    
+                    let annotationsToRemove = self.mapView.annotations.filter
+                        { $0 !== self.mapView.userLocation }
+                    self.mapView.removeAnnotations( annotationsToRemove )
 
                     self.mapView.addOverlays(overlays)
                     self.mapView.addAnnotations(radiiPins)
 
                 }
-                
                 resource.removeObservers(ownedBy: self)
-
-                
             }
-                    
-         }
+        }
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -160,18 +169,93 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
         calloutAccessoryControlTapped control: UIControl) {
-            performSegueWithIdentifier("View Crimes", sender: view)
+            //performSegueWithIdentifier("View Crimes", sender: view)
+            let annView = view.annotation as? RadiusAnnotation
+            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("CrimesView") as? ViewCrimesController
+            
+            vc!.crimes = annView!.locArray
+            let bottomY = UIScreen.mainScreen().bounds.height
+            vc!.view.frame = CGRectMake(0, bottomY, self.view.frame.size.width, self.view.frame.size.height/2);
+            self.addChildViewController(vc!)
+            self.view.addSubview(vc!.view)
+            vc!.didMoveToParentViewController(self)
+            
+            UIView.animateWithDuration(0.5, animations: {
+                vc!.view.frame = CGRectMake(0, bottomY - self.view.frame.size.height/2,
+                    self.view.frame.size.width, self.view.frame.size.height/2)})
+            
+            childCrimeView.append(vc!)
+            
+            
+            
+
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func rotated()
+    {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            if childCrimeView.count != 0 {
+                while childCrimeView.count > 1 {
+                    childCrimeView.removeFirst()
+                }
+                let vc = childCrimeView[0]
+                let bottomY = UIScreen.mainScreen().bounds.height
+                vc.view.frame = CGRectMake(0, bottomY, self.view.frame.size.width, self.view.frame.size.height/2);
+                self.addChildViewController(vc)
+                self.view.addSubview(vc.view)
+                vc.didMoveToParentViewController(self)
+                
+                UIView.animateWithDuration(0.0, animations: {
+                    vc.view.frame = CGRectMake(0, bottomY - self.view.frame.size.height/2,
+                        self.view.frame.size.width, self.view.frame.size.height/2)})
+                
+            }
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            if childCrimeView.count != 0 {
+                while childCrimeView.count > 1 {
+                    childCrimeView.removeFirst()
+                }
+                let vc = childCrimeView[0]
+                let bottomY = UIScreen.mainScreen().bounds.height
+                vc.view.frame = CGRectMake(0, bottomY, self.view.frame.size.width, self.view.frame.size.height/2);
+                self.addChildViewController(vc)
+                self.view.addSubview(vc.view)
+                vc.didMoveToParentViewController(self)
+                
+                UIView.animateWithDuration(0.0, animations: {
+                    vc.view.frame = CGRectMake(0, bottomY - self.view.frame.size.height/2,
+                        self.view.frame.size.width, self.view.frame.size.height/2)})
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "View Crimes" {
             if let clickView = (sender as? MKAnnotationView)?.annotation as? RadiusAnnotation {
                 if let vc = segue.destinationViewController as? ViewCrimesController {
+                    ViewController *tlc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+
                     vc.crimes = clickView.locArray
+                    vc.view.frame = CGRectMake(-320, 0, self.view.frame.size.width, self.view.frame.size.height);
+                    self.addChildViewController(vc)
+                    self.view.addSubview(vc.view)
+                    vc.didMoveToParentViewController(self)
+                    //vc.popoverPresentationController!.delegate = self
+                    self.presentViewController(vc, animated: true, completion: nil)
+                    
+
                 }
             }
         }
-    }
+    }*/
     
     func mapView(
         mapView: MKMapView, rendererForOverlay
@@ -227,4 +311,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
 
+}
+
+class HalfSizePresentationController : UIPresentationController {
+    override func frameOfPresentedViewInContainerView() -> CGRect {
+        return CGRect(x: 0, y: 0, width: containerView!.bounds.width, height: containerView!.bounds.height/2)
+    }
 }

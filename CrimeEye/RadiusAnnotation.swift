@@ -24,44 +24,13 @@ class RadiusAnnotation: NSObject, MKAnnotation {
                 largestCrime = category
             }
         }
-        if (largestCrime == "violent-crime") {
-            return UIColor.blueColor()
-        }
-        if (largestCrime == "public-order") {
-            return UIColor.greenColor()
-        }
-        if (largestCrime == "anti-social-behaviour") {
-            return UIColor.redColor()
-        }
-        if (largestCrime == "burglary") {
-            return UIColor.blackColor()
-        }
-        if (largestCrime == "shoplifting") {
-            return UIColor.cyanColor()
-        }
-        if (largestCrime == "bicycle-theft") {
-            return UIColor.darkGrayColor()
-        }
-        if (largestCrime == "burglary") {
-            return UIColor.grayColor()
-        }
-        if (largestCrime == "burglary") {
-            return UIColor.yellowColor()
-        }
-        if (largestCrime == "other-theft") {
-            return UIColor.flatForestGreenColor()
-        }
-        if (largestCrime == "vehicle-crime") {
-            return UIColor.flatLimeColor()
-        }
-        if (largestCrime == "vehicle-theft") {
-            return UIColor.flatOrangeColor()
-        }
-        if (largestCrime == "theft-from-the-person") {
-            return UIColor.flatPinkColor()
-        }
-        if (largestCrime == "criminal-damage-arson") {
-            return UIColor.flatPurpleColor()
+        let crimeList = ["anti-social-behaviour", "bicycle-theft", "burglary", "criminal-damage-arson", "drugs", "other-crime", "other-theft", "public-order", "robbery", "shoplifting", "theft-from-the-person", "vehicle-crime", "vehicle-theft", "violent-crime"]
+        let colourList = [UIColor.blueColor(), UIColor.greenColor(), UIColor.redColor(), UIColor.cyanColor(), UIColor.darkGrayColor(), UIColor.yellowColor(), UIColor.flatForestGreenColor(), UIColor.flatLimeColor(), UIColor.flatOrangeColor(), UIColor.flatPinkColor(), UIColor.flatPurpleColor(),
+            UIColor.flatPlumColor(),
+        UIColor.flatPowderBlueColor(), UIColor.flatSandColor()]
+        if crimeList.contains(largestCrime) {
+            let i = crimeList.indexOf(largestCrime)
+            return colourList[i!]
         }
         else {
             return UIColor.flatWhiteColor()

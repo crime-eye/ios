@@ -14,14 +14,16 @@ class Location: NSObject, MKAnnotation {
     var category: String?
     var month: String!
     var street: String!
+    var outcome: String!
     
     var url: NSURL?
     
-    init(lat: Double, lon: Double, category: String!, month: String!, street: String!) {
+    init(lat: Double, lon: Double, category: String!, month: String!, street: String!, outcome: String!) {
         self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         self.category = category!
         self.month = month
         self.street = street
+        self.outcome = outcome
     }
     
     var title: String? {
