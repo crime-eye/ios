@@ -233,6 +233,12 @@ UIGestureRecognizerDelegate{
                                                 let result = resource3.json["result"]
                                                 //let newPostcode = result[0]["postcode"].stringValue
                                                 
+                                                let annotationsToRemove = self.mapView.annotations.filter
+                                                    { $0 !== self.mapView.userLocation }
+                                                let overlaysToRemove = self.mapView.overlays.filter
+                                                    { $0 !== self.mapView.userLocation }
+                                                self.mapView.removeAnnotations( annotationsToRemove )
+                                                self.mapView.removeOverlays(overlaysToRemove)
                                                 // Set the map region
                                                 let location = CLLocationCoordinate2D(latitude: self.MAPLAT, longitude: self.MAPLONG)
                                                 let region = MKCoordinateRegionMakeWithDistance(location, 1500.0, 1500.0)
