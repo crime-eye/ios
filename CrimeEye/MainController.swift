@@ -56,7 +56,6 @@ class MainController: UIViewController, ResourceObserver {
         self.date = String(PoliceAPI.lastUpdated.characters.dropLast(3))
         print(date)
         if(date.characters.count != 7) {
-            print("1")
             PoliceAPI.getLastUpdated().addObserver(owner: self) {
                 resource, event in
                 if case .NewData = event {

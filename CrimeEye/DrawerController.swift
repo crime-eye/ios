@@ -13,11 +13,14 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     var lastSelected = 0
     
+    @IBOutlet var settingsButton: UIButton!
+    
     // Menu items to display
     var menuItems: [String] = ["Home", "Crime", "Neighbourhood", "Stop and Search"];
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsButton.setTitleColor(Style.fontColor, forState: .Normal)
         self.navigationController?.navigationBar.translucent = false;
     }
     
@@ -58,7 +61,7 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 case 3:
                     switchTo("SearchController")
                     break;
-                    
+                
                 default:
                     print("Error: Could not find controller. " +
                         "\(menuItems[indexPath.row]) is selected.")
@@ -67,6 +70,10 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else { closeDrawer() }
         
         lastSelected = indexPath.row
+    }
+    @IBAction func settingsButton(sender: UIButton) {
+        switchTo("SettingsController")
+        lastSelected = 4
     }
     
     // Switches to a view controller given a name

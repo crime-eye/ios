@@ -31,6 +31,7 @@
 		E7DB66BB1C1CA2F800ADCF86 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
+		F65987611C1D04D800DF8902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65987601C1D04D800DF8902 /* SettingsController.swift */; };
 		F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */; };
 		F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD21C07CE5900DB99B9 /* Location.swift */; };
 		FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4581881C108C9200C7223D /* RadiusAnnotation.swift */; };
@@ -90,6 +91,7 @@
 		E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F65987601C1D04D800DF8902 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcodesAPI.swift; sourceTree = "<group>"; };
 		F6ECEFD21C07CE5900DB99B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FF4581881C108C9200C7223D /* RadiusAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusAnnotation.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
 				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
 				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
+				F65987601C1D04D800DF8902 /* SettingsController.swift */,
 				FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */,
 				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
 				FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */,
@@ -482,6 +485,7 @@
 				E7DB66BB1C1CA2F800ADCF86 /* ContactViewController.swift in Sources */,
 				E70AE1111C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
+				F65987611C1D04D800DF8902 /* SettingsController.swift in Sources */,
 				F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */,
 				FFEB7AB61C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift in Sources */,
 			);
