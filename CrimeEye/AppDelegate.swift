@@ -100,16 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resource, event in
                 PoliceAPI.lastUpdated = resource.json["date"].stringValue
         }.load()
-        
-//        PostcodesAPI.postcodeToLatAndLng("LS2 9JT").addObserver(owner: self) {
-//            resource, event in
-//            if case .NewData = event {
-//                let result = resource.json["result"]
-//                PostcodesAPI.lat = result["latitude"].doubleValue
-//                PostcodesAPI.lng = result["longitude"].doubleValue
-//            }
-//        }.load()
-        
     }
 
     func applicationWillResignActive(application: UIApplication) {

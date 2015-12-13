@@ -16,7 +16,12 @@ import Siesta
 class _PoliceAPI: Service {
     
     var lastUpdated = ""
+    var monthArray = [String]()
+    var outcomesDict = [String:[String]]()
     
+    typealias CrimeDict = Dictionary<String, AnyObject>
+    var crimesArray: [CrimeDict] = []
+        
     /**
      Get a list of street level crimes.
      - parameters:

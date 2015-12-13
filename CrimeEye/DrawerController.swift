@@ -26,6 +26,7 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.scrollEnabled = false
         return menuItems.count;
     }
     

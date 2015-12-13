@@ -14,15 +14,14 @@ import Charts
 
 class MainController: UIViewController, ResourceObserver {
     
+    typealias CrimeDict = Dictionary<String, AnyObject>
+    
     var date: String = ""
-    var monthArray = [String]()
+    var monthArray = PoliceAPI.monthArray
+    var crimesArray = PoliceAPI.crimesArray
+    var outcomesDict = PoliceAPI.outcomesDict
     
     let statusOverlay = ResourceStatusOverlay()
-    
-    typealias CrimeDict = Dictionary<String, AnyObject>
-    var crimesArray: [CrimeDict] = []
-    
-    var outcomesDict = [String:[String]]()
     
     // MARK: Outlets
     @IBOutlet weak var postcodeLabel: UILabel!
@@ -39,13 +38,22 @@ class MainController: UIViewController, ResourceObserver {
         PostcodesAPI.lng = Store.defaults.valueForKey(Store.LONG) as! Double
         PostcodesAPI.postcode = Store.defaults.valueForKey(Store.POST_CODE) as! String
         
-        loadData()
+        if (!self.crimesArray.isEmpty && !self.outcomesDict.isEmpty && !self.monthArray.isEmpty) {
+            loadStatistics()
+        }
+        else {
+            loadData()
+        }
         
         postcodeLabel.text = "in \(PostcodesAPI.postcode)"
         view.backgroundColor = Style.viewBackground
         nCrimes.textColor = Style.sectionHeaders
         resolvedCrimes.textColor = Style.sectionHeaders
         topCrimes.textColor = Style.sectionHeaders
+        }
+    
+    @IBAction func refreshButtion(sender: UIBarButtonItem) {
+        loadData()
     }
     
     func loadData() {
@@ -53,23 +61,17 @@ class MainController: UIViewController, ResourceObserver {
         let lng = PostcodesAPI.lng
         print(lat)
         print(lng)
-        self.date = String(PoliceAPI.lastUpdated.characters.dropLast(3))
-        print(date)
-        if(date.characters.count != 7) {
-            PoliceAPI.getLastUpdated().addObserver(owner: self) {
-                resource, event in
-                if case .NewData = event {
-                    PoliceAPI.lastUpdated = resource.json["date"].stringValue
-                    print(PoliceAPI.lastUpdated)
-                    self.loadData()
-                }
-            }.addObserver(self.statusOverlay).loadIfNeeded()
-        }
-        else if (self.date.characters.count == 7 && monthArray.isEmpty) {
-                loadOutcomes( lat, lng: lng)
-        }
-        else{
-        }
+    
+        PoliceAPI.getLastUpdated().addObserver(owner: self) {
+            resource, event in
+            if case .NewData = event {
+                PoliceAPI.lastUpdated = resource.json["date"].stringValue
+                self.date = String(PoliceAPI.lastUpdated.characters.dropLast(3))
+                print(PoliceAPI.lastUpdated)
+                resource.removeObservers(ownedBy: self)
+                self.loadOutcomes(lat, lng: lng)
+            }
+        }.addObserver(self.statusOverlay).load()
         
     }
     
@@ -86,6 +88,7 @@ class MainController: UIViewController, ResourceObserver {
         let date6 = self.date
         
         monthArray = [date1, date2, date3, date4, date5, date6]
+        PoliceAPI.monthArray = monthArray
         
         var i = 0;
         for monthDate in monthArray{
@@ -112,7 +115,6 @@ class MainController: UIViewController, ResourceObserver {
             ++i
         }
         
-        
     }
     
     func resourceChanged(resource: Resource, event: ResourceEvent) {
@@ -135,7 +137,8 @@ class MainController: UIViewController, ResourceObserver {
                 self.crimesArray.append(crimeDict)
                 
             }
-            nCrimes.text = String(self.crimesArray.count)
+            PoliceAPI.outcomesDict = self.outcomesDict
+            PoliceAPI.crimesArray = crimesArray
             loadStatistics()
             resource.removeObservers(ownedBy: self)
         }
@@ -167,6 +170,8 @@ class MainController: UIViewController, ResourceObserver {
     }
     
     func loadStatistics(){
+        nCrimes.text = String(self.crimesArray.count)
+        
         var catDict = [String: Double]()
         for crime in crimesArray{
             if (catDict[String(crime["category"]!)] == nil){
@@ -213,8 +218,6 @@ class MainController: UIViewController, ResourceObserver {
         pieChartView.legend.textColor = Style.fontColor
         pieChartView.descriptionText = ""
         pieChartView.backgroundColor = Style.viewBackground
-        
-        
         
         var numResolvedArr: [ChartDataEntry] = []
         

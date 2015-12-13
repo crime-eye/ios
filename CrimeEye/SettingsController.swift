@@ -98,6 +98,9 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
                         PostcodesAPI.postcode = result[0]["postcode"].stringValue
                         Store.defaults.setValue(PostcodesAPI.postcode, forKey: Store.POST_CODE)
                         
+                        PoliceAPI.monthArray = []
+                        PoliceAPI.crimesArray = []
+                        PoliceAPI.outcomesDict = [String:[String]]()
                         let app = UIApplication.sharedApplication().delegate as! AppDelegate
                         app.loadMainView()
                     }
@@ -143,6 +146,9 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
                                             PostcodesAPI.postcode = result[0]["postcode"].stringValue
                                             Store.defaults.setValue(PostcodesAPI.postcode, forKey: Store.POST_CODE)
                                             
+                                            PoliceAPI.monthArray = []
+                                            PoliceAPI.crimesArray = []
+                                            PoliceAPI.outcomesDict = [String:[String]]()                                            
                                             let app = UIApplication.sharedApplication().delegate as! AppDelegate
                                             app.loadMainView()
                                         }
