@@ -338,6 +338,107 @@
             </objects>
             <point key="canvasLocation" x="1726" y="519"/>
         </scene>
+        <!--Filter Crime Controller-->
+        <scene sceneID="TpT-pG-Tml">
+            <objects>
+                <viewController storyboardIdentifier="FilterView" id="wfO-Qj-5CV" customClass="FilterCrimeController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fK9-v5-4ey"/>
+                        <viewControllerLayoutGuide type="bottom" id="2gG-Ro-ZRF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oN7-VY-UXb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8xL-bx-CUJ">
+                                <rect key="frame" x="20" y="131" width="560" height="408"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" id="ecg-aI-gdI" customClass="CustomTableViewCell" customModule="CrimeEye" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ecg-aI-gdI" id="jZJ-2x-Swj">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSl-5Y-RAL">
+                                                    <rect key="frame" x="8" y="11" width="552" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="mSl-5Y-RAL" firstAttribute="centerY" secondItem="jZJ-2x-Swj" secondAttribute="centerY" id="LYt-8Z-2Yq"/>
+                                                <constraint firstItem="mSl-5Y-RAL" firstAttribute="leading" secondItem="jZJ-2x-Swj" secondAttribute="leadingMargin" id="aZ5-4q-7Zo"/>
+                                                <constraint firstAttribute="trailing" secondItem="mSl-5Y-RAL" secondAttribute="trailing" id="t7H-Fb-n0t"/>
+                                                <constraint firstItem="mSl-5Y-RAL" firstAttribute="top" secondItem="jZJ-2x-Swj" secondAttribute="topMargin" constant="3" id="tdS-dT-ElC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="filterText" destination="mSl-5Y-RAL" id="gsx-9A-rLC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wfO-Qj-5CV" id="eLd-J5-oBx"/>
+                                    <outlet property="delegate" destination="wfO-Qj-5CV" id="SPy-20-rWZ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVX-6P-uyj">
+                                <rect key="frame" x="459" y="556" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Filter"/>
+                                <connections>
+                                    <action selector="confirmSelection:" destination="wfO-Qj-5CV" eventType="touchUpInside" id="DlK-Hh-aZy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v1-Wt-DTk">
+                                <rect key="frame" x="82" y="556" width="53" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelFilter:" destination="wfO-Qj-5CV" eventType="touchUpInside" id="HFA-7W-CFD"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please select a category to filter by crime:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5h9-s9-CSR">
+                                <rect key="frame" x="20" y="88" width="560" height="35"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2gG-Ro-ZRF" firstAttribute="top" secondItem="4v1-Wt-DTk" secondAttribute="bottom" constant="14" id="48O-kx-G92"/>
+                            <constraint firstAttribute="bottom" secondItem="8xL-bx-CUJ" secondAttribute="bottom" constant="61" id="EoB-c8-0OB"/>
+                            <constraint firstItem="8xL-bx-CUJ" firstAttribute="top" secondItem="fK9-v5-4ey" secondAttribute="bottom" constant="67" id="FFl-nW-FEZ"/>
+                            <constraint firstAttribute="bottom" secondItem="kVX-6P-uyj" secondAttribute="bottom" constant="14" id="KHk-nC-JgG"/>
+                            <constraint firstItem="8xL-bx-CUJ" firstAttribute="leading" secondItem="oN7-VY-UXb" secondAttribute="leadingMargin" id="LUu-Pr-Wea"/>
+                            <constraint firstItem="5h9-s9-CSR" firstAttribute="top" secondItem="fK9-v5-4ey" secondAttribute="bottom" constant="24" id="VeL-vU-fc8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kVX-6P-uyj" secondAttribute="trailing" constant="75" id="aiN-tr-ZI8"/>
+                            <constraint firstItem="5h9-s9-CSR" firstAttribute="trailing" secondItem="8xL-bx-CUJ" secondAttribute="trailing" id="g9o-Rb-1D7"/>
+                            <constraint firstItem="8xL-bx-CUJ" firstAttribute="trailing" secondItem="oN7-VY-UXb" secondAttribute="trailingMargin" id="m9J-L8-hFS"/>
+                            <constraint firstItem="4v1-Wt-DTk" firstAttribute="leading" secondItem="oN7-VY-UXb" secondAttribute="leading" constant="82" id="oF2-xb-7vL"/>
+                            <constraint firstItem="5h9-s9-CSR" firstAttribute="leading" secondItem="8xL-bx-CUJ" secondAttribute="leading" id="rPk-Yp-xJ7"/>
+                            <constraint firstItem="8xL-bx-CUJ" firstAttribute="top" secondItem="5h9-s9-CSR" secondAttribute="bottom" constant="8" id="ske-pJ-TJX"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="8xL-bx-CUJ" id="QEj-pO-QGW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wwd-xd-tlR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2387" y="470"/>
+        </scene>
         <!--Crime-->
         <scene sceneID="WKP-N9-a3L">
             <objects>
@@ -385,7 +486,7 @@
                                 <animations/>
                                 <state key="normal" title="Filter by"/>
                                 <connections>
-                                    <action selector="filterCrimes:" destination="CVD-ON-xIR" eventType="touchUpInside" id="ZU7-R4-Sg1"/>
+                                    <action selector="filterCrimes:" destination="CVD-ON-xIR" eventType="touchUpInside" id="gYk-i1-BA1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -447,6 +548,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSp-Gc-kGr">
+                                <rect key="frame" x="550" y="28" width="30" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="H9W-DN-fJx"/>
+                                    <constraint firstAttribute="width" constant="30" id="ZDF-j0-YSR"/>
+                                </constraints>
+                                <state key="normal" image="Delete-100"/>
+                                <connections>
+                                    <action selector="closeWindow:" destination="c2t-WG-Epx" eventType="touchUpInside" id="l9O-kZ-0LE"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g2p-3J-fCg">
                                 <rect key="frame" x="20" y="71" width="560" height="509"/>
                                 <animations/>
@@ -515,18 +628,6 @@
                                     <outlet property="delegate" destination="c2t-WG-Epx" id="mTy-F1-hKu"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSp-Gc-kGr">
-                                <rect key="frame" x="550" y="28" width="30" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="H9W-DN-fJx"/>
-                                    <constraint firstAttribute="width" constant="30" id="ZDF-j0-YSR"/>
-                                </constraints>
-                                <state key="normal" image="Delete-100"/>
-                                <connections>
-                                    <action selector="closeWindow:" destination="c2t-WG-Epx" eventType="touchUpInside" id="l9O-kZ-0LE"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

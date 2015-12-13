@@ -51,9 +51,6 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         let crimeList = ["anti-social-behaviour", "bicycle-theft", "burglary", "criminal-damage-arson", "drugs", "other-crime", "other-theft", "possession-of-weapons", "public-order", "robbery", "shoplifting", "theft-from-the-person", "vehicle-crime", "vehicle-theft", "violent-crime"]
         let categoryList = ["Anti-social Behaviour", "Bicycle Theft", "Burglary", "Criminal Damage Arson", "Drugs", "Other Crime", "Other Theft", "Possession of Weapons", "Public Order", "Robbery", "Shoplifting", "Theft from the Person", "Vehicle Crime", "Vehicle Theft", "Violent Crime"]
         let imageList = ["AntiSocial", "Bicycle", "Burglary", "Arson", "Drugs", "Violence", "Violence", "WeaponPossession", "PublicOrder", "Robbery", "Robbery", "PersonTheft", "CarTheft", "CarTheft", "Violence"]
-        let colourList = [UIColor.blueColor(), UIColor.greenColor(), UIColor.redColor(), UIColor.cyanColor(), UIColor.darkGrayColor(), UIColor.yellowColor(), UIColor.flatForestGreenColor(), UIColor.flatLimeColor(), UIColor.flatCoffeeColor(), UIColor.flatOrangeColor(), UIColor.flatPinkColor(), UIColor.flatPurpleColor(),
-                UIColor.flatPlumColor(),
-                UIColor.flatPowderBlueColor(), UIColor.flatSandColor()]
             
         let i = crimeList.indexOf(crimes![indexPath.row].category!)
         mycell.CrimeText.text = categoryList[i!]
@@ -64,7 +61,7 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
             mycell.actionTakenText.text = "No outcome taken as of yet"
         }
         mycell.actionTakenText.textColor = Style.fontColor
-        mycell.crimeIcon.tintColor = colourList[i!]
+        mycell.crimeIcon.tintColor = UIColor.whiteColor()
         mycell.backgroundColor = Style.viewBackground
             
         return mycell;

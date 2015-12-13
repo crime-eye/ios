@@ -40,6 +40,7 @@
 		F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD21C07CE5900DB99B9 /* Location.swift */; };
 		FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4581881C108C9200C7223D /* RadiusAnnotation.swift */; };
 		FFEB7AB61C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */; };
+		FFEC86881C1DDB0100062513 /* FilterCrimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEC86871C1DDB0100062513 /* FilterCrimeController.swift */; };
 		FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B041C0733AD0024A471 /* DrawerController.swift */; };
 		FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */; };
 		FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFD3B0A1C0739F20024A471 /* SearchController.swift */; };
@@ -104,6 +105,7 @@
 		F6ECEFD21C07CE5900DB99B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FF4581881C108C9200C7223D /* RadiusAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadiusAnnotation.swift; sourceTree = "<group>"; };
 		FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCrimesControllerViewController.swift; sourceTree = "<group>"; };
+		FFEC86871C1DDB0100062513 /* FilterCrimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCrimeController.swift; sourceTree = "<group>"; };
 		FFFD3B041C0733AD0024A471 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		FFFD3B061C0736AC0024A471 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		FFFD3B0A1C0739F20024A471 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				E7BA5DB01C00E08800C70CFA /* MainController.swift */,
 				FFFD3B0A1C0739F20024A471 /* SearchController.swift */,
 				FFFD3B041C0733AD0024A471 /* DrawerController.swift */,
+				FFEC86871C1DDB0100062513 /* FilterCrimeController.swift */,
 				F65987601C1D04D800DF8902 /* SettingsController.swift */,
 				FFEB7AB51C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift */,
 				F62EDEB91C0249C7007DC28B /* MapViewController.swift */,
@@ -483,6 +486,7 @@
 				E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */,
 				E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */,
 				E78CCAE31C0FCBE900A262A7 /* TutorialSecondViewController.swift in Sources */,
+				FFEC86881C1DDB0100062513 /* FilterCrimeController.swift in Sources */,
 				FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */,
 				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
 				E7DB66C11C1DC16500ADCF86 /* Priority.swift in Sources */,
