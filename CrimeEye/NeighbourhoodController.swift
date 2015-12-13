@@ -23,7 +23,10 @@ class NeighbourhoodController: UIViewController {
         self.addChildViewController(vc)
         
         // Adjust sizes
-        vc.view.frame = CGRectMake(0, 0, self.container.frame.size.width, self.container.frame.size.height);
+        vc.view.frame = CGRectMake(0,
+            0,
+            self.container.frame.size.width,
+            self.container.frame.size.height);
         
         // Add the vc to the container
         self.container.addSubview(vc.view)
@@ -39,8 +42,10 @@ class NeighbourhoodController: UIViewController {
     
 
     @IBAction func openDrawer(sender: UIBarButtonItem) {
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
+        let appD = UIApplication.sharedApplication().delegate as! AppDelegate
+        appD.centerContainer!.toggleDrawerSide(MMDrawerSide.Left,
+            animated: true,
+            completion: nil)
     }
 
 }
