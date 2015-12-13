@@ -13,7 +13,7 @@ import MMDrawerController
 import Siesta
 
 class MapViewController: UIViewController, MKMapViewDelegate, ResourceObserver,
-UIGestureRecognizerDelegate{
+UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     
     // Initialise variables used in the page
     let statusOverlay = ResourceStatusOverlay()
@@ -26,6 +26,8 @@ UIGestureRecognizerDelegate{
 
     var MAPLAT: Double = PostcodesAPI.lat
     var MAPLONG: Double = PostcodesAPI.lng
+    
+    var selectedFilter = "None"
 
     var locArray: [Location] = []
     
@@ -112,29 +114,56 @@ UIGestureRecognizerDelegate{
                     }
                     
                     // Make a location object from each crime to be passed to
-                    // the map annotations
-                    let loc = Location(lat: lat,
-                        lon: lng,
-                        category: cat,
-                        month: month,
-                        street: street,
-                        outcome: outcome)
-                    
-                    // Create a string identifier from the coordinate of the
-                    // object
-                    let coords = loc.coordinate
-                    let coordString = String(loc.coordinate.latitude) + " " +
-                        String(loc.coordinate.longitude)
-                    // Check if the dict string exists, if not create a new
-                    // annotation
-                    if self.annotations[coordString] == nil {
-                        self.annotations[coordString] = RadiusAnnotation(
-                            coordinate: coords, location: loc)
+                    // the map annotations - sort by filtered value
+                    if self.selectedFilter == "None" {
+                        let loc = Location(lat: lat,
+                            lon: lng,
+                            category: cat,
+                            month: month,
+                            street: street,
+                            outcome: outcome)
+                        // Create a string identifier from the coordinate of the
+                        // object
+                        let coords = loc.coordinate
+                        let coordString = String(loc.coordinate.latitude) + " " +
+                            String(loc.coordinate.longitude)
+                        // Check if the dict string exists, if not create a new
+                        // annotation
+                        if self.annotations[coordString] == nil {
+                            self.annotations[coordString] = RadiusAnnotation(
+                                coordinate: coords, location: loc)
+                        }
+                        // If the annotation does exist, add the crime to the
+                        // existing list
+                        if let val = self.annotations[coordString] {
+                            val.addLocation(loc)
+                        }
                     }
-                    // If the annotation does exist, add the crime to the
-                    // existing list
-                    if let val = self.annotations[coordString] {
-                        val.addLocation(loc)
+                    if cat == self.selectedFilter {
+                        let loc = Location(lat: lat,
+                            lon: lng,
+                            category: cat,
+                            month: month,
+                            street: street,
+                            outcome: outcome)
+                        
+                        // Create a string identifier from the coordinate of the
+                        // object
+                        let coords = loc.coordinate
+                        let coordString = String(loc.coordinate.latitude) + " " +
+                            String(loc.coordinate.longitude)
+                        // Check if the dict string exists, if not create a new
+                        // annotation
+                        if self.annotations[coordString] == nil {
+                            self.annotations[coordString] = RadiusAnnotation(
+                                coordinate: coords, location: loc)
+                        }
+                        // If the annotation does exist, add the crime to the
+                        // existing list
+                        if let val = self.annotations[coordString] {
+                            val.addLocation(loc)
+                        }
+
                     }
                 }
                 // Store the list of circle overlays and annotation pins
@@ -252,6 +281,45 @@ UIGestureRecognizerDelegate{
     }
     
     @IBAction func filterCrimes(sender: AnyObject) {
+        /*let popoverContent = self.storyboard!.instantiateViewControllerWithIdentifier("FilterView") as? FilterCrimeController
+        popoverContent!.modalPresentationStyle = UIModalPresentationStyle.FormSheet*/
+        
+        let filterView = self.storyboard!.instantiateViewControllerWithIdentifier(
+            "FilterView") as? FilterCrimeController
+        let bottomY = UIScreen.mainScreen().bounds.height
+        // Set the frame of the view to be half the screen in height
+        filterView!.view.frame = CGRectMake(8.0, bottomY*0.25, self.view.frame.size.width - 16.0,
+            self.view.frame.size.height/2);
+        // Attach to mapview as subview
+        self.addChildViewController(filterView!)
+        self.view.addSubview(filterView!.view)
+        filterView!.didMoveToParentViewController(self)
+        // Animate upwards from the bottom using the specified duration
+        UIView.animateWithDuration(0.0, animations:{})
+    }
+    
+    func confirmFilter(filter: String) {
+        let i = CrimeFormatter.categoryList.indexOf(filter)
+        print(CrimeFormatter.crimeList[i!])
+        selectedFilter = CrimeFormatter.crimeList[i!]
+        let annotationsToRemove =
+        self.mapView.annotations.filter
+            { $0 !== self.mapView.userLocation }
+        let overlaysToRemove =
+        self.mapView.overlays.filter
+            { $0 !== self.mapView.userLocation }
+        self.mapView.removeAnnotations(
+            annotationsToRemove)
+        self.mapView.removeOverlays(
+            overlaysToRemove)
+        self.annotations.removeAll()
+
+        dispatch_async(
+            dispatch_get_global_queue(0, 0)){
+                self.getCrimes()
+        }
+
+        
     }
     
     // Function to allow the user to change postcode viewed on the map
@@ -320,10 +388,10 @@ UIGestureRecognizerDelegate{
                                                       location, 1500.0, 1500.0)
                                         self.mapView.setRegion(
                                                       region, animated: true)
-                                        dispatch_async(dispatch_get_global_queue(0, 0)){
+                                        dispatch_async(
+                                            dispatch_get_global_queue(0, 0)){
                                             self.getCrimes()
                                         }
-                                        // API calls after the map is moved
                                         }
                                 }.addObserver(self.statusOverlay).load()
                             }

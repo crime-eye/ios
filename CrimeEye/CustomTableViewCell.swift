@@ -15,6 +15,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var crimeIcon: UIImageView!
     @IBOutlet weak var actionTakenText: UITextView!
 
+    @IBOutlet weak var filterText: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
