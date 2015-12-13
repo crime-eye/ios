@@ -10,13 +10,17 @@ import UIKit
 import Siesta
 import MapKit
 
-class ContactViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ResourceObserver {
+class ContactViewController:
+    UIViewController,
+    UITableViewDataSource,
+    UITableViewDelegate,
+    ResourceObserver {
 
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var websiteLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var phoneLabel:      UILabel!
+    @IBOutlet weak var websiteLabel:    UILabel!
+    @IBOutlet weak var emailLabel:      UILabel!
+    @IBOutlet weak var tableView:       UITableView!
+    @IBOutlet weak var mapView:         MKMapView!
 
     
     var links = [Link]()
@@ -85,14 +89,16 @@ class ContactViewController: UIViewController, UITableViewDataSource, UITableVie
         let geocoder = CLGeocoder()
         
         // Get the address string
-        geocoder.geocodeAddressString(addr, completionHandler: {(placemarks, error) -> Void in
+        geocoder.geocodeAddressString(addr,
+            completionHandler: {(placemarks, error) -> Void in
             if error != nil {
                 print("Error", error)
             }
             
             // Get the first hit
             if let placemark = placemarks?.first {
-                let coordinates: CLLocationCoordinate2D = placemark.location!.coordinate
+                let coordinates: CLLocationCoordinate2D =
+                                                placemark.location!.coordinate
                 
                 // Create a region and pass it to the Map View
                 var region = MKCoordinateRegion()
@@ -165,7 +171,9 @@ class ContactViewController: UIViewController, UITableViewDataSource, UITableVie
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView,
+        numberOfRowsInSection section: Int)
+        -> Int {
         return self.links.count
     }
     
