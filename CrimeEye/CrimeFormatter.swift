@@ -21,6 +21,8 @@ class _CrimeFormatter {
         , "Shoplifting", "Theft from the Person", "Vehicle Crime"
         , "Vehicle Theft", "Violent Crime", "None"]
     
+    let searchList = ["None", "Person search", "Vehicle search", "Person and Vehicle Search"]
+        
     let monthName = ["January", "February", "March", "April", "May", "June"
         , "July", "August", "September", "October", "November", "December"]
     

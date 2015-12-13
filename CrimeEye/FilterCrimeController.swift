@@ -20,6 +20,8 @@ class FilterCrimeController: UIViewController,
     
     var selectedValue = "None"
     
+    var crimeType = ""
+    
     let crimeList = [
         "anti-social-behaviour",
         "bicycle-theft",
@@ -66,7 +68,15 @@ class FilterCrimeController: UIViewController,
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CrimeFormatter.crimeList.count;
+        if crimeType == "crimes" {
+            return CrimeFormatter.crimeList.count
+        }
+        if crimeType == "searches" {
+            return CrimeFormatter.searchList.count
+        }
+        else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView,
@@ -78,7 +88,12 @@ class FilterCrimeController: UIViewController,
                     forIndexPath: indexPath)
                 as! CustomTableViewCell
             
-            mycell.filterText.text = CrimeFormatter.categoryList[indexPath.row]
+            if crimeType == "crimes" {
+                mycell.filterText.text = CrimeFormatter.categoryList[indexPath.row]
+            }
+            if crimeType == "searches" {
+                mycell.filterText.text = CrimeFormatter.searchList[indexPath.row]
+            }
             mycell.filterText.textColor = UIColor.blackColor()
             
             return mycell;

@@ -375,6 +375,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
         
         let filterView = self.storyboard!.instantiateViewControllerWithIdentifier(
             "FilterView") as? FilterCrimeController
+        filterView!.crimeType = self.searchAPI
         let bottomY = UIScreen.mainScreen().bounds.height
         // Set the frame of the view to be half the screen in height
         filterView!.view.frame = CGRectMake(8.0, bottomY*0.25, self.view.frame.size.width - 16.0,
@@ -388,8 +389,13 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     }
     
     func confirmFilter(filter: String) {
-        let i = CrimeFormatter.categoryList.indexOf(filter)
-        selectedFilter = CrimeFormatter.crimeList[i!]
+        if self.searchAPI == "crimes" {
+            let i = CrimeFormatter.categoryList.indexOf(filter)
+            selectedFilter = CrimeFormatter.crimeList[i!]
+        }
+        if self.searchAPI == "searches" {
+            selectedFilter = filter
+        }
         self.annotations.removeAll()
 
         PoliceAPI.wipeResources()

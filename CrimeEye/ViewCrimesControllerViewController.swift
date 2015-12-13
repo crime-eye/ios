@@ -71,10 +71,9 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         if crimeType == "searches" {
-            let i = crimeList.indexOf((crimes![indexPath.row] as? Search)!
-                .category!)
-            mycell.CrimeText.text = categoryList[i!]
-            mycell.crimeIcon.image = UIImage(named: imageList[i!])
+            mycell.CrimeText.text = (crimes![indexPath.row] as? Search)!
+                .category!
+            mycell.crimeIcon.image = UIImage(named: "Violence")
             mycell.actionTakenText.text = (crimes![indexPath.row] as? Search)!
                 .outcome
             mycell.actionTakenText.backgroundColor = Style.viewBackground

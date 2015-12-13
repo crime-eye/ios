@@ -34,21 +34,25 @@ class RadiusAnnotation: NSObject, MKAnnotation {
                 
             }
         }
-        let colourList = [UIColor.flatTealColorDark(), UIColor.blueColor(),
-            UIColor.greenColor(),UIColor.redColor(), UIColor.cyanColor(),
+        let colourList = [UIColor.greenColor(), UIColor.blueColor(),
+            UIColor.flatRedColorDark(),UIColor.redColor(), UIColor.cyanColor(),
             UIColor.darkGrayColor(),UIColor.yellowColor(),
             UIColor.flatForestGreenColor(),UIColor.flatLimeColor(),
             UIColor.flatOrangeColor(),UIColor.flatPinkColor(),
             UIColor.flatPurpleColor(),UIColor.flatPlumColor(),
             UIColor.flatPowderBlueColor(),UIColor.flatSandColor(),
             UIColor.flatMaroonColorDark()]
-        if CrimeFormatter.crimeList.contains(largestCrime) {
+        if crimeType == "crimes" && CrimeFormatter.crimeList.contains(largestCrime) {
             let i = CrimeFormatter.crimeList.indexOf(largestCrime)
+            return colourList[i!]
+        }
+        if crimeType == "searches" && CrimeFormatter.searchList.contains(largestCrime) {
+            let i = CrimeFormatter.searchList.indexOf(largestCrime)
+            print(i)
             return colourList[i!]
         }
         else {
             return UIColor.flatBlueColorDark()
-            
         }
     }
     var radiusSize: Double {
