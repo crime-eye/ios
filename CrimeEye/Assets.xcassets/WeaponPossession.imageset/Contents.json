@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "No Weapons.png",
+      "filename" : "Sniper Rifle Filled-100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "No Weapons-1.png",
+      "filename" : "Sniper Rifle Filled-100@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "No Weapons-2.png",
+      "filename" : "Sniper Rifle Filled-100@3x.png",
       "scale" : "3x"
     }
   ],

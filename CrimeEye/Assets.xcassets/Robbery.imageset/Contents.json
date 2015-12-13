@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Bank Robbery.png",
+      "filename" : "Bank Robbery Filled-100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Bank Robbery-1.png",
+      "filename" : "Bank Robbery Filled-100@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Bank Robbery-2.png",
+      "filename" : "Bank Robbery Filled-100@3x.png",
       "scale" : "3x"
     }
   ],
