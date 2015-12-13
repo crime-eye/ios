@@ -48,9 +48,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
 
         // load statistics in to map if data already exists
         if !self.annotations.isEmpty {
-            dispatch_async(dispatch_get_global_queue(0, 0)){
-                self.setupMapView()
-            }
+            self.setupMapView()
         }
         // If no crime data exists, make the api call to get it
         else {
@@ -82,7 +80,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
         PoliceAPI
             .getCrimes(MAPLAT, long: MAPLONG)
             .addObserver(self)
-            .load()
+            .loadIfNeeded()
     }
 
     // If the resources from the API have changed
@@ -116,6 +114,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                     // Make a location object from each crime to be passed to
                     // the map annotations - sort by filtered value
                     if self.selectedFilter == "None" {
+                        print("NO FILTER")
                         let loc = Location(lat: lat,
                             lon: lng,
                             category: cat,
@@ -140,6 +139,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                         }
                     }
                     if cat == self.selectedFilter {
+                        print("FILTER")
                         let loc = Location(lat: lat,
                             lon: lng,
                             category: cat,
@@ -165,12 +165,15 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                         }
 
                     }
+                    
+                    
                 }
                 // Store the list of circle overlays and annotation pins
                 var overlays = [MKCircle] ()
                 var radiiPins = [RadiusAnnotation] ()
                 
-                // Loop over calculated annotations
+                // Loop over calculated annotation
+                print(self.annotations.count)
                 for annotation in self.annotations
                 {
                     // Initialise overlays and set the colour
@@ -187,9 +190,16 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                 dispatch_async(dispatch_get_main_queue()) {
                     // Make sure all previous annotations have been removed
                     // from the map
-                    let annotationsToRemove = self.mapView.annotations.filter
+                    let annotationsToRemove =
+                    self.mapView.annotations.filter
                         { $0 !== self.mapView.userLocation }
-                    self.mapView.removeAnnotations( annotationsToRemove )
+                    let overlaysToRemove =
+                    self.mapView.overlays.filter
+                        { $0 !== self.mapView.userLocation }
+                    self.mapView.removeAnnotations(
+                        annotationsToRemove)
+                    self.mapView.removeOverlays(
+                        overlaysToRemove)
                     // Add all overlays and annotations
                     self.mapView.addOverlays(overlays)
                     self.mapView.addAnnotations(radiiPins)
@@ -300,26 +310,13 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     
     func confirmFilter(filter: String) {
         let i = CrimeFormatter.categoryList.indexOf(filter)
-        print(CrimeFormatter.crimeList[i!])
         selectedFilter = CrimeFormatter.crimeList[i!]
-        let annotationsToRemove =
-        self.mapView.annotations.filter
-            { $0 !== self.mapView.userLocation }
-        let overlaysToRemove =
-        self.mapView.overlays.filter
-            { $0 !== self.mapView.userLocation }
-        self.mapView.removeAnnotations(
-            annotationsToRemove)
-        self.mapView.removeOverlays(
-            overlaysToRemove)
         self.annotations.removeAll()
 
-        dispatch_async(
-            dispatch_get_global_queue(0, 0)){
-                self.getCrimes()
+        PoliceAPI.wipeResources()
+        dispatch_async(dispatch_get_global_queue(0, 0)){
+            self.getCrimes()
         }
-
-        
     }
     
     // Function to allow the user to change postcode viewed on the map
@@ -367,17 +364,6 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                                                                     .doubleValue
                                         self.MAPLONG = result["longitude"]
                                                                     .doubleValue
-                                        // Remove any previous pins and overlays
-                                        let annotationsToRemove =
-                                            self.mapView.annotations.filter
-                                            { $0 !== self.mapView.userLocation }
-                                        let overlaysToRemove =
-                                            self.mapView.overlays.filter
-                                            { $0 !== self.mapView.userLocation }
-                                        self.mapView.removeAnnotations(
-                                                            annotationsToRemove)
-                                        self.mapView.removeOverlays(
-                                                               overlaysToRemove)
                                         self.annotations.removeAll()
                                         // Update the map region
                                         let location = CLLocationCoordinate2D(
@@ -388,10 +374,8 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                                                       location, 1500.0, 1500.0)
                                         self.mapView.setRegion(
                                                       region, animated: true)
-                                        dispatch_async(
-                                            dispatch_get_global_queue(0, 0)){
-                                            self.getCrimes()
-                                        }
+                                        PoliceAPI.wipeResources()
+                                        self.getCrimes()
                                         }
                                 }.addObserver(self.statusOverlay).load()
                             }
