@@ -20,7 +20,7 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingsButton.setTitleColor(Style.fontColor, forState: .Normal)
+        settingsButton.setTitleColor(Style.flatBlue3, forState: .Normal)
         self.navigationController?.navigationBar.translucent = false;
     }
     

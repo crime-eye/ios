@@ -30,6 +30,9 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusOverlay.embedIn(self)
+        view.backgroundColor = Style.viewBackground
+        postcodeField.text = PostcodesAPI.postcode
+        postcodeField.textColor = Style.flatBlue3
         if ( Store.defaults.boolForKey(Store.USE_GPS)){
             gpsSwitch.setOn(true, animated: false)
             postcodeField.hidden = true
@@ -37,8 +40,9 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
         }
         else {
             gpsSwitch.setOn(false, animated: false)
+            postcodeField.becomeFirstResponder()
         }
-        postcodeField.text = PostcodesAPI.postcode
+        
         
     }
     
@@ -78,13 +82,13 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
             Store.defaults.setBool(false, forKey: Store.USE_GPS)
             postcodeLabel.hidden = false
             postcodeField.hidden = false
+            postcodeField.becomeFirstResponder()
         }
     }
     
     @IBAction func clickedOK(sender: UIButton) {
         if (gpsSwitch.on){
             if (PostcodesAPI.lat != 0.0){
-                Store.defaults.setBool(true, forKey: Store.IS_FIRST_LOAD)
                 Store.defaults.setValue(PostcodesAPI.lat, forKey: Store.LAT)
                 Store.defaults.setValue(PostcodesAPI.lng, forKey: Store.LONG)
                 PostcodesAPI.getPostcode(PostcodesAPI.lat, lng: PostcodesAPI.lng).addObserver(owner: self) {
@@ -123,7 +127,6 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
                     if case .NewData = event {
                         let valid = resource.json["result"]
                         if valid {
-                            Store.defaults.setBool(true, forKey: Store.IS_FIRST_LOAD)
                             PostcodesAPI.postcodeToLatAndLng(self.postcodeField.text!).addObserver(owner: self) {
                                 resource2, event in
                                 if case .NewData = event {
