@@ -17,7 +17,8 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var streetLabel: UILabel!
     // Menu items to display
-    var crimes: [Location]?
+    var crimes: [AnyObject?]?
+    var crimeType: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,12 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         mainView.backgroundColor = Style.viewBackground
         tableView.backgroundColor = Style.viewBackground
         
-        streetLabel.text = crimes![0].street
+        if crimeType == "crimes" {
+            streetLabel.text = (crimes![0] as? Location)?.street
+        }
+        if crimeType == "searches" {
+            streetLabel.text = (crimes![0] as? Search)?.street
+        }
         streetLabel.adjustsFontSizeToFitWidth = true
         streetLabel.textColor = Style.fontColor
         streetLabel.backgroundColor = Style.viewBackground
@@ -52,13 +58,29 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         let categoryList = ["Anti-social Behaviour", "Bicycle Theft", "Burglary", "Criminal Damage Arson", "Drugs", "Other Crime", "Other Theft", "Possession of Weapons", "Public Order", "Robbery", "Shoplifting", "Theft from the Person", "Vehicle Crime", "Vehicle Theft", "Violent Crime"]
         let imageList = ["AntiSocial", "Bicycle", "Burglary", "Arson", "Drugs", "Violence", "Violence", "WeaponPossession", "PublicOrder", "Robbery", "Robbery", "PersonTheft", "CarTheft", "CarTheft", "Violence"]
             
-        let i = crimeList.indexOf(crimes![indexPath.row].category!)
-        mycell.CrimeText.text = categoryList[i!]
-        mycell.crimeIcon.image = UIImage(named: imageList[i!])
-        mycell.actionTakenText.text = crimes![indexPath.row].outcome
-        mycell.actionTakenText.backgroundColor = Style.viewBackground
-        if (crimes![indexPath.row].outcome == ""){
-            mycell.actionTakenText.text = "No outcome taken as of yet"
+        if crimeType == "crimes" {
+            let i = crimeList.indexOf((crimes![indexPath.row] as? Location)!
+                                                                    .category!)
+            mycell.CrimeText.text = categoryList[i!]
+            mycell.crimeIcon.image = UIImage(named: imageList[i!])
+            mycell.actionTakenText.text = (crimes![indexPath.row] as? Location)!
+                                                                    .outcome
+            mycell.actionTakenText.backgroundColor = Style.viewBackground
+            if (crimes![indexPath.row] as? Location)!.outcome == "" {
+                mycell.actionTakenText.text = "No outcome taken as of yet"
+            }
+        }
+        if crimeType == "searches" {
+            let i = crimeList.indexOf((crimes![indexPath.row] as? Search)!
+                .category!)
+            mycell.CrimeText.text = categoryList[i!]
+            mycell.crimeIcon.image = UIImage(named: imageList[i!])
+            mycell.actionTakenText.text = (crimes![indexPath.row] as? Search)!
+                .outcome
+            mycell.actionTakenText.backgroundColor = Style.viewBackground
+            if (crimes![indexPath.row] as? Search)!.outcome == "" {
+                mycell.actionTakenText.text = "No outcome taken as of yet"
+            }
         }
         mycell.actionTakenText.textColor = Style.fontColor
         mycell.crimeIcon.tintColor = UIColor.whiteColor()

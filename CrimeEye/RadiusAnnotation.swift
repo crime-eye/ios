@@ -11,10 +11,18 @@ import MapKit
 class RadiusAnnotation: NSObject, MKAnnotation {
     
     var crimeNumber = 1.0;
+    var crimeType = ""
     var colour: UIColor {
         var counts = [String: Int]()
         for location in locArray {
-            counts[location.category!] = (counts[location.category!] ?? 0) + 1
+            if crimeType == "crimes" {
+                let loc = location as? Location
+                counts[loc!.category!] = (counts[loc!.category!] ?? 0) + 1
+            }
+            if crimeType == "searches" {
+                let search = location as? Search
+                counts[search!.category!] = (counts[search!.category!] ?? 0) + 1
+            }
         }
         var largest = 0
         var largestCrime = ""
@@ -26,27 +34,33 @@ class RadiusAnnotation: NSObject, MKAnnotation {
                 
             }
         }
-        let crimeList = ["anti-social-behaviour", "bicycle-theft", "burglary", "criminal-damage-arson", "drugs", "other-crime", "other-theft", "public-order", "robbery", "shoplifting", "theft-from-the-person", "vehicle-crime", "vehicle-theft", "violent-crime"]
-        let colourList = [UIColor.blueColor(), UIColor.greenColor(), UIColor.redColor(), UIColor.cyanColor(), UIColor.darkGrayColor(), UIColor.yellowColor(), UIColor.flatForestGreenColor(), UIColor.flatLimeColor(), UIColor.flatOrangeColor(), UIColor.flatPinkColor(), UIColor.flatPurpleColor(),
-            UIColor.flatPlumColor(),
-        UIColor.flatPowderBlueColor(), UIColor.flatSandColor()]
-        if crimeList.contains(largestCrime) {
-            let i = crimeList.indexOf(largestCrime)
+        let colourList = [UIColor.flatTealColorDark(), UIColor.blueColor(),
+            UIColor.greenColor(),UIColor.redColor(), UIColor.cyanColor(),
+            UIColor.darkGrayColor(),UIColor.yellowColor(),
+            UIColor.flatForestGreenColor(),UIColor.flatLimeColor(),
+            UIColor.flatOrangeColor(),UIColor.flatPinkColor(),
+            UIColor.flatPurpleColor(),UIColor.flatPlumColor(),
+            UIColor.flatPowderBlueColor(),UIColor.flatSandColor(),
+            UIColor.flatMaroonColorDark()]
+        if CrimeFormatter.crimeList.contains(largestCrime) {
+            let i = CrimeFormatter.crimeList.indexOf(largestCrime)
             return colourList[i!]
         }
         else {
-            return UIColor.flatWhiteColor()
+            return UIColor.flatBlueColorDark()
+            
         }
     }
     var radiusSize: Double {
         return 10+(2*crimeNumber * 1.0/exp(0.1*pow(crimeNumber,0.01)))
     }
     var coordinate: CLLocationCoordinate2D
-    var locArray: [Location] = []
+    var locArray: [AnyObject?] = []
     
-    init(coordinate: CLLocationCoordinate2D, location: Location) {
+    init(coordinate: CLLocationCoordinate2D, location: AnyObject, crimeType: String) {
         self.coordinate = coordinate
         self.locArray.append(location)
+        self.crimeType = crimeType
         super.init()
     }
     
@@ -58,7 +72,7 @@ class RadiusAnnotation: NSObject, MKAnnotation {
         return ""
     }
     
-    func addLocation(loc: Location)
+    func addLocation(loc: AnyObject)
     {
         locArray.append(loc)
         crimeNumber = crimeNumber + 1.0

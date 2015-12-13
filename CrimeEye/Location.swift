@@ -8,7 +8,8 @@
 
 import MapKit
 
-class Location: NSObject, MKAnnotation {
+class Location: NSObject
+{
     
     var coordinate: CLLocationCoordinate2D
     var category: String?
@@ -25,13 +26,4 @@ class Location: NSObject, MKAnnotation {
         self.street = street
         self.outcome = outcome
     }
-    
-    var title: String? {
-        return category
-    }
-    
-    var subtitle: String? {
-        return month
-    }
-    
 }

@@ -48,19 +48,19 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
         if (lastSelected != indexPath.row) {
             switch (indexPath.row) {
                 case 0:
-                    switchTo("MainController")
+                    switchTo("MainController", setting: "")
                     break;
                     
                 case 1:
-                    switchTo("MapViewController")
+                    switchTo("MapViewController", setting: "crimes")
                     break;
                     
                 case 2:
-                    switchTo("NeighbourhoodController")
+                    switchTo("NeighbourhoodController", setting: "")
                     break;
                     
                 case 3:
-                    switchTo("SearchController")
+                    switchTo("MapViewController", setting: "searches")
                     break;
                 
                 default:
@@ -73,14 +73,18 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
         lastSelected = indexPath.row
     }
     @IBAction func settingsButton(sender: UIButton) {
-        switchTo("SettingsController")
+        switchTo("SettingsController", setting: "")
         lastSelected = 4
     }
     
     // Switches to a view controller given a name
-    internal func switchTo(controllerName: String) {
+    internal func switchTo(controllerName: String, setting: String) {
         // Downcast to UIViewController
-        let c = (self.storyboard?.instantiateViewControllerWithIdentifier(controllerName))! as UIViewController
+        let
+        c = (self.storyboard?.instantiateViewControllerWithIdentifier(controllerName))! as UIViewController
+        if controllerName == "MapViewController" {
+            (c as? MapViewController)!.setSearchMethod(setting)
+        }
         let mainNavController = UINavigationController(rootViewController: c)
         getAppDelegate().centerContainer!.centerViewController = mainNavController
         closeDrawer()

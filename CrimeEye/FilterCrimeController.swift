@@ -56,6 +56,7 @@ class FilterCrimeController: UIViewController,
         "Violent Crime"
     ]
     
+    //Initial implementation of stop and search page - need to fix filtering and colour/detail options
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,11 +65,8 @@ class FilterCrimeController: UIViewController,
                 
     }
     
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int)
-        -> Int {
-            
-        return crimeList.count;
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CrimeFormatter.crimeList.count;
     }
     
     func tableView(tableView: UITableView,
@@ -80,7 +78,7 @@ class FilterCrimeController: UIViewController,
                     forIndexPath: indexPath)
                 as! CustomTableViewCell
             
-            mycell.filterText.text = categoryList[indexPath.row]
+            mycell.filterText.text = CrimeFormatter.categoryList[indexPath.row]
             mycell.filterText.textColor = UIColor.blackColor()
             
             return mycell;

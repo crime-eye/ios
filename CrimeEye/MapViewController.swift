@@ -33,8 +33,14 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     
     var annotations = [String: RadiusAnnotation]()
     
+    var searchAPI: String = ""
+    
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
+    
+    func setSearchMethod(setting: String) {
+        searchAPI = setting
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +83,18 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     
     // When the map finishes loading, get the crimes from the police API
     func getCrimes() {
-        PoliceAPI
-            .getCrimes(MAPLAT, long: MAPLONG)
-            .addObserver(self)
-            .loadIfNeeded()
+        if searchAPI == "crimes" {
+            PoliceAPI
+                .getCrimes(MAPLAT, long: MAPLONG)
+                .addObserver(self)
+                .loadIfNeeded()
+        }
+        if searchAPI == "searches" {
+            PoliceAPI
+                .getSearches(MAPLAT, long: MAPLONG)
+                .addObserver(self)
+                .loadIfNeeded()
+        }
     }
 
     // If the resources from the API have changed
@@ -96,75 +110,140 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                 // iterate over all the crimes
                 for (_, crimes) in jsonArray {
                     
-                    let crimeLoc = crimes["location"]
-                    
-                    let month       = crimes["month"].stringValue
-                    let cat         = crimes["category"].stringValue
-                    let lat         = crimeLoc["latitude"].doubleValue
-                    let lng         = crimeLoc["longitude"].doubleValue
-                    let street      = crimeLoc["street"]["name"].stringValue
-                    var outcome =
+                    var crime: AnyObject?
+                    if self.searchAPI == "crimes" {
+                        let crimeLoc = crimes["location"]
+                        
+                        let month       = crimes["month"].stringValue
+                        let cat         = crimes["category"].stringValue
+                        let lat         = crimeLoc["latitude"].doubleValue
+                        let lng         = crimeLoc["longitude"].doubleValue
+                        let street      = crimeLoc["street"]["name"].stringValue
+                        var outcome =
                         crimes["outcome_status"].stringValue
-                    // Check if crime outcome is null to get the correct string
-                    if (outcome != "null") {
-                        outcome =
-                               crimes["outcome_status"]["category"].stringValue
-                    }
-                    
-                    // Make a location object from each crime to be passed to
-                    // the map annotations - sort by filtered value
-                    if self.selectedFilter == "None" {
-                        print("NO FILTER")
-                        let loc = Location(lat: lat,
-                            lon: lng,
-                            category: cat,
-                            month: month,
-                            street: street,
-                            outcome: outcome)
-                        // Create a string identifier from the coordinate of the
-                        // object
-                        let coords = loc.coordinate
-                        let coordString = String(loc.coordinate.latitude) + " " +
-                            String(loc.coordinate.longitude)
-                        // Check if the dict string exists, if not create a new
-                        // annotation
-                        if self.annotations[coordString] == nil {
-                            self.annotations[coordString] = RadiusAnnotation(
-                                coordinate: coords, location: loc)
+                        // Check if crime outcome is null to get the correct string
+                        if (outcome != "null") {
+                            outcome =
+                                crimes["outcome_status"]["category"].stringValue
                         }
-                        // If the annotation does exist, add the crime to the
-                        // existing list
-                        if let val = self.annotations[coordString] {
-                            val.addLocation(loc)
-                        }
-                    }
-                    if cat == self.selectedFilter {
-                        print("FILTER")
-                        let loc = Location(lat: lat,
+                        crime = Location(lat: lat,
                             lon: lng,
                             category: cat,
                             month: month,
                             street: street,
                             outcome: outcome)
                         
-                        // Create a string identifier from the coordinate of the
-                        // object
-                        let coords = loc.coordinate
-                        let coordString = String(loc.coordinate.latitude) + " " +
-                            String(loc.coordinate.longitude)
-                        // Check if the dict string exists, if not create a new
-                        // annotation
-                        if self.annotations[coordString] == nil {
-                            self.annotations[coordString] = RadiusAnnotation(
-                                coordinate: coords, location: loc)
+                        let loc = (crime as? Location)
+                        
+                        // Make a location object from each crime to be passed to
+                        // the map annotations - sort by filtered value
+                        if self.selectedFilter == "None" {
+                            // Create a string identifier from the coordinate of the
+                            // object
+                            let coords = loc!.coordinate
+                            let coordString = String(loc!.coordinate.latitude) + " " +
+                                String(loc!.coordinate.longitude)
+                            // Check if the dict string exists, if not create a new
+                            // annotation
+                            if self.annotations[coordString] == nil {
+                                self.annotations[coordString] = RadiusAnnotation(
+                                    coordinate: coords, location: loc!,
+                                    crimeType: self.searchAPI)
+                            }
+                            // If the annotation does exist, add the crime to the
+                            // existing list
+                            if let val = self.annotations[coordString] {
+                                val.addLocation(loc!)
+                            }
                         }
-                        // If the annotation does exist, add the crime to the
-                        // existing list
-                        if let val = self.annotations[coordString] {
-                            val.addLocation(loc)
+                        if cat == self.selectedFilter {
+                            // Create a string identifier from the coordinate of the
+                            // object
+                            let coords = loc!.coordinate
+                            let coordString = String(loc!.coordinate.latitude) + " " +
+                                String(loc!.coordinate.longitude)
+                            // Check if the dict string exists, if not create a new
+                            // annotation
+                            if self.annotations[coordString] == nil {
+                                self.annotations[coordString] = RadiusAnnotation(
+                                    coordinate: coords, location: loc!,
+                                    crimeType: self.searchAPI)
+                            }
+                            // If the annotation does exist, add the crime to the
+                            // existing list
+                            if let val = self.annotations[coordString] {
+                                val.addLocation(loc!)
+                            }
+                            
+                        }
+                    }
+                    
+                    if self.searchAPI == "searches" {
+                        let crimeLoc = crimes["location"]
+                        
+                        let cat         = crimes["type"].stringValue
+                        let lat         = crimeLoc["latitude"].doubleValue
+                        let lng         = crimeLoc["longitude"].doubleValue
+                        let street      = crimeLoc["street"]["name"].stringValue
+                        var outcome =
+                        crimes["outcome_status"].stringValue
+                        // Check if crime outcome is null to get the correct string
+                        if (outcome != "null") {
+                            outcome =
+                                crimes["outcome_status"]["category"].stringValue
+                        }
+                        crime = Search(lat: lat,
+                            lon: lng,
+                            type: cat,
+                            street: street,
+                            outcome: outcome)
+                        
+                        let loc = crime as? Search
+                        
+                        // Make a location object from each crime to be passed to
+                        // the map annotations - sort by filtered value
+                        if self.selectedFilter == "None" {
+                            // Create a string identifier from the coordinate of the
+                            // object
+                            let coords = loc!.coordinate
+                            let coordString = String(loc!.coordinate.latitude) + " " +
+                                String(loc!.coordinate.longitude)
+                            // Check if the dict string exists, if not create a new
+                            // annotation
+                            if self.annotations[coordString] == nil {
+                                self.annotations[coordString] = RadiusAnnotation(
+                                    coordinate: coords, location: loc!,
+                                    crimeType: self.searchAPI)
+                            }
+                            // If the annotation does exist, add the crime to the
+                            // existing list
+                            if let val = self.annotations[coordString] {
+                                val.addLocation(loc!)
+                            }
+                        }
+                        if cat == self.selectedFilter {
+                            // Create a string identifier from the coordinate of the
+                            // object
+                            let coords = loc!.coordinate
+                            let coordString = String(loc!.coordinate.latitude) + " " +
+                                String(loc!.coordinate.longitude)
+                            // Check if the dict string exists, if not create a new
+                            // annotation
+                            if self.annotations[coordString] == nil {
+                                self.annotations[coordString] = RadiusAnnotation(
+                                    coordinate: coords, location: loc!,
+                                    crimeType: self.searchAPI)
+                            }
+                            // If the annotation does exist, add the crime to the
+                            // existing list
+                            if let val = self.annotations[coordString] {
+                                val.addLocation(loc!)
+                            }
+                            
                         }
 
                     }
+                    
                     
                     
                 }
@@ -173,7 +252,6 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                 var radiiPins = [RadiusAnnotation] ()
                 
                 // Loop over calculated annotation
-                print(self.annotations.count)
                 for annotation in self.annotations
                 {
                     // Initialise overlays and set the colour
@@ -286,6 +364,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
             // Set the crime array in the view controller and animate it onto
             // the screen
             vc!.crimes = annView!.locArray
+            vc!.crimeType = searchAPI
             animateCrimesView(vc!, duration: 0.5)
             childCrimeView.append(vc!)
     }

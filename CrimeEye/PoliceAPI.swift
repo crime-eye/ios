@@ -35,6 +35,12 @@ class _PoliceAPI: Service {
                 .withParam("lng", "\(long)")
     }
     
+    func getSearches(lat: Double, long: Double) -> Resource {
+        return resource("/stops-street")
+               .withParam("lat", "\(lat)")
+               .withParam("lng", "\(long)")
+    }
+    
     /**
      Get outcomes at a location and in a specific month.
      - parameters:
