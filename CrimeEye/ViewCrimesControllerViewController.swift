@@ -13,6 +13,8 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var SHOWVIEW = true
+    
     @IBOutlet weak var streetLabel: UILabel!
     // Menu items to display
     var crimes: [Location]?
@@ -31,6 +33,7 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func closeWindow(sender: UIButton) {
+        SHOWVIEW = false
         self.view.removeFromSuperview()
     }
     
@@ -57,10 +60,10 @@ class ViewCrimesController: UIViewController, UITableViewDelegate, UITableViewDa
         mycell.crimeIcon.image = UIImage(named: imageList[i!])
         mycell.actionTakenText.text = crimes![indexPath.row].outcome
         mycell.actionTakenText.backgroundColor = Style.viewBackground
-        mycell.actionTakenText.textColor = Style.fontColor
         if (crimes![indexPath.row].outcome == ""){
             mycell.actionTakenText.text = "No outcome taken as of yet"
         }
+        mycell.actionTakenText.textColor = Style.fontColor
         mycell.crimeIcon.tintColor = colourList[i!]
         mycell.backgroundColor = Style.viewBackground
             
