@@ -47,6 +47,19 @@ class CrimeEyeUITests: XCTestCase {
         confirmButton.tap()
     }
     
+    func testMapFilter(){
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.navigationBars["Main"].buttons["Menu 100"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["CRIME"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Button).matchingIdentifier("Filter by").elementBoundByIndex(1).tap()
+        tablesQuery.staticTexts["Burglary"].tap()
+        app.buttons["Filter"].tap()
+    }
+    
     func testSettings1Postcode() {
         XCUIDevice.sharedDevice().orientation = .Portrait
         
@@ -81,8 +94,7 @@ class CrimeEyeUITests: XCTestCase {
         switch2.tap()
 
         app.buttons["OK"].tap()
-        app.navigationBars["Main"].buttons["Refresh"].tap()
-        
+      
         
     }
     
