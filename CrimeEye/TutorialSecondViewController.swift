@@ -11,8 +11,10 @@ import CoreLocation
 import Siesta
 import Foundation
 
-class TutorialSecondViewController: UIViewController, CLLocationManagerDelegate
-                                    , UITextFieldDelegate{
+class TutorialSecondViewController:
+    UIViewController,
+    CLLocationManagerDelegate,
+    UITextFieldDelegate {
     
     let statusOverlay = ResourceStatusOverlay()
     
