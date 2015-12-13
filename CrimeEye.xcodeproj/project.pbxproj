@@ -32,6 +32,7 @@
 		E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
+		F64E3D461C1DEE5F0038D01A /* CrimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */; };
 		F65987611C1D04D800DF8902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65987601C1D04D800DF8902 /* SettingsController.swift */; };
 		F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */; };
 		F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ECEFD21C07CE5900DB99B9 /* Location.swift */; };
@@ -93,6 +94,7 @@
 		E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesTableViewController.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrimeFormatter.swift; sourceTree = "<group>"; };
 		F65987601C1D04D800DF8902 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		F6ECEFD01C07C63E00DB99B9 /* PostcodesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcodesAPI.swift; sourceTree = "<group>"; };
 		F6ECEFD21C07CE5900DB99B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				E71E32801C05FAC80041020C /* SwiftySiesta.swift */,
+				F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */,
 				E7BD46361C064FAB003E42AF /* Style.swift */,
 				E78CCAE01C0FC9CE00A262A7 /* Store.swift */,
 			);
@@ -490,6 +493,7 @@
 				E70AE1111C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift in Sources */,
 				F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */,
 				F65987611C1D04D800DF8902 /* SettingsController.swift in Sources */,
+				F64E3D461C1DEE5F0038D01A /* CrimeFormatter.swift in Sources */,
 				F6ECEFD11C07C63E00DB99B9 /* PostcodesAPI.swift in Sources */,
 				FFEB7AB61C18A3BE00BB2351 /* ViewCrimesControllerViewController.swift in Sources */,
 			);

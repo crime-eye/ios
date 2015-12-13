@@ -139,7 +139,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="2ZS-h3-4dk">
                             <connections>
-                                <action selector="refreshButtion:" destination="BYZ-38-t0r" id="omZ-ey-kNZ"/>
+                                <action selector="refreshButton:" destination="BYZ-38-t0r" id="Sl3-Gh-doz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

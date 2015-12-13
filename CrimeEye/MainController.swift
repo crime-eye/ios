@@ -65,7 +65,7 @@ class MainController: UIViewController, ResourceObserver {
         }
     
     // handles the refresh button click to reload data
-    @IBAction func refreshButtion(sender: UIBarButtonItem) {
+    @IBAction func refreshButton(sender: UIBarButtonItem) {
         loadData()
     }
     
@@ -171,7 +171,7 @@ class MainController: UIViewController, ResourceObserver {
             
             var crimeDict = [String: AnyObject]()
             crimeDict["month"]       = month
-            crimeDict["category"]    = category
+            crimeDict["category"]    = CrimeFormatter.formatCat(category)
                 
             return crimeDict
     }
@@ -258,15 +258,17 @@ class MainController: UIViewController, ResourceObserver {
         var numResolvedArr: [ChartDataEntry] = []
         
         var i = 0
+        var monthNameArray: [String] = []
         for month in monthArray {
             let dataEntry = ChartDataEntry(
                 value: Double(outcomesDict[month]!.count), xIndex: i)
             numResolvedArr.append(dataEntry)
+            monthNameArray.append(CrimeFormatter.formatDate(month))
             ++i
         }
         
         let lineChartDataSet = LineChartDataSet(yVals: numResolvedArr)
-        let lineChartData = LineChartData(xVals: monthArray
+        let lineChartData = LineChartData(xVals: monthNameArray
             , dataSet: lineChartDataSet)
         
         // set formatting of line chart
