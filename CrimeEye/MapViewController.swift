@@ -80,10 +80,10 @@ UIGestureRecognizerDelegate{
         PoliceAPI
             .getCrimes(MAPLAT, long: MAPLONG)
             .addObserver(self)
-            .loadIfNeeded()
+            .load()
     }
 
-    // If the resouces from the API have changed
+    // If the resources from the API have changed
     func resourceChanged(resource: Resource, event: ResourceEvent) {
         // Get the updated information using the global queue
         dispatch_async(dispatch_get_global_queue(0, 0)) {
@@ -310,6 +310,7 @@ UIGestureRecognizerDelegate{
                                                             annotationsToRemove)
                                         self.mapView.removeOverlays(
                                                                overlaysToRemove)
+                                        self.annotations.removeAll()
                                         // Update the map region
                                         let location = CLLocationCoordinate2D(
                                             latitude: self.MAPLAT,
@@ -319,6 +320,9 @@ UIGestureRecognizerDelegate{
                                                       location, 1500.0, 1500.0)
                                         self.mapView.setRegion(
                                                       region, animated: true)
+                                        dispatch_async(dispatch_get_global_queue(0, 0)){
+                                            self.getCrimes()
+                                        }
                                         // API calls after the map is moved
                                         }
                                 }.addObserver(self.statusOverlay).load()
