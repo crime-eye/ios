@@ -142,8 +142,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lZ9-I1-dEz">
                                                 <rect key="frame" x="0.0" y="43" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="516" height="33"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="ael-RZ-Fih"/>
@@ -172,8 +172,8 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
-                                                        <rect key="frame" x="43" y="0.0" width="517" height="33"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
+                                                        <rect key="frame" x="526" y="0.0" width="34" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -361,23 +361,23 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-dn-3e9">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="20" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-dn-3e9">
                                         <rect key="frame" x="20" y="487" width="560" height="56"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LinkCell" textLabel="cxs-ms-bI6" style="IBUITableViewCellStyleDefault" id="kCv-Kn-UpV">
-                                                <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LinkCell" textLabel="cxs-ms-bI6" rowHeight="26" style="IBUITableViewCellStyleDefault" id="kCv-Kn-UpV">
+                                                <rect key="frame" x="0.0" y="28" width="560" height="26"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCv-Kn-UpV" id="5rd-PL-hy2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cxs-ms-bI6">
-                                                            <rect key="frame" x="15" y="0.0" width="530" height="43"/>
+                                                            <rect key="frame" x="15" y="0.0" width="530" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <animations/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -487,6 +487,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="emailLabel" destination="1gk-0u-XVo" id="lA9-XF-cXv"/>
+                        <outlet property="mapView" destination="5hF-zz-lyD" id="V64-85-19E"/>
                         <outlet property="phoneLabel" destination="BSb-Qq-mUh" id="zDn-WU-rwi"/>
                         <outlet property="tableView" destination="Gbx-dn-3e9" id="b5w-Ro-4AH"/>
                         <outlet property="websiteLabel" destination="dHC-q9-RUb" id="LCE-99-j7Y"/>
