@@ -11,7 +11,8 @@ import CoreLocation
 import Siesta
 import Foundation
 
-class TutorialSecondViewController: UIViewController, CLLocationManagerDelegate {
+class TutorialSecondViewController: UIViewController, CLLocationManagerDelegate
+                                    , UITextFieldDelegate{
     
     let statusOverlay = ResourceStatusOverlay()
     
@@ -23,7 +24,9 @@ class TutorialSecondViewController: UIViewController, CLLocationManagerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         statusOverlay.embedIn(self)
-        
+        postcodeField.delegate = self
+        postcodeField.textColor = Style.flatBlue3
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,7 +76,14 @@ class TutorialSecondViewController: UIViewController, CLLocationManagerDelegate 
             Store.defaults.setBool(false, forKey: Store.USE_GPS)
             postcodeLabel.hidden = false
             postcodeField.hidden = false
+            postcodeField.textColor = Style.flatBlue3
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        postcodeField.textColor = Style.flatBlue3
+        return false
     }
     
     // OK button acts as save button

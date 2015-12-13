@@ -12,7 +12,8 @@ import Siesta
 import Foundation
 import MMDrawerController
 
-class SettingsController: UIViewController, CLLocationManagerDelegate {
+class SettingsController: UIViewController, CLLocationManagerDelegate,
+                            UITextFieldDelegate {
     let statusOverlay = ResourceStatusOverlay()
     
     // MARK: Outlets
@@ -23,11 +24,12 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         statusOverlay.embedIn(self)
+        self.postcodeField.delegate = self
         
         // Set colours for some views
         view.backgroundColor = Style.viewBackground
-        postcodeField.text = PostcodesAPI.postcode
         postcodeField.textColor = Style.flatBlue3
+        postcodeField.text = PostcodesAPI.postcode
         
         // Change GPS switch to reflect user defaults
         if ( Store.defaults.boolForKey(Store.USE_GPS)){
@@ -37,7 +39,8 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
         }
         else {
             gpsSwitch.setOn(false, animated: false)
-            postcodeField.becomeFirstResponder()
+            postcodeField.textColor = Style.flatBlue3
+            
         }
         
         
@@ -53,6 +56,12 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
         = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left
             , animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        postcodeField.textColor = Style.flatBlue3
+        return false
     }
     
     // When GPS switch is toggled
@@ -92,7 +101,7 @@ class SettingsController: UIViewController, CLLocationManagerDelegate {
             Store.defaults.setBool(false, forKey: Store.USE_GPS)
             postcodeLabel.hidden = false
             postcodeField.hidden = false
-            postcodeField.becomeFirstResponder()
+            postcodeField.textColor = Style.flatBlue3
         }
     }
     
