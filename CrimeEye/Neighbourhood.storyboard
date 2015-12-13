@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Contact-->
@@ -140,7 +141,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lZ9-I1-dEz">
                                                 <rect key="frame" x="0.0" y="43" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Phone-100" translatesAutoresizingMaskIntoConstraints="NO" id="sN5-Ho-Ujw">
                                                         <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                         <animations/>
                                                         <constraints>
@@ -170,7 +171,7 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Qq-mUh">
                                                         <rect key="frame" x="43" y="0.0" width="517" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -458,39 +459,65 @@
         <scene sceneID="uyV-0J-D3M">
             <objects>
                 <tableViewController id="QX6-Hn-57T" customClass="PrioritiesTableViewController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jww-Kp-CCT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jww-Kp-CCT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriorityCell" textLabel="pqB-Uy-s2v" detailTextLabel="UjU-l1-1xY" style="IBUITableViewCellStyleSubtitle" id="gqM-zl-rBI" customClass="PrioritiesCell" customModule="CrimeEye" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriorityCell" id="gqM-zl-rBI" customClass="PrioritiesCell" customModule="CrimeEye" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gqM-zl-rBI" id="8aj-PU-hw8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Aug 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pqB-Uy-s2v">
-                                            <rect key="frame" x="15" y="5" width="69" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlE-UM-AZQ">
+                                            <rect key="frame" x="20" y="18" width="572" height="21"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Dgd-GE-0gA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Some text goes in here that describes something." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UjU-l1-1xY">
-                                            <rect key="frame" x="15" y="25" width="261" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issue" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-6d-AIO">
+                                            <rect key="frame" x="20" y="39" width="572" height="21"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGg-qa-oOI">
+                                            <rect key="frame" x="20" y="60" width="572" height="31"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="XGg-qa-oOI" firstAttribute="bottom" secondItem="8aj-PU-hw8" secondAttribute="bottomMargin" id="ExW-LS-QIm"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="leading" secondItem="KlE-UM-AZQ" secondAttribute="leading" id="U5O-TI-6wW"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="centerY" secondItem="8aj-PU-hw8" secondAttribute="centerY" id="URA-D6-sit"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="leading" secondItem="XGg-qa-oOI" secondAttribute="leading" id="UlU-CT-DpE"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="top" secondItem="KlE-UM-AZQ" secondAttribute="bottom" id="W6s-qM-AYa"/>
+                                        <constraint firstItem="KlE-UM-AZQ" firstAttribute="leading" secondItem="8aj-PU-hw8" secondAttribute="leadingMargin" constant="12" id="iY6-7G-c8N"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="trailing" secondItem="KlE-UM-AZQ" secondAttribute="trailing" id="ii0-87-8gw"/>
+                                        <constraint firstItem="XGg-qa-oOI" firstAttribute="top" secondItem="b3v-6d-AIO" secondAttribute="bottom" id="mYp-d2-417"/>
+                                        <constraint firstItem="b3v-6d-AIO" firstAttribute="trailing" secondItem="XGg-qa-oOI" secondAttribute="trailing" id="te4-iF-GEq"/>
+                                        <constraint firstItem="KlE-UM-AZQ" firstAttribute="trailing" secondItem="8aj-PU-hw8" secondAttribute="trailingMargin" id="tle-PH-Iyz"/>
+                                        <constraint firstItem="KlE-UM-AZQ" firstAttribute="top" secondItem="8aj-PU-hw8" secondAttribute="topMargin" constant="10" id="vB6-IV-JTG"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="action" destination="XGg-qa-oOI" id="CRD-kB-e8S"/>
+                                    <outlet property="date" destination="KlE-UM-AZQ" id="4HC-jg-nB8"/>
+                                    <outlet property="issue" destination="b3v-6d-AIO" id="xCU-Eh-eGk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -503,7 +530,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EdY-Pf-grB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1051.5" y="-156"/>
+            <point key="canvasLocation" x="-1052" y="-156"/>
         </scene>
         <!--Neighbourhood Tab Bar Controller-->
         <scene sceneID="uVo-VJ-L6V">

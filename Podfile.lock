@@ -18,6 +18,7 @@ PODS:
   - Siesta (1.0-beta.4):
     - Siesta/Core (= 1.0-beta.4)
   - Siesta/Core (1.0-beta.4)
+  - SwiftDate (2.0.2)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Charts (~> 2.1)
   - MMDrawerController
   - Siesta (= 1.0-beta.4)
+  - SwiftDate (~> 2.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -41,6 +43,7 @@ SPEC CHECKSUMS:
   Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Siesta: 4bda1f6e7e0431b64bdfe9d3f902c34d90822c27
+  SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0

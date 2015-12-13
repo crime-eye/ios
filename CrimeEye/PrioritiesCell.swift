@@ -9,6 +9,11 @@
 import UIKit
 
 class PrioritiesCell: UITableViewCell {
+    
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var issue: UILabel!
+    @IBOutlet weak var action: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

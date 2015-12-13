@@ -30,6 +30,7 @@
 		E7DB66BB1C1CA2F800ADCF86 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */; };
 		E7DB66BD1C1CDB2300ADCF86 /* PrioritiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */; };
 		E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */; };
+		E7DB66C11C1DC16500ADCF86 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66C01C1DC16500ADCF86 /* Priority.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
 		F64E3D461C1DEE5F0038D01A /* CrimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */; };
@@ -92,6 +93,7 @@
 		E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesCell.swift; sourceTree = "<group>"; };
 		E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesTableViewController.swift; sourceTree = "<group>"; };
+		E7DB66C01C1DC16500ADCF86 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrimeFormatter.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
 				FF4581881C108C9200C7223D /* RadiusAnnotation.swift */,
+				E7DB66C01C1DC16500ADCF86 /* Priority.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				E78CCAE31C0FCBE900A262A7 /* TutorialSecondViewController.swift in Sources */,
 				FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */,
 				FFFD3B071C0736AC0024A471 /* CustomTableViewCell.swift in Sources */,
+				E7DB66C11C1DC16500ADCF86 /* Priority.swift in Sources */,
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
 				E78CCAD81C0F571200A262A7 /* TutorialFirstViewController.swift in Sources */,

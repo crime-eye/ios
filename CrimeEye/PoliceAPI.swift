@@ -70,9 +70,43 @@ class _PoliceAPI: Service {
         return resource("/crime-last-updated")
     }
     
+    /**
+     Locate the user's neighbourhood.
+     - parameters:
+        - lat: Latitude of the user's current location.
+        - lng: Longitude of the user's current location.
+     - returns: JSON object with force and neighbourhood.
+     */
+    func locateNeighbourhood(lat: Double, lng: Double) -> Resource {
+        return resource("/locate-neighbourhood")
+            .withParam("q", "\(lat),\(lng)")
+    }
     
-    func getCrimesLastUpdated(lastUpdated: String) -> Resource {
-        return resource("/crime-last-updated")
+    /**
+     Gets the contact details of a neighbourhood team.
+     - parameters:
+        - force: The regional police force of the user.
+        - neighbourhoodCode: The local neighbourhood code of the user.
+     - returns: JSON object with contact_details and more information.
+     */
+    func getContactDetails(force: String, neighbourhoodCode: String) -> Resource {
+        return resource("/")
+            .child(force)
+            .child(neighbourhoodCode)
+    }
+    
+    /**
+     Get what the neighbourhood team is doing.
+     - parameters:
+        - force: The regional police force of the user.
+        - neighbourhoodCode: The local neighbourhood code of the user.
+     - returns: JSON array of list of dictionaries. Each dict is a priority.
+     */
+    func getPriorities(force: String, neighbourhoodCode: String) -> Resource {
+        return resource("/")
+            .child(force)
+            .child(neighbourhoodCode)
+            .child("priorities")
     }
     
     
