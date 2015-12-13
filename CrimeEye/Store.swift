@@ -32,10 +32,4 @@ class Store {
     
     /// Longitude of the user
     static let LONG = "LONG"
-    
-    /// Stores the neighbourhood force
-    static let FORCE = "NEIGHBOURHOOD_FORCE"
-    
-    /// Stores the regional neighbourhood of the user
-    static let NBOURHOOD = "NEIGHBOURHOOD"
 }

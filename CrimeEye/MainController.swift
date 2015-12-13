@@ -16,40 +16,41 @@ class MainController: UIViewController, ResourceObserver {
     
     typealias CrimeDict = Dictionary<String, AnyObject>
     
-    var date: String = ""
-    var monthArray = PoliceAPI.monthArray
-    var crimesArray = PoliceAPI.crimesArray
-    var outcomesDict = PoliceAPI.outcomesDict
+    var date: String    = ""
+    var monthArray      = PoliceAPI.monthArray
+    var crimesArray     = PoliceAPI.crimesArray
+    var outcomesDict    = PoliceAPI.outcomesDict
     
-    let statusOverlay = ResourceStatusOverlay()
+    let statusOverlay   = ResourceStatusOverlay()
     
     // MARK: Outlets
-    @IBOutlet weak var postcodeLabel: UILabel!
-    @IBOutlet weak var nCrimes: UILabel!
-    @IBOutlet weak var topCrimes: UILabel!
-    @IBOutlet weak var resolvedCrimes: UILabel!
-    @IBOutlet weak var pieChartView: PieChartView!
-    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var postcodeLabel:   UILabel!
+    @IBOutlet weak var nCrimes:         UILabel!
+    @IBOutlet weak var topCrimes:       UILabel!
+    @IBOutlet weak var resolvedCrimes:  UILabel!
+    @IBOutlet weak var pieChartView:    PieChartView!
+    @IBOutlet weak var lineChartView:   LineChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         statusOverlay.embedIn(self)
         // load user defaults
-        PostcodesAPI.lat = Store.defaults.valueForKey(Store.LAT) as! Double
-        PostcodesAPI.lng = Store.defaults.valueForKey(Store.LONG) as! Double
+        PostcodesAPI.lat = Store.defaults.doubleForKey(Store.LAT)
+        PostcodesAPI.lng = Store.defaults.doubleForKey(Store.LONG)
         PostcodesAPI.postcode
                     = Store.defaults.valueForKey(Store.POST_CODE) as! String
         
         // load statistics in to charts if data already exists
-        if !self.crimesArray.isEmpty && !self.outcomesDict.isEmpty
-            && !self.monthArray.isEmpty {
-                dispatch_async(dispatch_get_global_queue(0, 0)){
+        if !self.crimesArray.isEmpty &&
+            !self.outcomesDict.isEmpty &&
+            !self.monthArray.isEmpty {
+                dispatch_async(dispatch_get_global_queue(0, 0)) {
                     self.loadStatistics()
-                }
-        }
-        // if there is currently no data, make the api calls to collect them
-        else {
-            dispatch_async(dispatch_get_global_queue(0, 0)){
+            }
+                
+        } else {
+            // if there is currently no data, make the api calls to collect them
+            dispatch_async(dispatch_get_global_queue(0, 0)) {
                 self.loadData()
             }
             
@@ -62,7 +63,7 @@ class MainController: UIViewController, ResourceObserver {
         nCrimes.textColor = Style.sectionHeaders
         resolvedCrimes.textColor = Style.sectionHeaders
         topCrimes.textColor = Style.sectionHeaders
-        }
+    }
     
     // handles the refresh button click to reload data
     @IBAction func refreshButton(sender: UIBarButtonItem) {
@@ -167,21 +168,24 @@ class MainController: UIViewController, ResourceObserver {
     
     // function to store crime information in a dictionary
     internal func crimeToDict(month: String,
-            category: String) -> CrimeDict {
+        category: String)
+        -> CrimeDict {
             
-            var crimeDict = [String: AnyObject]()
-            crimeDict["month"]       = month
-            crimeDict["category"]    = CrimeFormatter.formatCat(category)
-                
-            return crimeDict
+        var crimeDict = [String: AnyObject]()
+        crimeDict["month"]       = month
+        crimeDict["category"]    = CrimeFormatter.formatCat(category)
+            
+        return crimeDict
     }
     
     // function to retrieve string format of a previous month
-    internal func previousMonths(monthsToDeduct: Int, year: String
-        , month: String)-> String {
+    internal func previousMonths(monthsToDeduct: Int,
+        year: String,
+        month: String)
+        -> String {
             
-        var yearNum = Int(year)!
-        var monthNum = Int(month)!
+        var yearNum     = Int(year)!
+        var monthNum    = Int(month)!
         
         // handle if it goes to previous year
         if monthNum - monthsToDeduct < 1{
@@ -196,16 +200,15 @@ class MainController: UIViewController, ResourceObserver {
     }
     
     // loads statistics collected to charts
-    func loadStatistics(){
+    func loadStatistics() {
         nCrimes.text = String(self.crimesArray.count)
         
         // sum up all the same category of crimes
         var catDict = [String: Double]()
-        for crime in crimesArray{
+        for crime in crimesArray {
             if catDict[String(crime["category"]!)] == nil{
                 catDict[String(crime["category"]!)] = 1
-            }
-            else {
+            } else {
                 catDict[String(crime["category"]!)]! += 1
             }
         }
@@ -217,8 +220,7 @@ class MainController: UIViewController, ResourceObserver {
         var topCatArray = [String]()
         if sortedCat.count > 3 {
             topCatArray += sortedCat[0..<3]
-        }
-        else {
+        } else {
             topCatArray += sortedCat[0..<sortedCat.count]
         }
         
@@ -226,14 +228,14 @@ class MainController: UIViewController, ResourceObserver {
         var dataEntries: [ChartDataEntry] = []
         
         for var i = 0; i < topCatArray.count; ++i {
-            let dataEntry = ChartDataEntry(value: catDict[sortedCat[i]]!
-                , xIndex: i)
+            let dataEntry = ChartDataEntry(value: catDict[sortedCat[i]]!,
+                                            xIndex: i)
             dataEntries.append(dataEntry)
         }
         
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "")
-        let pieChartData = PieChartData(xVals: topCatArray
-            , dataSet: pieChartDataSet)
+        let pieChartData = PieChartData(xVals: topCatArray,
+            dataSet: pieChartDataSet)
         
         // set colours of each data
         var colors: [UIColor] = []
@@ -268,8 +270,8 @@ class MainController: UIViewController, ResourceObserver {
         }
         
         let lineChartDataSet = LineChartDataSet(yVals: numResolvedArr)
-        let lineChartData = LineChartData(xVals: monthNameArray
-            , dataSet: lineChartDataSet)
+        let lineChartData = LineChartData(xVals: monthNameArray,
+            dataSet: lineChartDataSet)
         
         // set formatting of line chart
         lineChartData.setDrawValues(true)
@@ -302,10 +304,9 @@ class MainController: UIViewController, ResourceObserver {
     }
 
     @IBAction func openDrawer(sender: UIBarButtonItem) {
-        let appDelegate:AppDelegate
-                    = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left
-                    , animated: true, completion: nil)
+        let appD = UIApplication.sharedApplication().delegate as! AppDelegate
+        appD.centerContainer!.toggleDrawerSide(MMDrawerSide.Left,
+            animated: true, completion: nil)
     }
 
 }
