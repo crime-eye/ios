@@ -218,7 +218,7 @@
             </objects>
             <point key="canvasLocation" x="296" y="470"/>
         </scene>
-        <!--Neighbourhood Controller-->
+        <!--Neighbourhood-->
         <scene sceneID="vVV-dB-Xs2">
             <objects>
                 <viewController storyboardIdentifier="NeighbourhoodController" id="ZOW-6K-PzF" customClass="NeighbourhoodController" customModule="CrimeEye" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,7 +244,7 @@
                             <constraint firstItem="FmL-Zz-JcA" firstAttribute="top" secondItem="ou6-5V-gU1" secondAttribute="bottom" constant="-64" id="wDU-aj-OAd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PJt-QB-xXx">
+                    <navigationItem key="navigationItem" title="Neighbourhood" id="PJt-QB-xXx">
                         <barButtonItem key="leftBarButtonItem" image="Menu-100" id="G6p-KS-Uef">
                             <connections>
                                 <action selector="openDrawer:" destination="ZOW-6K-PzF" id="NzP-us-Tvs"/>

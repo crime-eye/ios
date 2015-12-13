@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6433BD5BC49D546446D581C2 /* Pods_CrimeEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */; };
-		E70AE10C1C1C5687000B5180 /* PrioritiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AE10B1C1C5687000B5180 /* PrioritiesViewController.swift */; };
 		E70AE10F1C1C69F8000B5180 /* Neighbourhood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70AE10E1C1C69F8000B5180 /* Neighbourhood.storyboard */; };
 		E70AE1111C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AE1101C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift */; };
 		E70AE1151C1C7AB5000B5180 /* NeighbourhoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70AE1141C1C7AB5000B5180 /* NeighbourhoodController.swift */; };
@@ -29,6 +28,8 @@
 		E7BD46371C064FAB003E42AF /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BD46361C064FAB003E42AF /* Style.swift */; };
 		E7C319B51C08A185003C32EB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7C319B41C08A185003C32EB /* Tutorial.storyboard */; };
 		E7DB66BB1C1CA2F800ADCF86 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */; };
+		E7DB66BD1C1CDB2300ADCF86 /* PrioritiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */; };
+		E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
 		F65987611C1D04D800DF8902 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65987601C1D04D800DF8902 /* SettingsController.swift */; };
@@ -62,7 +63,6 @@
 		3BC38CA2098EAF3BAAFEE6D2 /* Pods-CrimeEye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.release.xcconfig"; sourceTree = "<group>"; };
 		D0DD89BF20505ABD18BE5522 /* Pods_CrimeEye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrimeEye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D97F72D85AB350D27B0E2761 /* Pods-CrimeEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrimeEye.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrimeEye/Pods-CrimeEye.debug.xcconfig"; sourceTree = "<group>"; };
-		E70AE10B1C1C5687000B5180 /* PrioritiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesViewController.swift; sourceTree = "<group>"; };
 		E70AE10E1C1C69F8000B5180 /* Neighbourhood.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbourhood.storyboard; sourceTree = "<group>"; };
 		E70AE1101C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighbourhoodTabBarController.swift; sourceTree = "<group>"; };
 		E70AE1141C1C7AB5000B5180 /* NeighbourhoodController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighbourhoodController.swift; sourceTree = "<group>"; };
@@ -89,6 +89,8 @@
 		E7BD46361C064FAB003E42AF /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		E7C319B41C08A185003C32EB /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesCell.swift; sourceTree = "<group>"; };
+		E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesTableViewController.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F65987601C1D04D800DF8902 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -139,10 +141,11 @@
 		E70AE10D1C1C568F000B5180 /* NeighbourhoodControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E70AE10B1C1C5687000B5180 /* PrioritiesViewController.swift */,
 				E70AE1101C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift */,
 				E70AE1141C1C7AB5000B5180 /* NeighbourhoodController.swift */,
 				E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */,
+				E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */,
+				E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */,
 			);
 			name = NeighbourhoodControllers;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				E71E32811C05FAC80041020C /* SwiftySiesta.swift in Sources */,
 				E70AE1151C1C7AB5000B5180 /* NeighbourhoodController.swift in Sources */,
 				E7BD46371C064FAB003E42AF /* Style.swift in Sources */,
+				E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */,
 				E71E327F1C05F6650041020C /* PoliceAPI.swift in Sources */,
 				E78CCAE31C0FCBE900A262A7 /* TutorialSecondViewController.swift in Sources */,
 				FF4581891C108C9200C7223D /* RadiusAnnotation.swift in Sources */,
@@ -475,8 +479,8 @@
 				E7BA5DB71C00E08800C70CFA /* CrimeEye.xcdatamodeld in Sources */,
 				FFFD3B051C0733AD0024A471 /* DrawerController.swift in Sources */,
 				E78CCAD81C0F571200A262A7 /* TutorialFirstViewController.swift in Sources */,
+				E7DB66BD1C1CDB2300ADCF86 /* PrioritiesCell.swift in Sources */,
 				F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */,
-				E70AE10C1C1C5687000B5180 /* PrioritiesViewController.swift in Sources */,
 				FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */,
 				E78CCAE11C0FC9CE00A262A7 /* Store.swift in Sources */,
 				E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */,
