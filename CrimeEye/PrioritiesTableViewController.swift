@@ -29,13 +29,6 @@ class PrioritiesTableViewController: UITableViewController, ResourceObserver {
         }
     }
     
-    /// Contact details of the neighbourhood team
-    var contactDetails: Resource? {
-        didSet {
-            oldValue?.removeObservers(ownedBy: self)
-            contactDetails?.addObserver(self).loadIfNeeded()
-        }
-    }
     
     /// Priorities of the neighbourhood team
     var priorities: Resource? {
@@ -53,14 +46,16 @@ class PrioritiesTableViewController: UITableViewController, ResourceObserver {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60.0
         
-        // Need a handle on the rows
+        // Need a handle on the coords
         self.lat = Store.defaults.doubleForKey(Store.LAT)
         self.lng = Store.defaults.doubleForKey(Store.LONG)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         // Make our first API call to find the user's
         // neighbourhood now.
         neighbourhood = PoliceAPI.locateNeighbourhood(lat, lng: lng)
-        
     }
     
     /**
@@ -171,6 +166,11 @@ class PrioritiesTableViewController: UITableViewController, ResourceObserver {
             return cell
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        neighbourhood?.invalidate()
+        neighbourhood?.removeObservers(ownedBy: self)
+        priorities?.removeObservers(ownedBy: self)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -79,13 +79,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let label: UILabel = UILabel.appearance()
         label.textColor = Style.fontColor
         // If we're in the tutorial sections, default colour is blue
-        UILabel.appearanceWhenContainedInInstancesOfClasses([TutorialPageViewController.self]).textColor = Style.flatBlue3
-        UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).textColor = Style.flatBlue3
-        UILabel.appearanceWhenContainedInInstancesOfClasses([DrawerController.self]).font =
+        UILabel
+            .appearanceWhenContainedInInstancesOfClasses([TutorialPageViewController.self])
+            .textColor = Style.flatBlue3
+        UILabel
+            .appearanceWhenContainedInInstancesOfClasses([DrawerController.self])
+            .textColor = Style.flatBlue3
+        UILabel
+            .appearanceWhenContainedInInstancesOfClasses([DrawerController.self])
+            .font =
             UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
         
         let table: UITableView = UITableView.appearance()
         table.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        //table.separatorColor = Style.viewBackground
         
         // Switches styles
         let switches: UISwitch = UISwitch.appearance()

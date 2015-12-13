@@ -31,6 +31,7 @@
 		E7DB66BD1C1CDB2300ADCF86 /* PrioritiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */; };
 		E7DB66BF1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */; };
 		E7DB66C11C1DC16500ADCF86 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66C01C1DC16500ADCF86 /* Priority.swift */; };
+		E7DB66C31C1DFCE400ADCF86 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DB66C21C1DFCE400ADCF86 /* Link.swift */; };
 		F62EDEBA1C0249C7007DC28B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62EDEB91C0249C7007DC28B /* MapViewController.swift */; };
 		F62EDEBC1C0266BA007DC28B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */; };
 		F64E3D461C1DEE5F0038D01A /* CrimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */; };
@@ -96,6 +97,7 @@
 		E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesCell.swift; sourceTree = "<group>"; };
 		E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrioritiesTableViewController.swift; sourceTree = "<group>"; };
 		E7DB66C01C1DC16500ADCF86 /* Priority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		E7DB66C21C1DFCE400ADCF86 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		F62EDEB91C0249C7007DC28B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F62EDEBB1C0266BA007DC28B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F64E3D451C1DEE5F0038D01A /* CrimeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrimeFormatter.swift; sourceTree = "<group>"; };
@@ -152,8 +154,8 @@
 				E70AE1101C1C6BAC000B5180 /* NeighbourhoodTabBarController.swift */,
 				E70AE1141C1C7AB5000B5180 /* NeighbourhoodController.swift */,
 				E7DB66BA1C1CA2F800ADCF86 /* ContactViewController.swift */,
-				E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */,
 				E7DB66BE1C1CE16B00ADCF86 /* PrioritiesTableViewController.swift */,
+				E7DB66BC1C1CDB2300ADCF86 /* PrioritiesCell.swift */,
 			);
 			name = NeighbourhoodControllers;
 			sourceTree = "<group>";
@@ -269,6 +271,7 @@
 				F6ECEFD21C07CE5900DB99B9 /* Location.swift */,
 				FF4581881C108C9200C7223D /* RadiusAnnotation.swift */,
 				E7DB66C01C1DC16500ADCF86 /* Priority.swift */,
+				E7DB66C21C1DFCE400ADCF86 /* Link.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				E7DB66BD1C1CDB2300ADCF86 /* PrioritiesCell.swift in Sources */,
 				F6ECEFD31C07CE5900DB99B9 /* Location.swift in Sources */,
 				FFFD3B0B1C0739F20024A471 /* SearchController.swift in Sources */,
+				E7DB66C31C1DFCE400ADCF86 /* Link.swift in Sources */,
 				E78CCAE11C0FC9CE00A262A7 /* Store.swift in Sources */,
 				E7BA5DB11C00E08800C70CFA /* MainController.swift in Sources */,
 				E78CCADA1C0F6DAB00A262A7 /* TutorialPageViewController.swift in Sources */,
