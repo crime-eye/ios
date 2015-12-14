@@ -62,6 +62,40 @@ class CrimeEyeUITests: XCTestCase {
         app.buttons["Filter"].tap()
     }
     
+    // Test opening stop and search map and changing postcode
+    func testStopMapPostcode() {
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.navigationBars["Main"].buttons["Menu 100"].tap()
+        app.tables.staticTexts["STOP AND SEARCH"].tap()
+        app.buttons["Change postcode"].tap()
+        
+        let collectionViewsQuery = app.alerts["Change postcode"].collectionViews
+        collectionViewsQuery.textFields["Enter postcode"].typeText("ls29jt")
+        
+        let confirmButton = collectionViewsQuery.buttons["Confirm"]
+        confirmButton.tap()
+    }
+    
+    // Test opening stop and search map and changing filter
+    func testStopMapFilter(){
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.navigationBars["Main"].buttons["Menu 100"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["STOP AND SEARCH"].tap()
+        app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Button).matchingIdentifier("Filter by").elementBoundByIndex(1).tap()
+        tablesQuery.staticTexts["Vehicle search"].tap()
+        app.buttons["Filter"].tap()
+    }
+    
+    
+    
     // Test opening Settings screen and change postcode
     func testSettings1Postcode() {
         XCUIDevice.sharedDevice().orientation = .Portrait
