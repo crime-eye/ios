@@ -55,7 +55,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XuP-a5-oOb">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="33"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Domain-100" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-aL-Nax">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Domain-100" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-aL-Nax">
                                                         <rect key="frame" x="0.0" y="0.0" width="507" height="33"/>
                                                         <animations/>
                                                         <constraints>
@@ -85,7 +85,7 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-q9-RUb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-q9-RUb">
                                                         <rect key="frame" x="517" y="0.0" width="43" height="33"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -389,9 +389,6 @@
                                         </prototypes>
                                         <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="20" y="344" width="360" height="116"/>
-                                        </variation>
-                                        <variation key="widthClass=regular" misplaced="YES">
-                                            <rect key="frame" x="40" y="434" width="720" height="109"/>
                                         </variation>
                                     </tableView>
                                 </subviews>
