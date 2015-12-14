@@ -48,7 +48,6 @@ class RadiusAnnotation: NSObject, MKAnnotation {
         }
         if crimeType == "searches" && CrimeFormatter.searchList.contains(largestCrime) {
             let i = CrimeFormatter.searchList.indexOf(largestCrime)
-            print(i)
             return colourList[i!]
         }
         else {
@@ -61,9 +60,8 @@ class RadiusAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var locArray: [AnyObject?] = []
     
-    init(coordinate: CLLocationCoordinate2D, location: AnyObject, crimeType: String) {
+    init(coordinate: CLLocationCoordinate2D, crimeType: String) {
         self.coordinate = coordinate
-        self.locArray.append(location)
         self.crimeType = crimeType
         super.init()
     }

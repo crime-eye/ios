@@ -40,6 +40,9 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
     
     func setSearchMethod(setting: String) {
         searchAPI = setting
+        if searchAPI == "searches" {
+            self.title = "Stop and Search"
+        }
     }
     
     override func viewDidLoad() {
@@ -106,6 +109,7 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
 
                 // Get the json array of crimes
                 let jsonArray = resource.json
+                print(jsonArray.count)
                 
                 // iterate over all the crimes
                 for (_, crimes) in jsonArray {
@@ -147,13 +151,13 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                             // annotation
                             if self.annotations[coordString] == nil {
                                 self.annotations[coordString] = RadiusAnnotation(
-                                    coordinate: coords, location: loc!,
+                                    coordinate: coords,
                                     crimeType: self.searchAPI)
                             }
                             // If the annotation does exist, add the crime to the
                             // existing list
-                            if let val = self.annotations[coordString] {
-                                val.addLocation(loc!)
+                            if self.annotations[coordString] != nil {
+                                self.annotations[coordString]!.addLocation(loc!)
                             }
                         }
                         if cat == self.selectedFilter {
@@ -166,13 +170,13 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                             // annotation
                             if self.annotations[coordString] == nil {
                                 self.annotations[coordString] = RadiusAnnotation(
-                                    coordinate: coords, location: loc!,
+                                    coordinate: coords,
                                     crimeType: self.searchAPI)
                             }
                             // If the annotation does exist, add the crime to the
                             // existing list
-                            if let val = self.annotations[coordString] {
-                                val.addLocation(loc!)
+                            if self.annotations[coordString] != nil {
+                                self.annotations[coordString]!.addLocation(loc!)
                             }
                             
                         }
@@ -212,13 +216,13 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                             // annotation
                             if self.annotations[coordString] == nil {
                                 self.annotations[coordString] = RadiusAnnotation(
-                                    coordinate: coords, location: loc!,
+                                    coordinate: coords,
                                     crimeType: self.searchAPI)
                             }
                             // If the annotation does exist, add the crime to the
                             // existing list
-                            if let val = self.annotations[coordString] {
-                                val.addLocation(loc!)
+                            if self.annotations[coordString] != nil {
+                                self.annotations[coordString]!.addLocation(loc!)
                             }
                         }
                         if cat == self.selectedFilter {
@@ -231,26 +235,24 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                             // annotation
                             if self.annotations[coordString] == nil {
                                 self.annotations[coordString] = RadiusAnnotation(
-                                    coordinate: coords, location: loc!,
+                                    coordinate: coords,
                                     crimeType: self.searchAPI)
                             }
                             // If the annotation does exist, add the crime to the
                             // existing list
-                            if let val = self.annotations[coordString] {
-                                val.addLocation(loc!)
+                            if self.annotations[coordString] != nil {
+                                self.annotations[coordString]!.addLocation(loc!)
                             }
-                            
                         }
 
                     }
-                    
-                    
                     
                 }
                 // Store the list of circle overlays and annotation pins
                 var overlays = [MKCircle] ()
                 var radiiPins = [RadiusAnnotation] ()
                 
+                var crimeCount = 0
                 // Loop over calculated annotation
                 for annotation in self.annotations
                 {
@@ -263,7 +265,12 @@ UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate{
                     overlay.accessibilityElements = [uicolor]
                     overlays.append(overlay)
                     radiiPins.append(annotation.1)
+                    
+                    crimeCount += annotation.1.locArray.count
                 }
+                print("Crime count: ")
+                print(crimeCount)
+                
                 // Using the main thread for UI changes
                 dispatch_async(dispatch_get_main_queue()) {
                     // Make sure all previous annotations have been removed
