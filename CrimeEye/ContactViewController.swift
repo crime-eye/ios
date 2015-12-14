@@ -52,10 +52,6 @@ class ContactViewController:
         self.tableView.backgroundColor = Style.viewBackground
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        // Auto set the tableview's cells height
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 60.0
-        
         // Need a handle on the coords
         let lat = Store.defaults.doubleForKey(Store.LAT)
         let lng = Store.defaults.doubleForKey(Store.LONG)
@@ -212,6 +208,7 @@ class ContactViewController:
         neighbourhood?.removeObservers(ownedBy: self)
         contactDetails?.removeObservers(ownedBy: self)
     }
+    
 
     
     override func didReceiveMemoryWarning() {
