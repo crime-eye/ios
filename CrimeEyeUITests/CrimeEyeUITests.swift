@@ -9,7 +9,7 @@
 import XCTest
 
 
-// MAKE SURE GPS IS TURNED ON IN THE APP BEFORE RUNNING TESTS
+// MAKE SURE LOCATION PERMISSION HAVE BEEN GIVEN FIRST
 class CrimeEyeUITests: XCTestCase {
         
     override func setUp() {
@@ -30,6 +30,7 @@ class CrimeEyeUITests: XCTestCase {
         super.tearDown()
     }
     
+    // Test opening crime map and changing postcode
     func testMapPostcode() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -47,6 +48,7 @@ class CrimeEyeUITests: XCTestCase {
         confirmButton.tap()
     }
     
+    // Test opening cime map and changing filter
     func testMapFilter(){
         XCUIDevice.sharedDevice().orientation = .Portrait
         
@@ -60,6 +62,7 @@ class CrimeEyeUITests: XCTestCase {
         app.buttons["Filter"].tap()
     }
     
+    // Test opening Settings screen and change postcode
     func testSettings1Postcode() {
         XCUIDevice.sharedDevice().orientation = .Portrait
         
@@ -67,7 +70,14 @@ class CrimeEyeUITests: XCTestCase {
         app.navigationBars["Main"].buttons["Menu 100"].tap()
         app.buttons[" SETTINGS"].tap()
         
-        app.switches["1"].tap()
+        if app.switches["1"].exists {
+            app.switches["1"].tap()
+        }
+        else {
+            app.switches["0"].tap()
+            app.switches["1"].tap()
+        }
+        
         app.textFields["Enter here"].tap()
         app.textFields["Enter here"].tap()
         
@@ -79,10 +89,12 @@ class CrimeEyeUITests: XCTestCase {
     
         app.buttons["OK"].tap()
         
+        // Make sure postcode was set
         let postcodeLabel = app.staticTexts.elementMatchingType(.Any, identifier: "postcodeLabel").label
          XCTAssertEqual(postcodeLabel, "in LS5 3EH", "found instead: \(postcodeLabel.debugDescription)")
     }
     
+    // Test opening Settings screen and use GPS
     func testSettings2GPS(){
         XCUIDevice.sharedDevice().orientation = .Portrait
         
@@ -90,14 +102,20 @@ class CrimeEyeUITests: XCTestCase {
         app.navigationBars["Main"].buttons["Menu 100"].tap()
         app.buttons[" SETTINGS"].tap()
         
-        let switch2 = app.switches["0"]
-        switch2.tap()
+        if app.switches["0"].exists {
+            app.switches["0"].tap()
+        }
+        else{
+            app.switches["1"].tap()
+            app.switches["0"].tap()
+        }
 
         app.buttons["OK"].tap()
       
         
     }
     
+    // Test refresh button in the main screen
     func testMainRefresh(){
         XCUIDevice.sharedDevice().orientation = .Portrait
         
@@ -110,6 +128,34 @@ class CrimeEyeUITests: XCTestCase {
         let postcodeLabel2 = app.staticTexts.elementMatchingType(.Any, identifier: "postcodeLabel").label
         
         XCTAssertEqual(postcodeLabel, postcodeLabel2, "found instead: \(postcodeLabel2.debugDescription)")
+
+    }
+    
+    // Test Neighbourhood screen and open a link from Contact screen
+    func testNeighbour(){
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.navigationBars["Main"].buttons["Menu 100"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["NEIGHBOURHOOD"].tap()
+        
+        app.tables.elementBoundByIndex(1).tap()
+
+    }
+    
+    // Test the Neighbourhood screen and open the priorities screen
+    func testPriorities(){
+        XCUIDevice.sharedDevice().orientation = .Portrait
+        
+        let app = XCUIApplication()
+        app.navigationBars["Main"].buttons["Menu 100"].tap()
+        
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["NEIGHBOURHOOD"].tap()
+        
+        app.tabBars.buttons["Priorities"].tap()
 
     }
     
