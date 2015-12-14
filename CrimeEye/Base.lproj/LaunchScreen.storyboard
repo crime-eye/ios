@@ -16,8 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a6t-pH-jDe">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon60x60" translatesAutoresizingMaskIntoConstraints="NO" id="uTh-Cg-Owc">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5fM-uz-dEb"/>
+                                            <constraint firstAttribute="width" constant="50" id="F7r-Mk-zHt"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a6t-pH-jDe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="68n-0Z-Tvh"/>
+                            <constraint firstItem="a6t-pH-jDe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eJ0-kq-Dcs"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +45,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AppIcon60x60" width="16" height="16"/>
+    </resources>
 </document>
