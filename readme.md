@@ -16,7 +16,7 @@ An iOS app that allows users to view crime in a postcode. Various implementation
 Clone the project.
 
 ```
-$ git clone git@gitlab.com:gurpreet-/crime-eye.git
+$ git clone git@github.com:crime-eye/ios.git
 ```
 
 Install the pods.
@@ -63,4 +63,4 @@ Open `CrimeEye.xcworkspace` instead!
 ### License 
 We give anyone permission to modify the software to do good and for good, under The MIT License. See the file `LICENSE` for more info.
 
-Copyright (c) 2015 Crime Eye
+Copyright (c) 2016 Crime Eye
